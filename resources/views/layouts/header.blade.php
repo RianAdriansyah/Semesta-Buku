@@ -28,10 +28,10 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="{{ route('index') }}" class="simple-text logo-mini">
           SB
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="{{ route('index') }}" class="simple-text logo-normal">
           Semesta Buku
         </a>
       </div>
@@ -50,15 +50,15 @@
             </a>
           </li>
           <li>
-            <a href="./map.html">
+          <a href="{{ route('artikel.index') }}">
               <i class="now-ui-icons location_map-big"></i>
-              <p>Artikel</p>
+              <p>Daftar Artikel</p>
             </a>
           </li>
           <li>
-            <a href="./notifications.html">
+          <a href="{{ route('kategori.index') }}">
               <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Kategori</p>
+              <p>Daftar Kategori</p>
             </a>
           </li>
           <li>
@@ -68,13 +68,14 @@
             </a>
           </li>
           <li>
-            <a href="./tables.html">
+            <a href="{{ route('review.index') }}">
               <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Review</p>
+              <p>Daftar Review</p>
             </a>
           </li>
           <li class="active-pro">
-            <a href="./upgrade.html">
+          <a href="{{ route('logout') }}" 
+          data-toggle="modal" data-target="#logoutModal">
               <i class="now-ui-icons media-1_button-power"></i>
               <p>Logout</p>
             </a>
@@ -94,7 +95,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Backend</a>
+            <a class="navbar-brand" href="#">Admin</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -104,7 +105,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
+                <a class="nav-link" href="#">
                   <p>
                     {{ Auth::user()->name }}
                   </p>

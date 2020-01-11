@@ -35,6 +35,14 @@ class FrontendController extends Controller
     {
         return view('frontend.buku_single');
     }
+    public function blog_single(Request $request)
+    {
+        return view('frontend.blog_single');
+    }
+    public function review_single(Request $request)
+    {
+        return view('frontend.review_single');
+    }
 
     /**
      * Show the form for creating a new resource.

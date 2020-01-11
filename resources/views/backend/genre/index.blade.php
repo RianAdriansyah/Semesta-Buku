@@ -1,6 +1,6 @@
 @include('layouts.header')
 
-<div class="panel-header panel-header-lg-2  ">
+<div class="panel-header panel-header-lg-2">
     {{-- <canvas id="bigDashboardChart"></canvas> --}}
   </div>
     <div class="content">

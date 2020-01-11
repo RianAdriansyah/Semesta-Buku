@@ -31,6 +31,38 @@
   </footer>
 </div>
 </div>
+
+<!-- Logout Modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="logoutModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Apakah Anda ingin melanjutkan untuk logout ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="{{ route('logout') }}" 
+          onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();" class="btn btn-danger">
+                    <i class="now-ui-icons media-1_button-power"></i>&nbsp; Logout
+          <form id="logout-form" action="{{ route('logout') }}"
+             method="POST" style="display: none;">
+             @csrf
+				</form>
+            </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!--   Core JS Files   -->
 <script src="{{asset('assets/backend/js/core/jquery.min.js ') }}"></script>
 <script src="{{asset('assets/backend/js/core/popper.min.js ') }}"></script>
