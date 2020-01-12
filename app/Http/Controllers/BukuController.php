@@ -48,7 +48,7 @@ class BukuController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('backend.buku.detail');
     }
 
     /**

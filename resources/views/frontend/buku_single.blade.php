@@ -28,19 +28,12 @@
         							<div class="wn__fotorama__wrapper">
 	        							<div class="fotorama wn__fotorama__action" data-nav="thumbs">
 		        							  <a href="1.jpg') }}"><img src="{{ asset('assets/frontend/images/product/1.jpg') }}" alt=""></a>
-		        							  <a href="2.jpg') }}"><img src="{{ asset('assets/frontend/images/product/2.jpg') }}" alt=""></a>
-		        							  <a href="3.jpg') }}"><img src="{{ asset('assets/frontend/images/product/3.jpg') }}" alt=""></a>
-		        							  <a href="4.jpg') }}"><img src="{{ asset('assets/frontend/images/product/4.jpg') }}" alt=""></a>
-		        							  <a href="5.jpg') }}"><img src="{{ asset('assets/frontend/images/product/5.jpg') }}" alt=""></a>
-		        							  <a href="6.jpg') }}"><img src="{{ asset('assets/frontend/images/product/6.jpg') }}" alt=""></a>
-		        							  <a href="7.jpg') }}"><img src="{{ asset('assets/frontend/images/product/7.jpg') }}" alt=""></a>
-		        							  <a href="8.jpg') }}"><img src="{{ asset('assets/frontend/images/product/8.jpg') }}" alt=""></a>
 	        							</div>
         							</div>
         						</div>
         						<div class="col-lg-6 col-12">
         							<div class="product__info__main">
-        								<h1>Chaz Kangeroo Hoodie</h1>
+        								<h1>Who We Are</h1>
         								<div class="price-box">
         									<ul class="prize d-flex">
 												<ul class="rating d-flex">
@@ -52,59 +45,48 @@
 												</ul>
 											</ul>
         								</div>
-										<div class="product__overview">
-        									<p>Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. Thick material blocks out the wind as ribbed cuffs and bottom band seal in body heat.</p>
-        									<p>Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. </p>
+										<div class="product__overview" style="margin-top: -50px;">
+											<table style="table">
+												<tr>
+													<td style="width: 35%;">Nama Penulis</td>
+													<td style="width: 5%;">: </td>
+													<td>One Direction</td>
+												</tr> <br>
+												<tr>
+													<td style="width: 35%;">Nama Penerbit</td>
+													<td style="width: 5%;">: </td>
+													<td>The Sun</td>
+												</tr>
+												<tr>
+													<td style="width: 35%;">Kategori</td>
+													<td style="width: 5%;">: </td>
+													<td>Biografi</td>
+												</tr>
+												<tr>
+													<td style="width: 35%;">Nomor ISBN</td>
+													<td style="width: 5%;">: </td>
+													<td>081910186646</td>
+												</tr>
+												<tr>
+													<td style="width: 35%;">Tanggal Terbit</td>
+													<td style="width: 5%;">: </td>
+													<td>21 Desember 2002</td>
+												</tr>
+												<tr>
+													<td style="width: 35%;">Jumlah Halaman</td>
+													<td style="width: 5%;">: </td>
+													<td>300 Halaman</td>
+												</tr>
+											</table>
         								</div>
-        								{{-- <div class="box-tocart d-flex">
-        									<span>Qty</span>
-        									<input id="qty" class="input-text qty" name="qty" min="1" value="1" title="Qty" type="number">
-        									<div class="addtocart__actions">
-        										<button class="tocart" type="submit" title="Add to Cart">Add to Cart</button>
-        									</div>
-											<div class="product-addto-links clearfix">
-												<a class="wishlist" href="#"></a>
-												<a class="compare" href="#"></a>
-											</div>
-        								</div>
-										<div class="product_meta">
-											<span class="posted_in">Categories: 
-												<a href="#">Adventure</a>, 
-												<a href="#">Kids' Music</a>
-											</span>
-										</div>
-										<div class="product-share">
-											<ul>
-												<li class="categories-title">Share :</li>
-												<li>
-													<a href="#">
-														<i class="icon-social-twitter icons"></i>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<i class="icon-social-tumblr icons"></i>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<i class="icon-social-facebook icons"></i>
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<i class="icon-social-linkedin icons"></i>
-													</a>
-												</li>
-											</ul>
-										</div> --}}
+        								
         							</div>
         						</div>
         					</div>
         				</div>
         				<div class="product__info__detailed">
 							<div class="pro_details_nav nav justify-content-start" role="tablist">
-	                            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-details" role="tab">Details</a>
+	                            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-details" role="tab">Sinopsis</a>
 	                        </div>
 	                        <div class="tab__container">
 	                        	<!-- Start Single Tab Content -->
@@ -272,7 +254,7 @@
         			<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
         				<div class="shop__sidebar">
         					<aside class="wedget__categories poroduct--cat">
-        						<h3 class="wedget__title">Product Categories</h3>
+        						<h3 class="wedget__title">Kategori Buku</h3>
         						<ul>
         							<li><a href="#">Biography <span>(3)</span></a></li>
         							<li><a href="#">Business <span>(4)</span></a></li>
@@ -293,7 +275,7 @@
         						</ul>
         					</aside>
         					<aside class="wedget__categories poroduct--tag">
-        						<h3 class="wedget__title">Product Tags</h3>
+        						<h3 class="wedget__title">Genre Buku</h3>
         						<ul>
         							<li><a href="#">Biography</a></li>
         							<li><a href="#">Business</a></li>

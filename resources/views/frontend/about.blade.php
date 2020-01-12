@@ -30,50 +30,17 @@
         			</div>
         		</div>
         		<div class="row align-items-center">
-					<div class="col-lg-6 col-sm-12 col-12">
-        				<div class="content text-left text_style--2">
-    					    <h2>we have skills to show</h2>
+					<div class="col-lg-4 col-sm-12 col-12">
+        				<div class="content text-center text_style--2">
+    					    <h2>Knowledge Is Power</h2>
     					    <div class="skill-container">
-    					        <!-- Start single skill -->
-    					        <div class="single-skill">
-    					            <p>Customer Favorites</p>
-    					            <div class="progress">
-    					                <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%"><span class="pen-lable"></span>
-    					                </div>
-    					            </div>
-    					        </div>
-    					        <!-- End single skill -->
-    					        <!-- Start single skill -->
-    					        <div class="single-skill">
-    					            <p>Popular Authors</p>
-    					            <div class="progress">
-    					                <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:95%"><span class="pen-lable"></span>
-    					                </div>
-    					            </div>
-    					        </div>
-    					        <!-- End single skill -->
-    					        <!-- Start single skill -->
-    					        <div class="single-skill">
-    					            <p>Bestselling Series</p>
-    					            <div class="progress">
-    					                <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100" style="width:93%"><span class="pen-lable"></span>
-    					                </div>
-    					            </div>
-    					        </div>
-    					        <!-- End single skill -->
-    					        <!-- Start single skill -->
-    					        <div class="single-skill">
-    					            <p>Bargain Books</p>
-    					            <div class="progress">
-    					                <div class="progress-bar wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay=".5s" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%"><span class="pen-lable"></span>
-    					                </div>
-    					            </div>
-    					        </div>
-    					        <!-- End single skill -->
+    					        <div class="thumb">
+									<img src="{{ asset('assets/frontend/images/about/team/1.jpg') }}" alt="Team images">
+								</div>
     					    </div>
         				</div>
         			</div>
-        			<div class="col-lg-6 col-sm-12 col-12">
+        			<div class="col-lg-8 col-sm-12 col-12">
         				<div class="content">
         					<h3>Membaca Buku</h3>
         					<h2>Menambah Ilmu</h2>
@@ -104,8 +71,8 @@
         					<div class="thumb">
         						<img src="{{ asset('assets/frontend/images/about/team/1.jpg') }}" alt="Team images">
         					</div>
-        					<div class="content text-center">
-        						<h4>RIAN ADRIANSYAH</h4>
+        					<div class="content text-center text_style--2">
+        						<h3>RIAN ADRIANSYAH</h3>
         						<p>Marketer</p>
         						<ul class="team__social__net">
         							<li><a href="#"><i class="icon-social-twitter icons"></i></a></li>
@@ -125,7 +92,7 @@
         						<img src="{{ asset('assets/frontend/images/about/team/2.jpg') }}" alt="Team images">
         					</div>
         					<div class="content text-center">
-        						<h4>RIAN ADRIANSYAH</h4>
+        						<h3>RIAN ADRIANSYAH</h3>
         						<p>Founder</p>
         						<ul class="team__social__net">
         							<li><a href="#"><i class="icon-social-twitter icons"></i></a></li>
@@ -145,7 +112,7 @@
         						<img src="{{ asset('assets/frontend/images/about/team/3.jpg') }}" alt="Team images">
         					</div>
         					<div class="content text-center">
-        						<h4>RIAN ADRIANSYAH</h4>
+        						<h3>RIAN ADRIANSYAH</h3>
         						<p>Co-Founder</p>
         						<ul class="team__social__net">
         							<li><a href="#"><i class="icon-social-twitter icons"></i></a></li>

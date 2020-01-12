@@ -39,7 +39,7 @@
         <ul class="nav">
           <li>
           <a href="{{ route('buku.index') }}">
-              <i class="now-ui-icons design_app"></i>
+              <i class="now-ui-icons education_agenda-bookmark"></i>
               <p>Daftar Buku</p>
             </a>
           </li>
@@ -51,20 +51,14 @@
           </li>
           <li>
           <a href="{{ route('artikel.index') }}">
-              <i class="now-ui-icons location_map-big"></i>
+              <i class="now-ui-icons files_paper"></i>
               <p>Daftar Artikel</p>
             </a>
           </li>
           <li>
           <a href="{{ route('kategori.index') }}">
-              <i class="now-ui-icons ui-1_bell-53"></i>
+              <i class="now-ui-icons location_bookmark"></i>
               <p>Daftar Kategori</p>
-            </a>
-          </li>
-          <li>
-            <a href="./user.html">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
             </a>
           </li>
           <li>

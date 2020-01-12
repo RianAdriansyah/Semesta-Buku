@@ -12,7 +12,7 @@
               <div class="card-body">
                 <div class="col-lg-12 table-responsive">
                 <table class="table table-hover" id="table_id">
-                  <thead class="thead-dark" style="font-size: 11px;">
+                  <thead class="thead-dark" style="font-size: 9px;">
                     <tr>
                       <th scope="col">No</th>
                       <th scope="col">Nama Kategori</th>
@@ -68,7 +68,7 @@
   </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Artikel;
+use App\User;
 
 class ArtikelController extends Controller
 {
@@ -18,7 +19,6 @@ class ArtikelController extends Controller
 
         return view('backend.artikel.index');
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -48,7 +48,6 @@ class ArtikelController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**

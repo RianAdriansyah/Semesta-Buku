@@ -23,6 +23,7 @@ Route::group(['prefix' => 'backend', 'middleware' => ['auth']], function () {
     Route::resource('/kategori', 'KategoriController');
     Route::resource('/artikel', 'ArtikelController');
     Route::resource('/review', 'ReviewController');
+    Route::get('/buku/detail', 'ReviewController@show')->name('detail');
 });
 Route::resource('/', 'FrontendController');
 Route::get('/buku', 'FrontendController@buku')->name('buku');
@@ -30,8 +31,8 @@ Route::get('/blog', 'FrontendController@blog')->name('blog');
 Route::get('/review', 'FrontendController@review')->name('review');
 Route::get('/about', 'FrontendController@about')->name('about');
 Route::get('/buku_single', 'FrontendController@buku_single')->name('buku_single');
-Route::get('/blog_single', 'FrontendController@blog_single')->name('blog_single');
-Route::get('/review_single', 'FrontendController@review_single')->name('review_single');
+Route::get('/blog/blog_single', 'FrontendController@blog_single')->name('blog_single');
+Route::get('/review/review_single', 'FrontendController@review_single')->name('review_single');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -1753,7 +1753,7 @@ textarea.form-control:active {
     padding: 0 12px;
 }
 
-.form-group input[type="file"] {
+/* .form-group input[type="file"] {
     opacity: 0;
     position: absolute;
     top: 0;
@@ -1763,7 +1763,8 @@ textarea.form-control:active {
     width: 100%;
     height: 100%;
     z-index: 100;
-}
+} */
+
 
 .form-text {
     font-size: 0.8571em;

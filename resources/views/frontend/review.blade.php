@@ -133,75 +133,8 @@
         					</aside>
         					<!-- End Single Widget -->
         					<!-- Start Single Widget -->
-        					<aside class="widget recent_widget">
-        						<h3 class="widget-title">Recent</h3>
-        						<div class="recent-posts">
-        							<ul>
-        								<li>
-        									<div class="post-wrapper d-flex">
-        										<div class="thumb">
-        											<a href="{{ route('review_single') }}"><img src="{{ asset('assets/frontend/images/blog/sm-img/1.jpg') }}" alt="blog images"></a>
-        										</div>
-        										<div class="content">
-        											<h4><a href="{{ route('review_single') }}">Blog image post</a></h4>
-        											<p>	March 10, 2015</p>
-        										</div>
-        									</div>
-        								</li>
-        								<li>
-        									<div class="post-wrapper d-flex">
-        										<div class="thumb">
-        											<a href="{{ route('review_single') }}"><img src="{{ asset('assets/frontend/images/blog/sm-img/2.jpg') }}" alt="blog images"></a>
-        										</div>
-        										<div class="content">
-        											<h4><a href="{{ route('review_single') }}">Post with Gallery</a></h4>
-        											<p>	March 10, 2015</p>
-        										</div>
-        									</div>
-        								</li>
-        								<li>
-        									<div class="post-wrapper d-flex">
-        										<div class="thumb">
-        											<a href="{{ route('review_single') }}"><img src="{{ asset('assets/frontend/images/blog/sm-img/3.jpg') }}" alt="blog images"></a>
-        										</div>
-        										<div class="content">
-        											<h4><a href="{{ route('review_single') }}">Post with Video</a></h4>
-        											<p>	March 10, 2015</p>
-        										</div>
-        									</div>
-        								</li>
-        								<li>
-        									<div class="post-wrapper d-flex">
-        										<div class="thumb">
-        											<a href="{{ route('review_single') }}"><img src="{{ asset('assets/frontend/images/blog/sm-img/4.jpg') }}" alt="blog images"></a>
-        										</div>
-        										<div class="content">
-        											<h4><a href="{{ route('review_single') }}">Maecenas ultricies</a></h4>
-        											<p>	March 10, 2015</p>
-        										</div>
-        									</div>
-        								</li>
-        								<li>
-        									<div class="post-wrapper d-flex">
-        										<div class="thumb">
-        											<a href="{{ route('review_single') }}"><img src="{{ asset('assets/frontend/images/blog/sm-img/5.jpg') }}" alt="blog images"></a>
-        										</div>
-        										<div class="content">
-        											<h4><a href="{{ route('review_single') }}">Blog image post</a></h4>
-        											<p>	March 10, 2015</p>
-        										</div>
-        									</div>
-        								</li>
-        							</ul>
-        						</div>
-        					</aside>
-        					<!-- End Single Widget -->
-        					<!-- Start Single Widget -->
-        					
-        					<!-- End Single Widget -->
-        					<!-- Start Single Widget -->
         					<aside class="widget category_widget">
-        						<h3 class="widget-title">Categories</h3>
+        						<h3 class="widget-title">Kategori Buku</h3>
         						<ul>
         							<li><a href="#">Fashion</a></li>
         							<li><a href="#">Creative</a></li>
@@ -214,14 +147,22 @@
         					</aside>
         					<!-- End Single Widget -->
         					<!-- Start Single Widget -->
-        					<aside class="widget archives_widget">
-        						<h3 class="widget-title">Archives</h3>
+        					<aside class="wedget__categories poroduct--tag">
+        						<h3 class="wedget__title">Genre Buku</h3>
         						<ul>
-        							<li><a href="#">March 2015</a></li>
-        							<li><a href="#">December 2014</a></li>
-        							<li><a href="#">November 2014</a></li>
-        							<li><a href="#">September 2014</a></li>
-        							<li><a href="#">August 2014</a></li>
+        							<li><a href="#">Biography</a></li>
+        							<li><a href="#">Business</a></li>
+        							<li><a href="#">Cookbooks</a></li>
+        							<li><a href="#">Health & Fitness</a></li>
+        							<li><a href="#">History</a></li>
+        							<li><a href="#">Mystery</a></li>
+        							<li><a href="#">Inspiration</a></li>
+        							<li><a href="#">Religion</a></li>
+        							<li><a href="#">Fiction</a></li>
+        							<li><a href="#">Fantasy</a></li>
+        							<li><a href="#">Music</a></li>
+        							<li><a href="#">Toys</a></li>
+        							<li><a href="#">Hoodies</a></li>
         						</ul>
         					</aside>
         					<!-- End Single Widget -->

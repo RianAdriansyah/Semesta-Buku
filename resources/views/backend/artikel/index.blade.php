@@ -8,11 +8,11 @@
         <div class="col-lg-12">
           <div class="container-fluid">
             <div class="card">
-              <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a></h6>
+              <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#tambahArtikel">Tambah</a></h6>
               <div class="card-body">
                 <div class="col-lg-12 table-responsive">
                 <table class="table table-hover" id="table_id">
-                  <thead class="thead-dark" style="font-size: 11px;">
+                  <thead class="thead-dark" style="font-size: 9px;">
                     <tr>
                       <th scope="col">No</th>
                       <th scope="col">Judul Artikel</th>
@@ -80,35 +80,43 @@
   </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+
+<div class="modal fade bd-example-modal-lg" data-backdrop="static" id="tambahArtikel" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Artikel</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Judul Artikel</label>
+          <div class="form-row">
+            <div class="form-group col-lg-6">
+                <label for="">Judul Artikel</label>
                 <input type="text" class="form-control" name="judul">            
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Judul Buku</label>
+            <div class="form-group col-lg-6">
+                <label for="">Judul Buku</label>
                 <input type="text" class="form-control" name="buku">            
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Konten</label>
-                <textarea name="konten" cols="30" rows="5"></textarea>
-            </div>
-        </form>
+          </div>
+          <div class="form-group">
+              <label for=""><i class="now-ui-icons larrows-1_cloud-upload-94"></i>Cover</label>
+              <input type="file" class="form-control" name="cover" >            
+          </div>
+          <div class="form-group">
+              <label for="">Konten</label>
+              <textarea name="konten" cols="30" rows="10" class="form-control"></textarea>
+          </div>
+      </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
         <button type="button" class="btn btn-primary">Simpan</button>
       </div>
+    </div>
     </div>
   </div>
 </div>

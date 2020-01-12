@@ -12,12 +12,10 @@
               <div class="card-body">
                 <div class="col-lg-12 table-responsive">
                 <table class="table table-hover" id="table_id">
-                  <thead class="thead-dark" style="font-size: 11px;">
+                  <thead class="thead-dark" style="font-size: 10px;">
                     <tr>
                       <th scope="col">No</th>
-                      <th scope="col">Judul Artikel</th>
                       <th scope="col">Judul Buku</th>
-                      <th scope="col">Cover</th>
                       <th scope="col">User</th>
                       <th scope="col">Slug</th>
                       <th scope="col" class="text-center">Aksi</th>
@@ -27,8 +25,6 @@
                     <tr>
                       <th scope="row">1</th>
                       <td>Mark</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
                       <td>Otto</td>
                       <td>Otto</td>
                       <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
@@ -44,8 +40,6 @@
                       <td>Jacob</td>
                       <td>Jacob</td>
                       <td>Jacob</td>
-                      <td>Jacob</td>
-                      <td>Jacob</td>
                       <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
                         <i class="fas fa-fw fa-edit"></i></a> &nbsp; &nbsp; &nbsp;
                       <a href="" class="btn btn-sm btn-info rounded">
@@ -57,8 +51,6 @@
                     <tr>
                       <th scope="row">3</th>
                       <td>Larry the Bird</td>
-                      <td>Larry the Bird</td> 
-                      <td>Larry the Bird</td> 
                       <td>Larry the Bird</td> 
                       <td>Larry the Bird</td> 
                       <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
@@ -80,7 +72,7 @@
   </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -101,7 +93,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Konten</label>
-                <textarea name="konten" cols="30" rows="5"></textarea>
+                <textarea name="konten" cols="30" rows="10" class="form-control"></textarea>
             </div>
         </form>
       </div>
