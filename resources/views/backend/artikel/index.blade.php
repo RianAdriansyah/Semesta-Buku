@@ -1,4 +1,10 @@
-@include('layouts.header')
+@extends('layouts.back')
+
+@section('web-title')
+    Daftar Artikel
+@endsection
+
+@section('isi')
 
 <div class="panel-header panel-header-lg-2  ">
     {{-- <canvas id="bigDashboardChart"></canvas> --}}
@@ -120,5 +126,4 @@
     </div>
   </div>
 </div>
-  @include('layouts.footer')
-  
+@endsection  

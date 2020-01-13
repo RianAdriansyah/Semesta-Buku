@@ -318,7 +318,7 @@
 
     <div class="grid">
         <center>
-        <img src="{{asset('assets/frontend/images/logo/3.png') }}" alt="logo" style="margin-bottom:20px;">
+        <img src="{{asset('assets/frontend/images/logo/logofix.png') }}" alt="logo" style="margin-bottom:20px;">
   </center>
       <form action="{{ route('login') }}" method="POST" class="form login">
         @csrf

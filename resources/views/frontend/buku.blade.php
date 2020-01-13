@@ -1,4 +1,11 @@
-﻿@include('layouts.fronthead')
+﻿@extends('layouts.front')
+
+@section('web-title')
+	Koleksi Buku
+@endsection
+
+@section('isi')
+	
         <!-- Start Bradcaump area -->
         <div class="ht__bradcaump__area bg-image--6">
             <div class="container">
@@ -442,4 +449,4 @@
         	</div>
         </div>
         <!-- End Shop Page -->
-		@include('layouts.frontfoot')
+		@endsection

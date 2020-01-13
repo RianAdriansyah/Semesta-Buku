@@ -1,4 +1,11 @@
-﻿@include('layouts.fronthead')
+﻿@extends('layouts.front')
+
+@section('web-title')
+	Buku Single
+@endsection
+
+@section('isi')
+	
         <!-- Start Bradcaump area -->
         <div class="ht__bradcaump__area bg-image--4">
             <div class="container">
@@ -313,4 +320,4 @@
 			</div>
 		</div>
 		<!-- End Search Popup -->
-		@include('layouts.frontfoot')
+		@endsection

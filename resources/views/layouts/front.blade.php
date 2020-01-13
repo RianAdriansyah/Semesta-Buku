@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Semesta Buku</title>
+	<title>@yield('web-title') | Semesta Buku</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -40,8 +40,8 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
 						<div class="logo">
-							<a href="index.html">
-								<img src="{{asset('assets/frontend/images/logo/logo.png') }}" alt="logo images">
+						<a href="{{ route('index') }}">
+								<img src="{{asset('assets/frontend/images/logo/logofix.png') }}" alt="logo images">
 							</a>
 						</div>
 					</div>
@@ -157,3 +157,73 @@
 			</div>
 		</div>
 		<!-- End Search Popup -->
+
+		@yield('isi')
+
+		<!-- Footer Area -->
+<footer id="wn__footer" class="footer__area bg__cat--8 brown--color">
+    <div class="footer-static-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__widget footer__menu">
+                        <div class="ft__logo">
+						<a href="{{ route('index') }}">
+                                <img src="{{asset('assets/frontend/images/logo/logofix.png') }}" alt="logo">
+                            </a>
+                            <p>Semesta Buku menyediakan beberapa artikel tentang literasi buku, informasi buku beserta review buku yang bisa menambah referensi literatur Anda
+							</p>
+                        </div>
+                        <div class="footer__content">
+                            <ul class="social__net social__net--2 d-flex justify-content-center">
+                                <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                                <li><a href="#"><i class="bi bi-google"></i></a></li>
+                                <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                                <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                                <li><a href="#"><i class="bi bi-youtube"></i></a></li>
+                            </ul>
+                            <ul class="mainmenu d-flex justify-content-center">
+                                <li><a href="{{ route('index') }}">Beranda</a></li>
+								<li><a href="{{ route('review') }}">Review</a></li>
+                                <li><a href="{{ route('buku') }}">Buku</a></li>
+                                <li><a href="{{ route('blog') }}">Blog</a></li>
+                                <li><a href="{{ route('about') }}">Tentang Kami</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright__wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="copyright">
+                        <div class="copy__right__inner text-left">
+                            <p>Copyright <i class="fa fa-copyright"></i> <a href="https://freethemescloud.com/">Free themes Cloud.</a> All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    {{-- <div class="payment text-right">
+                        <img src="{{asset('assets/frontend/images/icons/payment.png') }}" alt="" />
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- //Footer Area -->
+	</div>
+	<!-- //Main wrapper -->
+
+	<!-- JS Files -->
+	<script src="{{asset('assets/frontend/js/vendor/jquery-3.2.1.min.js') }}"></script>
+	<script src="{{asset('assets/frontend/js/popper.min.js') }}"></script>
+	<script src="{{asset('assets/frontend/js/bootstrap.min.js') }}"></script>
+	<script src="{{asset('assets/frontend/js/plugins.js') }}"></script>
+	<script src="{{asset('assets/frontend/js/active.js') }}"></script>
+	
+</body>
+</html> 

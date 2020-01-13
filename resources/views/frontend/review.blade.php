@@ -1,4 +1,11 @@
-@include('layouts.fronthead')
+@extends('layouts.front')
+
+@section('web-title')
+	Review
+@endsection
+
+@section('isi')
+	
         <!-- Start Bradcaump area -->
         <div class="ht__bradcaump__area bg-image--4">
             <div class="container">
@@ -173,4 +180,4 @@
         </div>
         <!-- End Blog Area -->
 
-		@include('layouts.frontfoot')
+		@endsection

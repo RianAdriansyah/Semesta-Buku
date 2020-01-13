@@ -1,4 +1,8 @@
-﻿@include('layouts.fronthead')
+﻿@extends('layouts.front')
+@section('web-title', 'Tentang Kami')
+
+@section('isi')
+	
         <!-- Start Bradcaump area -->
         <div class="ht__bradcaump__area bg-image--3">
             <div class="container">
@@ -47,6 +51,7 @@
         					<p class="mt--20 mb--20">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
         					<strong>London Address</strong>
         					<p>34 Parer Place via Musk Avenue Kelvin Grove, QLD, 4059</p>
+        					<p class="mt--20 mb--20">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
         				</div>
         			</div>
         		</div>
@@ -128,5 +133,5 @@
         		</div>
         	</div>
         </section>
-        <!-- End Team Area -->
-		@include('layouts.frontfoot')
+		<!-- End Team Area -->
+		@endsection
