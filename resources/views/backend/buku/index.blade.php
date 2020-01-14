@@ -29,51 +29,25 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @php $no = 1; @endphp
+                    @foreach ($buku as $list)
+                        
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
+                      <th scope="row">{{ $no++ }}</th>
+                      <td>{{ $list->judul }}</td>
+                      <td>{{ $list->penulis }}</td>
+                      <td>{{ $list->kategori->nama_kategori }}</td>
+                      <td>{{ $list->rating }}</td>
+                      <td>{{ $list->slug }}</td>
                       <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
                         <i class="fas fa-fw fa-edit"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="{{ route('detail') }}" class="btn btn-sm btn-info rounded">
+                        <a href="{{ route('buku.show', $list->id) }}" class="btn btn-sm btn-info rounded">
                         <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp;
                       <a href="" class="btn btn-sm btn-danger rounded">
                         <i class="fas fa-fw fa-trash-alt"></i></a>
                       </td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Jacob</td>
-                      <td>Jacob</td>
-                      <td>Jacob</td>
-                      <td>Jacob</td>
-                      <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
-                        <i class="fas fa-fw fa-edit"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-info rounded">
-                        <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-danger rounded">
-                        <i class="fas fa-fw fa-trash-alt"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry the Bird</td>
-                      <td>Larry the Bird</td> 
-                      <td>Larry the Bird</td> 
-                      <td>Larry the Bird</td> 
-                      <td>Larry the Bird</td> 
-                      <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
-                        <i class="fas fa-fw fa-edit"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-info rounded">
-                        <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-danger rounded">
-                        <i class="fas fa-fw fa-trash-alt"></i></a>
-                      </td>
-                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
@@ -96,7 +70,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+      <form action="{{ route('buku.store') }}" enctype="multipart/form-data" method="POST">
+        @csrf
           <div class="form-row">
           <div class="form-group col-lg-6">
             <label for="">Judul Buku</label>
@@ -119,12 +94,18 @@
         </div>
         <div class="form-row">
           <div class="form-group col-lg-6">
-            <label for="">Kategori</label>
-            <input type="text" class="form-control" name="kategori_id">
+            <select name="kategori_id" class="form-control" required>
+              @php
+                $kategori = \App\Kategori::all();
+              @endphp
+              @foreach($kategori as $data)
+              <option value="{{ $data->id }}">{{ $data->nama_kategori }}</option>
+              @endforeach
+            </select>
           </div>
           <div class="form-group col-lg-6">
             <label for="">Nomor ISBN</label>
-            <input type="number" class="form-control" name="no_isbn">
+            <input type="text" class="form-control" name="no_isbn">
           </div>
         </div>
         <div class="form-row">
@@ -143,14 +124,14 @@
           </div>
           <div class="form-group">
             <label for="">Sinopsis</label>
-            <textarea name="sinopsis" cols="30" rows="10" class="form-control"></textarea>
+            <textarea name="sinopsis" cols="30" rows="10" class="form-control" id="editor1"></textarea>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <button type="button" class="btn btn-primary">Simpan</button>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
     </div>
     </div>
   </div>

@@ -167,16 +167,22 @@
             Apakah Anda ingin melanjutkan untuk logout ?
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <a href="{{ route('logout') }}" 
-              onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();" class="btn btn-danger">
-                        <i class="now-ui-icons media-1_button-power"></i>&nbsp; Logout
-              <form id="logout-form" action="{{ route('logout') }}"
-                 method="POST" style="display: none;">
-                 @csrf
-            </form>
-                </a>
+            
+            <div class="col-md-6 mx-auto">
+              <button type="button" class="btn btn-secondary btn-block rounded" data-dismiss="modal">Batal</button>
+            </div>
+            <div class="col-md-6 mx-auto">
+
+              <a href="{{ route('logout') }}" 
+                onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();" class="btn btn-danger btn-block rounded">
+                          <i class="now-ui-icons media-1_button-power"></i>&nbsp; Logout
+                <form id="logout-form" action="{{ route('logout') }}"
+                   method="POST" style="display: none;">
+                   @csrf
+              </form>
+                  </a>
+            </div>
           </div>
         </div>
       </div>
@@ -197,6 +203,7 @@
     <script src="{{asset('assets/backend/js/now-ui-dashboard.min.js?v=1.3.0 ') }}" type="text/javascript"></script>
     <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{asset('assets/backend/demo/demo.js ') }}"></script>
+    <script src="{{asset('assets/backend/ckeditor/ckeditor.js') }}"></script>
     <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
@@ -211,6 +218,12 @@
         $('#table_id').DataTable();
       });
     </script>
+
+  <script>
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace( 'editor1' );
+  </script>
     </body>
     
     </html>

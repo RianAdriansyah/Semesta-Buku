@@ -26,43 +26,26 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @php $no = 1; @endphp
+                    @foreach ($kategori as $list)
+                        
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
-                        <i class="fas fa-fw fa-edit"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-info rounded">
-                        <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-danger rounded">
-                        <i class="fas fa-fw fa-trash-alt"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Jacob</td>
-                      <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
-                        <i class="fas fa-fw fa-edit"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-info rounded">
-                        <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-danger rounded">
-                        <i class="fas fa-fw fa-trash-alt"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry the Bird</td>
-                      <td>Larry the Bird</td> 
-                      <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
-                        <i class="fas fa-fw fa-edit"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-info rounded">
-                        <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-danger rounded">
-                        <i class="fas fa-fw fa-trash-alt"></i></a>
-                      </td>
-                    </tr>
-                  </tbody>
+                    <th scope="row" style="width:50px;">{{ $no++ }}</th>
+                    <td>{{ $list->nama_kategori }}</td>
+                    <td>{{ $list->slug }}</td>
+                      <td class="text-center"><a href="{{ route('kategori.edit', $list->id) }}" class="btn btn-sm btn-success rounded">
+                        <i class="fas fa-fw fa-edit"></i></a>
+                        <form action="{{ route('kategori.destroy',$list->id) }}" method="post">
+                          {{csrf_field()}}
+                              <input type="hidden" name="_method" value="DELETE">
+                              <button class="btn btn-sm btn-danger" type="submit">
+                                <i class="fas fa-fw fa-trash-alt"></i>
+                              </button>
+                          </form>
+                          </td>
+                        </tr>
+                        @endforeach
+                      </tbody>
                 </table>
               </div>
             </div>
@@ -83,17 +66,18 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+      <form action="{{ route('kategori.store') }}" method="POST">
+          @csrf
           <div class="form-group">
             <label for="exampleInputEmail1">Nama Kategori</label>
-            <input type="text" class="form-control">            
+            <input type="text" class="form-control" name="nama_kategori">            
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-        <button type="button" class="btn btn-primary">Simpan</button>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

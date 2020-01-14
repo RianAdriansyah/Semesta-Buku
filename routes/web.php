@@ -23,7 +23,6 @@ Route::group(['prefix' => 'backend', 'middleware' => ['auth']], function () {
     Route::resource('/kategori', 'KategoriController');
     Route::resource('/artikel', 'ArtikelController');
     Route::resource('/review', 'ReviewController');
-    Route::get('/buku/detail', 'ReviewController@show')->name('detail');
 });
 Route::resource('/', 'FrontendController');
 Route::get('/buku', 'FrontendController@buku')->name('buku');
