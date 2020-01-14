@@ -24,7 +24,6 @@
                       <th scope="col">Nama Penulis</th>
                       <th scope="col">Kategori</th>
                       <th scope="col">Rating</th>
-                      <th scope="col">Slug</th>
                       <th scope="col" class="text-center">Aksi</th>
                     </tr>
                   </thead>
@@ -38,7 +37,6 @@
                       <td>{{ $list->penulis }}</td>
                       <td>{{ $list->kategori->nama_kategori }}</td>
                       <td>{{ $list->rating }}</td>
-                      <td>{{ $list->slug }}</td>
                       <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
                         <i class="fas fa-fw fa-edit"></i></a> &nbsp; &nbsp; &nbsp;
                         <a href="{{ route('buku.show', $list->id) }}" class="btn btn-sm btn-info rounded">

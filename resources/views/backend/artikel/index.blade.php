@@ -23,58 +23,29 @@
                       <th scope="col">No</th>
                       <th scope="col">Judul Artikel</th>
                       <th scope="col">Judul Buku</th>
-                      <th scope="col">Cover</th>
                       <th scope="col">User</th>
                       <th scope="col">Slug</th>
                       <th scope="col" class="text-center">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
+                    @php $no = 1; @endphp
+                    @foreach ($artikel as $data) 
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
-                      <td>Otto</td>
+                    <th scope="row">{{ $no++ }}</th>
+                    <td>{{ $data->judul }}</td>
+                      <td>{{ $data->buku->judul }}</td>
+                      <td>{{ $data->user->name }}</td>
+                      <td>{{ $data->slug }}</td>
                       <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
                         <i class="fas fa-fw fa-edit"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-info rounded">
-                        <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-danger rounded">
-                        <i class="fas fa-fw fa-trash-alt"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Jacob</td>
-                      <td>Jacob</td>
-                      <td>Jacob</td>
-                      <td>Jacob</td>
-                      <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
-                        <i class="fas fa-fw fa-edit"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-info rounded">
-                        <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-danger rounded">
-                        <i class="fas fa-fw fa-trash-alt"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry the Bird</td>
-                      <td>Larry the Bird</td> 
-                      <td>Larry the Bird</td> 
-                      <td>Larry the Bird</td> 
-                      <td>Larry the Bird</td> 
-                      <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
-                        <i class="fas fa-fw fa-edit"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-info rounded">
-                        <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-danger rounded">
-                        <i class="fas fa-fw fa-trash-alt"></i></a>
-                      </td>
-                    </tr>
+                        <a href="" class="btn btn-sm btn-info rounded">
+                          <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp;
+                          <a href="" class="btn btn-sm btn-danger rounded">
+                            <i class="fas fa-fw fa-trash-alt"></i></a>
+                          </td>
+                        </tr>
+                        @endforeach
                   </tbody>
                 </table>
               </div>
@@ -97,7 +68,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+      <form action="{{ route('artikel.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
           <div class="form-row">
             <div class="form-group col-lg-6">
                 <label for="">Judul Artikel</label>
@@ -105,23 +77,37 @@
             </div>
             <div class="form-group col-lg-6">
                 <label for="">Judul Buku</label>
-                <input type="text" class="form-control" name="buku">            
+                @php $buku = \App\Buku::all(); @endphp
+                <select name="buku_id" class="form-control" required>
+                  @foreach ($buku as $list)
+                <option value="{{ $list->id }}">{{ $list->judul }}</option>
+                  @endforeach
+                </select>
             </div>
           </div>
           <div class="form-group">
-              <label for=""><i class="now-ui-icons larrows-1_cloud-upload-94"></i>Cover</label>
-              <input type="file" class="form-control" name="cover" >            
+            <label for=""><i class="now-ui-icons larrows-1_cloud-upload-94"></i>Cover</label>
+            <input type="file" class="form-control" name="cover" >            
+          </div>
+          <div class="form-group">
+              <label for="">Genre</label>
+              @php $genre = \App\Genre::all(); @endphp
+              <select name="genre[]" class="form-control multiple" required multiple>
+                @foreach ($genre as $list)
+              <option value="{{ $list->id }}">{{ $list->nama_genre }}</option>
+                @endforeach
+              </select>
           </div>
           <div class="form-group">
               <label for="">Konten</label>
               <textarea name="konten" cols="30" rows="10" class="form-control" id="editor1"></textarea>
           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
       </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <button type="button" class="btn btn-primary">Simpan</button>
-      </div>
     </div>
     </div>
   </div>

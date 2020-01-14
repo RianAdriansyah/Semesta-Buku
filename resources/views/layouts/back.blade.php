@@ -19,7 +19,7 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{asset('assets/backend/demo/demo.css ') }}" }} rel="stylesheet" />
   <link rel="stylesheet" href="{{asset('assets/backend/dataTables/datatables.min.css ') }}">
-</head>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" /></head>
 
 <body class="">
   <div class="wrapper ">
@@ -204,7 +204,7 @@
     <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{asset('assets/backend/demo/demo.js ') }}"></script>
     <script src="{{asset('assets/backend/ckeditor/ckeditor.js') }}"></script>
-    <script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>    <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       demo.initDashboardPageCharts();

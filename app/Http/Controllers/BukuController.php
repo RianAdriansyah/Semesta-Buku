@@ -31,10 +31,7 @@ class BukuController extends Controller
      */
     public function create()
     {
-        // $kategori = Kategori::all();
-        // $buku = Buku::all();
-
-        // return view('backend.buku.create', compact('kategori', 'buku'));
+        //
     }
 
     /**
@@ -90,7 +87,9 @@ class BukuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $buku = Buku::findOrFail($id);
+        $kategori = Kategori::all();
+        return view('backend.buku.edit', compact('buku', 'kategori'));
     }
 
     /**
@@ -102,7 +101,38 @@ class BukuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $buku = Buku::findOrFail($id);
+        $buku->judul = $request->judul();
+        $buku->slug = str_slug($request->judul);
+        # Cover
+        if ($request->hasFile('cover')) {
+            $file = $request->file('cover');
+            $path = public_path() . '/assets/img/buku/cover';
+            $filename = str_random(6) . '_' . $file->getClientOriginalName();
+            $upload = $file->move($path, $filename);
+
+            if ($buku->cover) {
+                $old_cover = $buku->cover;
+                $filepath = public_path() . '/assets/img/buku/cover' . $buku->cover;
+                try {
+                    File::delete($filepath);
+                } catch (FileNotFoundException $e) {
+                    //Exception $e;
+                }
+            }
+            $buku->cover = $filename;
+        }
+        $buku->penulis = $request->penulis;
+        $buku->penerbit = $request->penerbit;
+        $buku->no_isbn = $request->no_isbn;
+        $buku->rating = $request->rating;
+        $buku->sinopsis = $request->sinopsis;
+        $buku->tgl_terbit = $request->tgl_terbit;
+        $buku->jml_halaman = $request->jml_halaman;
+        $buku->kategori_id = $request->kategori_id;
+        $buku->save();
+
+        return redirect()->route('buku.index');
     }
 
     /**
@@ -113,6 +143,18 @@ class BukuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $buku = Buku::findOrFail($id);
+        if ($buku->cover) {
+            $old_cover = $buku->cover;
+            $filepath = public_path() . '/assets/img/buku/cover' . $buku->cover;
+            try {
+                File::delete($filepath);
+            } catch (FileNotFoundException $e) {
+                //Exception $e;
+            }
+        }
+        $buku->delete();
+
+        return redirect()->route('buku.index');
     }
 }
