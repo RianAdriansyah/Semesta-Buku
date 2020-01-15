@@ -86,10 +86,11 @@ class ArtikelController extends Controller
     public function edit($id)
     {
         $artikel = Artikel::findOrFail($id);
+        $buku = Buku::all();
         $genre = Genre::all();
         $selected = $artikel->genre->pluck('id')->toArray();
 
-        return view('backend.artikel.edit', compact('selected', 'artikel', 'genre'));
+        return view('backend.artikel.edit', compact('selected', 'artikel', 'genre', 'buku'));
     }
 
     /**

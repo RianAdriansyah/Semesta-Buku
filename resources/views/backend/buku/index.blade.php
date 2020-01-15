@@ -67,7 +67,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Buku</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -78,21 +78,21 @@
           <div class="form-row">
           <div class="form-group col-lg-6">
             <label for="">Judul Buku</label>
-            <input type="text" class="form-control" name="judul">
+            <input type="text" class="form-control" required name="judul">
           </div>
           <div class="form-group col-lg-6">
             <label for="">Cover</label>
-            <input type="file" class="form-control" name="cover">
+            <input type="file" class="form-control" required name="cover">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-lg-6">
             <label for="">Nama Penulis</label>
-            <input type="text" class="form-control" name="penulis">
+            <input type="text" class="form-control" required name="penulis">
           </div>
           <div class="form-group col-lg-6">
             <label for="">Nama Penerbit</label>
-            <input type="text" class="form-control" name="penerbit">
+            <input type="text" class="form-control" required name="penerbit">
           </div>
         </div>
         <div class="form-row">
@@ -109,26 +109,26 @@
           </div>
           <div class="form-group col-lg-6">
             <label for="">Nomor ISBN</label>
-            <input type="text" class="form-control" name="no_isbn">
+            <input type="text" class="form-control" required name="no_isbn">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-lg-6">
             <label for="">Rating</label>
-            <input type="number" class="form-control" name="rating">
+            <input type="number" class="form-control" required name="rating">
           </div>
           <div class="form-group col-lg-6">
             <label for="">Jumlah Halaman</label>
-            <input type="number" class="form-control" name="jml_halaman">
+            <input type="number" class="form-control" required name="jml_halaman">
           </div>
         </div>
           <div class="form-group">
             <label for="">Tanggal Terbit</label>
-            <input type="date" class="form-control" name="tgl_terbit">
+            <input type="date" class="form-control" required name="tgl_terbit">
           </div>
           <div class="form-group">
             <label for="">Sinopsis</label>
-            <textarea name="sinopsis" cols="30" rows="10" class="form-control" id="editor1"></textarea>
+            <textarea name="sinopsis" cols="30" rows="10" class="form-control" required id="editor1"></textarea>
           </div>
         </div>
         <div class="modal-footer">

@@ -65,7 +65,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Artikel</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -76,7 +76,7 @@
           <div class="form-row">
             <div class="form-group col-lg-6">
                 <label for="">Judul Artikel</label>
-                <input type="text" class="form-control" name="judul">            
+                <input type="text" class="form-control" required name="judul">            
             </div>
             <div class="form-group col-lg-6">
                 <label for="">Judul Buku</label>
@@ -90,12 +90,12 @@
           </div>
           <div class="form-group">
             <label for=""><i class="now-ui-icons larrows-1_cloud-upload-94"></i>Cover</label>
-            <input type="file" class="form-control" name="cover">            
+            <input type="file" class="form-control" required name="cover">            
           </div>
           <div class="form-group">
               <label for="">Genre</label>
               @php $genre = \App\Genre::all(); @endphp
-              <select name="genre[]" class="form-control" id="select2" style="width:100%;" required multiple>
+              <select name="genre[]" class="form-control" required id="select2" style="width:100%;" required multiple>
                 @foreach ($genre as $list)
               <option value="{{ $list->id }}">{{ $list->nama_genre }}</option>
                 @endforeach
@@ -103,7 +103,7 @@
           </div>
           <div class="form-group">
               <label for="">Konten</label>
-              <textarea name="konten" cols="30" rows="10" class="form-control" id="editor1"></textarea>
+              <textarea name="konten" cols="30" rows="10" class="form-control" required id="editor1"></textarea>
           </div>
         </div>
         <div class="modal-footer">

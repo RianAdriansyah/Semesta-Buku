@@ -45,12 +45,9 @@
                     <div class="form-row">
                       <div class="form-group col-lg-6">
                         <label for="Kategori">Kategori</label>
-                        <select name="kategori_id" class="form-control" value="{{ $buku->kategori->nama_kategori }}" required>
-                          @php
-                            $kategori = \App\Kategori::all();
-                          @endphp
+                        <select name="kategori_id" class="form-control" required>
                           @foreach($kategori as $data)
-                          <option value="{{ $data->id }}" selected>{{ $data->nama_kategori }}</option>
+                          <option value="{{ $data->id }}">{{ $data->nama_kategori }}</option>
                           @endforeach
                         </select>
                       </div>

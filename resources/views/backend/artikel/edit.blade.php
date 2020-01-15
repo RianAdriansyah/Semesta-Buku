@@ -24,8 +24,7 @@
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="">Judul Buku</label>
-                            @php $buku = \App\Buku::all(); @endphp
-                            <select name="buku_id" class="form-control" value="{{ $artikel->buku->judul }}" required>
+                            <select name="buku_id" class="form-control" required>
                               @foreach ($buku as $list)
                             <option value="{{ $list->id }}" selected>{{ $list->judul }}</option>
                               @endforeach

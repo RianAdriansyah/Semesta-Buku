@@ -60,154 +60,32 @@
 				<!-- Start Single Tab Content -->
 				<div class="furniture--4 border--round arrows_style owl-carousel owl-theme row mt--50">
 					<!-- Start Single Product -->
+					@foreach ($buku as $item)
+						
 					<div class="product product__style--3">
 						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 							<div class="product__thumb">
-								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/1.jpg') }}" alt="product image"></a>
-								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/1.jpg') }}" alt="product image"></a>
+								<a class="first__img" href="{{ route('buku_single', $item->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$item->cover)}}" alt="product image"></a>
+								<a class="second__img animation1" href="{{ route('buku_single', $item->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$item->cover)}}" alt="product image"></a>
 								<div class="hot__box">
-									<span class="hot-label">BEST SALLER</span>
+								<span class="hot-label">{{ $item->kategori->nama_kategori }}</span>
 								</div>
 							</div>
 							<div class="product__content content--center">
-								<h4><a href="{{ route('buku_single') }}">Sistem Pendidikan Finlandia</a></h4>
+							<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
 								<ul class="prize d-flex">
 									<ul class="rating d-flex">
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
+										{{-- @foreach ($item->rating as $rate)
+									<li class="on" value="{{ $rate }}"><i class="fa fa-star-o"></i></li>
+										@endforeach --}}
 									</ul>
 								</ul>
 							</div>
 						</div>
 					</div>
+					@endforeach
 					<!-- Start Single Product -->
-					<!-- Start Single Product -->
-					<div class="product product__style--3">
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="product__thumb">
-								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/2.jpg') }}" alt="product image"></a>
-								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/2.jpg') }}" alt="product image"></a>
-								<div class="hot__box color--2">
-									<span class="hot-label">HOT</span>
-								</div>
-							</div>
-							<div class="product__content content--center">
-								<h4><a href="{{ route('buku_single') }}">Filosofi Teras</a></h4>
-								<ul class="prize d-flex">
-									<ul class="rating d-flex">
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li><i class="fa fa-star-o"></i></li>
-										<li><i class="fa fa-star-o"></i></li>
-									</ul>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- Start Single Product -->
-					<!-- Start Single Product -->
-					<div class="product product__style--3">
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="product__thumb">
-								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/3.jpg') }}" alt="product image"></a>
-								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/3.jpg') }}" alt="product image"></a>
-								<div class="hot__box">
-									<span class="hot-label">BEST SALLER</span>
-								</div>
-							</div>
-							<div class="product__content content--center">
-								<h4><a href="{{ route('buku_single') }}">Revolusi Industri 4.0</a></h4>
-								<ul class="prize d-flex">
-									<ul class="rating d-flex">
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li><i class="fa fa-star-o"></i></li>
-										<li><i class="fa fa-star-o"></i></li>
-									</ul>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- Start Single Product -->
-					<!-- Start Single Product -->
-					<div class="product product__style--3">
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="product__thumb">
-								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/4.jpg') }}" alt="product image"></a>
-								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/4.jpg') }}" alt="product image"></a>
-								<div class="hot__box">
-									<span class="hot-label">HOT</span>
-								</div>
-							</div>
-							<div class="product__content content--center">
-								<h4><a href="{{ route('buku_single') }}">Who We Are</a></h4>
-								<ul class="prize d-flex">
-									<ul class="rating d-flex">
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li><i class="fa fa-star-o"></i></li>
-									</ul>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- Start Single Product -->
-					<!-- Start Single Product -->
-					<div class="product product__style--3">
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="product__thumb">
-								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/5.jpg') }}" alt="product image"></a>
-								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/5.jpg') }}" alt="product image"></a>
-								<div class="hot__box">
-									<span class="hot-label">HOT</span>
-								</div>
-							</div>
-							<div class="product__content content--center">
-								<h4><a href="{{ route('buku_single') }}">Educated</a></h4>
-								<ul class="prize d-flex">
-									<ul class="rating d-flex">
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li><i class="fa fa-star-o"></i></li>
-										<li><i class="fa fa-star-o"></i></li>
-									</ul>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- Start Single Product -->
-					<!-- Start Single Product -->
-					<div class="product product__style--3">
-						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-							<div class="product__thumb">
-								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/6.jpg') }}" alt="product image"></a>
-								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/6.jpg') }}" alt="product image"></a>
-								<div class="hot__box">
-									<span class="hot-label">BEST SALER</span>
-								</div>
-							</div>
-							<div class="product__content content--center content--center">
-								<h4><a href="{{ route('buku_single') }}">Bicara Itu Ada Seninya</a></h4>
-								<ul class="prize d-flex">
-									<ul class="rating d-flex">
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li><i class="fa fa-star-o"></i></li>
-										<li><i class="fa fa-star-o"></i></li>
-									</ul>
-								</ul>
-							</div>
-						</div>
-						<!-- Start Single Product -->
+					
 					</div>
 				</div>
 				<!-- End Single Tab Content -->
@@ -261,6 +139,8 @@
 				</div>
 				<div class="tab__container mt--10">
 					<!-- Start Single Tab Content -->
+					@foreach ($allbuku as $all)
+						
 					<div class="row single__tab tab-pane fade show active" id="nav-all" role="tabpanel">
 						<div class="product__indicator--4 arrows_style owl-carousel owl-theme">
 							<div class="single__product">
@@ -268,260 +148,29 @@
 								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 									<div class="product product__style--3">
 										<div class="product__thumb">
-											<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/1.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/2.jpg') }}" alt="product image"></a>
+											<a class="first__img" href="{{ route('buku_single') }}"><img src="{{ asset('assets/img/buku/cover/'.$all->cover)}}" alt="product image"></a>
+											<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{ asset('assets/img/buku/cover/'.$all->cover)}}" alt="product image"></a>
 											<div class="hot__box">
-												<span class="hot-label">BEST SALER</span>
+											<span class="hot-label">{{ $all->kategori->nama_kategori }}</span>
 											</div>
 										</div>
 										<div class="product__content content--center content--center">
-											<h4><a href="{{ route('buku_single') }}">Ghost</a></h4>
+										<h4><a href="{{ route('buku_single') }}">{{ $all->judul }}</a></h4>
 											<ul class="prize d-flex">
-												<ul class="rating d-flex">
+												{{-- <ul class="rating d-flex">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
-												</ul>
+												</ul> --}}
 											</ul>
 										</div>
 									</div>
 								</div>
+								@endforeach
 								<!-- Start Single Product -->
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/3.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/9.jpg') }}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">BEST SALER</span>
-											</div>
-										</div>
-										<div class="product__content content--center content--center">
-											<h4><a href="{{ route('buku_single') }}">Ghost</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
-							</div>
-							<div class="single__product">
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/5.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/6.jpg') }}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">HOT</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="{{ route('buku_single') }}">Doctor Wldo</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/7.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/8.jpg') }}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">HOT</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="{{ route('buku_single') }}">Doctor Wldo</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
-							</div>
-							<div class="single__product">
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/9.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/7.jpg') }}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">HOT</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="{{ route('buku_single') }}">Lando</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/11.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/5.jpg') }}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">HOT</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="{{ route('buku_single') }}">Lando</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
-							</div>
-							<div class="single__product">
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/8.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/4.jpg') }}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">BEST SALLER</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="{{ route('buku_single') }}">Bowen Greenwood</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/12.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/7.jpg') }}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">BEST SALLER</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="{{ route('buku_single') }}">Bowen Greenwood</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
-							</div>
-							<div class="single__product">
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/3.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/5.jpg') }}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">BEST SALLER</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="{{ route('buku_single') }}">Bowen Greenwood</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
-								<!-- Start Single Product -->
-								<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-									<div class="product product__style--3">
-										<div class="product__thumb">
-											<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/2.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/7.jpg') }}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">BEST SALLER</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="{{ route('buku_single') }}">Bowen Greenwood</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<!-- Start Single Product -->
+								
 							</div>
 						</div>
 					</div>
@@ -542,57 +191,20 @@
 					</div>
 				</div>
 				<div class="row mt--50">
+					@foreach ($artikel as $post)
+						
 					<div class="col-md-6 col-lg-4 col-sm-12">
 						<div class="post__itam">
 							<div class="content">
-								<h3><a href="{{ route('blog_single') }}">International activities of the Frankfurt Book </a></h3>
-								<p>We are proud to announce the very first the edition of the frankfurt news.We are proud to announce the very first of  edition of the fault frankfurt news for us.</p>
+								<h3><a href="{{ route('blog_single') }}">{{ $post->judul }} </a></h3>
+								<p>{!! str_limit( $post->konten, $limit = 100, $end = '...') !!}</p>
 								<div class="post__time">
-									<span class="day">Dec 06, 18</span>
-									<div class="post-meta">
-										<ul>
-											<li><a href="#"><i class="bi bi-love"></i>72</a></li>
-											<li><a href="#"><i class="bi bi-chat-bubble"></i>27</a></li>
-										</ul>
-									</div>
+									<span class="day">{{$post->created_at->diffForHumans()}}</span>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6 col-lg-4 col-sm-12">
-						<div class="post__itam">
-							<div class="content">
-								<h3><a href="{{ route('blog_single') }}">Reading has a signficant info  number of benefits</a></h3>
-								<p>Find all the information you need to ensure your experience.Find all the information you need to ensure your experience . Find all the information you of.</p>
-								<div class="post__time">
-									<span class="day">Mar 08, 18</span>
-									<div class="post-meta">
-										<ul>
-											<li><a href="#"><i class="bi bi-love"></i>72</a></li>
-											<li><a href="#"><i class="bi bi-chat-bubble"></i>27</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-4 col-sm-12">
-						<div class="post__itam">
-							<div class="content">
-								<h3><a href="{{ route('blog_single') }}">The London Book Fair is to be packed with exciting </a></h3>
-								<p>The London Book Fair is the global area inon marketplace for rights negotiation.The year  London Book Fair is the global area inon forg marketplace for rights.</p>
-								<div class="post__time">
-									<span class="day">Nov 11, 18</span>
-									<div class="post-meta">
-										<ul>
-											<li><a href="#"><i class="bi bi-love"></i>72</a></li>
-											<li><a href="#"><i class="bi bi-chat-bubble"></i>27</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					@endforeach
 				</div>
 			</div>
 		</section>
@@ -611,12 +223,14 @@
 			</div>
 			<div class="slider center">
 				<!-- Single product start -->
+				@foreach ($review as $rev)
+					
 				<div class="product product__style--3">
 					<div class="product__thumb">
-						<a class="first__img" href="{{ route('review_single') }}"><img src="{{asset('assets/frontend/images/best-sell-product/1.jpg') }}" alt="product image"></a>
+						<a class="first__img" href="{{ route('review_single') }}"><img src="{{ asset('assets/img/buku/cover/'.$rev->buku->cover)}}" alt="product image"></a>
 					</div>
 					<div class="product__content content--center">
-						<div class="product__hover--content">
+						{{-- <div class="product__hover--content">
 							<ul class="rating d-flex">
 								<li class="on"><i class="fa fa-star-o"></i></li>
 								<li class="on"><i class="fa fa-star-o"></i></li>
@@ -624,135 +238,10 @@
 								<li><i class="fa fa-star-o"></i></li>
 								<li><i class="fa fa-star-o"></i></li>
 							</ul>
-						</div>
+						</div> --}}
 					</div>
 				</div>
-				<!-- Single product end -->
-				<!-- Single product start -->
-				<div class="product product__style--3">
-					<div class="product__thumb">
-						<a class="first__img" href="{{ route('review_single') }}"><img src="{{asset('assets/frontend/images/best-sell-product/2.jpg') }}" alt="product image"></a>
-					</div>
-					<div class="product__content content--center">
-						<div class="product__hover--content">
-							<ul class="rating d-flex">
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Single product end -->
-				<!-- Single product start -->
-				<div class="product product__style--3">
-					<div class="product__thumb">
-						<a class="first__img" href="{{ route('review_single') }}"><img src="{{asset('assets/frontend/images/best-sell-product/3.jpg') }}" alt="product image"></a>
-					</div>
-					<div class="product__content content--center">
-						<div class="product__hover--content">
-							<ul class="rating d-flex">
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Single product end -->
-				<!-- Single product start -->
-				<div class="product product__style--3">
-					<div class="product__thumb">
-						<a class="first__img" href="{{ route('review_single') }}"><img src="{{asset('assets/frontend/images/best-sell-product/4.jpg') }}" alt="product image"></a>
-					</div>
-					<div class="product__content content--center">
-						<div class="product__hover--content">
-							<ul class="rating d-flex">
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Single product end -->
-				<!-- Single product start -->
-				<div class="product product__style--3">
-					<div class="product__thumb">
-						<a class="first__img" href="{{ route('review_single') }}"><img src="{{asset('assets/frontend/images/best-sell-product/5.jpg') }}" alt="product image"></a>
-					</div>
-					<div class="product__content content--center">
-						<div class="product__hover--content">
-							<ul class="rating d-flex">
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Single product end -->
-				<!-- Single product start -->
-				<div class="product product__style--3">
-					<div class="product__thumb">
-						<a class="first__img" href="{{ route('review_single') }}"><img src="{{asset('assets/frontend/images/best-sell-product/6.jpg') }}" alt="product image"></a>
-					</div>
-					<div class="product__content content--center">
-						<div class="product__hover--content">
-							<ul class="rating d-flex">
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Single product end -->
-				<!-- Single product start -->
-				<div class="product product__style--3">
-					<div class="product__thumb">
-						<a class="first__img" href="{{ route('review_single') }}"><img src="{{asset('assets/frontend/images/best-sell-product/7.jpg') }}" alt="product image"></a>
-					</div>
-					<div class="product__content content--center">
-						<div class="product__hover--content">
-							<ul class="rating d-flex">
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Single product end -->
-				<!-- Single product start -->
-				<div class="product product__style--3">
-					<div class="product__thumb">
-						<a class="first__img" href="{{ route('review_single') }}"><img src="{{asset('assets/frontend/images/best-sell-product/8.jpg') }}" alt="product image"></a>
-					</div>
-					<div class="product__content content--center">
-						<div class="product__hover--content">
-							<ul class="rating d-flex">
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-							</ul>
-						</div>
-					</div>
-				</div>
+				@endforeach
 				<!-- Single product end -->
 			</div>
 		</section>

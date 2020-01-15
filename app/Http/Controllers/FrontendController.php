@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Artikel;
+use App\Buku;
+use App\Genre;
+use App\Review;
+
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -13,7 +18,11 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        $buku = Buku::with('kategori')->paginate(6);
+        $allbuku = Buku::with('kategori')->get();
+        $artikel = Artikel::with('buku')->paginate(3);
+        $review = Review::with('buku')->paginate(10);
+        return view('frontend.index', compact('buku', 'artikel', 'review', 'allbuku'));
     }
     public function buku(Request $request)
     {

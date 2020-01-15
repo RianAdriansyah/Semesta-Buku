@@ -74,11 +74,11 @@
         @csrf
             <div class="form-group">
                 <label for="">Judul Review</label>
-                <input type="text" class="form-control" name="judul">            
+                <input type="text" class="form-control" required name="judul">            
             </div>
             <div class="form-group">
                 <label for="">Cover</label>
-                <input type="file" class="form-control" name="cover">            
+                <input type="file" class="form-control" required name="cover">            
             </div>
             <div class="form-group">
                 <label for="">Judul Buku</label>
@@ -92,12 +92,12 @@
               </div>
               <div class="form-group">
                 <label for="">Quotes</label>
-                <input type="text" class="form-control" name="quotes"> 
+                <input type="text" class="form-control" required name="quotes"> 
                 <small class="text-danger">*Opsional</small>           
             </div>
             <div class="form-group">
                 <label for="">Isi</label>
-                <textarea name="isi" cols="30" rows="10" class="form-control" id="editor1"></textarea>
+                <textarea name="isi" cols="30" rows="10" class="form-control" required id="editor1"></textarea>
             </div>
           </div>
           <div class="modal-footer">
