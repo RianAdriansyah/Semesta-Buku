@@ -37,12 +37,17 @@
                       <td>{{ $list->penulis }}</td>
                       <td>{{ $list->kategori->nama_kategori }}</td>
                       <td>{{ $list->rating }}</td>
-                      <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
-                        <i class="fas fa-fw fa-edit"></i></a> &nbsp; &nbsp; &nbsp;
+                    <td class="text-center"><a href="{{ route('buku.edit', $list->id) }}" class="btn btn-sm btn-success rounded">
+                        <i class="fas fa-fw fa-edit"></i></a><br>
                         <a href="{{ route('buku.show', $list->id) }}" class="btn btn-sm btn-info rounded">
-                        <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp;
-                      <a href="" class="btn btn-sm btn-danger rounded">
-                        <i class="fas fa-fw fa-trash-alt"></i></a>
+                        <i class="fas fa-fw fa-info-circle"></i></a>
+                      <form action="{{ route('buku.destroy',$list->id) }}" method="post">
+                          {{csrf_field()}}
+                              <input type="hidden" name="_method" value="DELETE">
+                              <button class="btn btn-sm btn-danger" type="submit">
+                                <i class="fas fa-fw fa-trash-alt"></i>
+                              </button>
+                          </form>
                       </td>
                     </tr>
                     @endforeach
@@ -92,6 +97,7 @@
         </div>
         <div class="form-row">
           <div class="form-group col-lg-6">
+            <label for="Kategori">Kategori</label>
             <select name="kategori_id" class="form-control" required>
               @php
                 $kategori = \App\Kategori::all();

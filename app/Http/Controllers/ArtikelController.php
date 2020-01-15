@@ -102,9 +102,9 @@ class ArtikelController extends Controller
     public function update(Request $request, $id)
     {
         $artikel = Artikel::findOrFail($id);
-        $artikel->judul = $request->judul();
+        $artikel->judul = $request->judul;
         $artikel->user_id = Auth::user()->id;
-        $artikel->buku_id = $request->buku_id();
+        $artikel->buku_id = $request->buku_id;
         # Cover
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
@@ -126,7 +126,7 @@ class ArtikelController extends Controller
         $artikel->konten = $request->konten;
         $artikel->slug = str_slug($request->judul);
         $artikel->save();
-        $artikel->tag()->sync($request->tag);
+        $artikel->genre()->sync($request->genre);
 
         return redirect()->route('artikel.index');
     }

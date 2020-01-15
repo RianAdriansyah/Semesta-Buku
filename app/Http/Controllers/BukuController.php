@@ -102,7 +102,7 @@ class BukuController extends Controller
     public function update(Request $request, $id)
     {
         $buku = Buku::findOrFail($id);
-        $buku->judul = $request->judul();
+        $buku->judul = $request->judul;
         $buku->slug = str_slug($request->judul);
         # Cover
         if ($request->hasFile('cover')) {

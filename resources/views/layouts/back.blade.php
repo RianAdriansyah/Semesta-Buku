@@ -216,6 +216,7 @@
     <script>
       $(document).ready(function() {
         $('#table_id').DataTable();
+        $('#select2').select2();
       });
     </script>
 

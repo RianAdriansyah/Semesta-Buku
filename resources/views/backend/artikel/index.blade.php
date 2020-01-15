@@ -24,7 +24,6 @@
                       <th scope="col">Judul Artikel</th>
                       <th scope="col">Judul Buku</th>
                       <th scope="col">User</th>
-                      <th scope="col">Slug</th>
                       <th scope="col" class="text-center">Aksi</th>
                     </tr>
                   </thead>
@@ -36,13 +35,17 @@
                     <td>{{ $data->judul }}</td>
                       <td>{{ $data->buku->judul }}</td>
                       <td>{{ $data->user->name }}</td>
-                      <td>{{ $data->slug }}</td>
-                      <td class="text-center"><a href="" class="btn btn-sm btn-success rounded">
-                        <i class="fas fa-fw fa-edit"></i></a> &nbsp; &nbsp; &nbsp;
-                        <a href="" class="btn btn-sm btn-info rounded">
-                          <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp;
-                          <a href="" class="btn btn-sm btn-danger rounded">
-                            <i class="fas fa-fw fa-trash-alt"></i></a>
+                    <td class="text-center"><a href="{{ route('artikel.edit', $data->id) }}" class="btn btn-sm btn-success rounded">
+                        <i class="fas fa-fw fa-edit"></i></a> <br>
+                    <a href="{{ route('artikel.show', $data->id) }}" class="btn btn-sm btn-info rounded">
+                          <i class="fas fa-fw fa-info-circle"></i></a>
+                          <form action="{{ route('artikel.destroy',$data->id) }}" method="post">
+                            {{csrf_field()}}
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button class="btn btn-sm btn-danger" type="submit">
+                                  <i class="fas fa-fw fa-trash-alt"></i>
+                                </button>
+                            </form>
                           </td>
                         </tr>
                         @endforeach
@@ -87,12 +90,12 @@
           </div>
           <div class="form-group">
             <label for=""><i class="now-ui-icons larrows-1_cloud-upload-94"></i>Cover</label>
-            <input type="file" class="form-control" name="cover" >            
+            <input type="file" class="form-control" name="cover">            
           </div>
           <div class="form-group">
               <label for="">Genre</label>
               @php $genre = \App\Genre::all(); @endphp
-              <select name="genre[]" class="form-control multiple" required multiple>
+              <select name="genre[]" class="form-control" id="select2" style="width:100%;" required multiple>
                 @foreach ($genre as $list)
               <option value="{{ $list->id }}">{{ $list->nama_genre }}</option>
                 @endforeach

@@ -64,7 +64,7 @@
 						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 							<div class="product__thumb">
 								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/1.jpg') }}" alt="product image"></a>
-								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/2.jpg') }}" alt="product image"></a>
+								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/1.jpg') }}" alt="product image"></a>
 								<div class="hot__box">
 									<span class="hot-label">BEST SALLER</span>
 								</div>
@@ -88,8 +88,8 @@
 					<div class="product product__style--3">
 						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 							<div class="product__thumb">
-								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/3.jpg') }}" alt="product image"></a>
-								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/4.jpg') }}" alt="product image"></a>
+								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/2.jpg') }}" alt="product image"></a>
+								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/2.jpg') }}" alt="product image"></a>
 								<div class="hot__box color--2">
 									<span class="hot-label">HOT</span>
 								</div>
@@ -113,8 +113,8 @@
 					<div class="product product__style--3">
 						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 							<div class="product__thumb">
-								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/5.jpg') }}" alt="product image"></a>
-								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/6.jpg') }}" alt="product image"></a>
+								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/3.jpg') }}" alt="product image"></a>
+								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/3.jpg') }}" alt="product image"></a>
 								<div class="hot__box">
 									<span class="hot-label">BEST SALLER</span>
 								</div>
@@ -138,8 +138,8 @@
 					<div class="product product__style--3">
 						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 							<div class="product__thumb">
-								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/7.jpg') }}" alt="product image"></a>
-								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/8.jpg') }}" alt="product image"></a>
+								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/4.jpg') }}" alt="product image"></a>
+								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/4.jpg') }}" alt="product image"></a>
 								<div class="hot__box">
 									<span class="hot-label">HOT</span>
 								</div>
@@ -163,8 +163,8 @@
 					<div class="product product__style--3">
 						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 							<div class="product__thumb">
-								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/9.jpg') }}" alt="product image"></a>
-								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/10.jpg') }}" alt="product image"></a>
+								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/5.jpg') }}" alt="product image"></a>
+								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/5.jpg') }}" alt="product image"></a>
 								<div class="hot__box">
 									<span class="hot-label">HOT</span>
 								</div>
@@ -188,8 +188,8 @@
 					<div class="product product__style--3">
 						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 							<div class="product__thumb">
-								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/11.jpg') }}" alt="product image"></a>
-								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/2.jpg') }}" alt="product image"></a>
+								<a class="first__img" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/6.jpg') }}" alt="product image"></a>
+								<a class="second__img animation1" href="{{ route('buku_single') }}"><img src="{{asset('assets/frontend/images/books/6.jpg') }}" alt="product image"></a>
 								<div class="hot__box">
 									<span class="hot-label">BEST SALER</span>
 								</div>
