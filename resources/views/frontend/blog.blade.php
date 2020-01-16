@@ -58,7 +58,7 @@
         					<article class="blog__post d-flex flex-wrap">
         						<div class="thumb">
         							<a href="{{ route('blog_single') }}">
-        								<img src="{{ asset('assets/frontend/images/blog/blog-3/2.jpg') }}" alt="blog images">
+        								<img src="{{ asset('assets/frontend/images/blog/blog-3/1.jpg') }}" alt="blog images">
         							</a>
         						</div>
         						<div class="content">
@@ -79,7 +79,7 @@
         					<article class="blog__post d-flex flex-wrap">
         						<div class="thumb">
         							<a href="{{ route('blog_single') }}">
-        								<img src="{{ asset('assets/frontend/images/blog/blog-3/3.jpg') }}" alt="blog images">
+        								<img src="{{ asset('assets/frontend/images/blog/blog-3/1.jpg') }}" alt="blog images">
         							</a>
         						</div>
         						<div class="content">
@@ -100,7 +100,7 @@
         					<article class="blog__post d-flex flex-wrap">
         						<div class="thumb">
         							<a href="{{ route('blog_single') }}">
-        								<img src="{{ asset('assets/frontend/images/blog/blog-3/4.jpg') }}" alt="blog images">
+        								<img src="{{ asset('assets/frontend/images/blog/blog-3/1.jpg') }}" alt="blog images">
         							</a>
         						</div>
         						<div class="content">

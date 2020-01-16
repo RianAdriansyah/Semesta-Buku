@@ -14,7 +14,7 @@
                         <div class="bradcaump__inner text-center">
                         	<h2 class="bradcaump-title">Buku Single</h2>
                             <nav class="bradcaump-content">
-							<a class="breadcrumb_item" href="{{ routw('index') }}">Beranda</a>
+							<a class="breadcrumb_item" href="{{ route('index') }}">Beranda</a>
                               <span class="brd-separetor">/</span>
                               <span class="breadcrumb_item active">Buku Single</span>
                             </nav>

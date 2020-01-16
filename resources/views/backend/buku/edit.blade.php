@@ -47,7 +47,7 @@
                         <label for="Kategori">Kategori</label>
                         <select name="kategori_id" class="form-control" required>
                           @foreach($kategori as $data)
-                          <option value="{{ $data->id }}">{{ $data->nama_kategori }}</option>
+                          <option value="{{ $data->id }}" {{ ($buku->kategori->id == $data->id) ? 'selected': '' }}>{{ $data->nama_kategori }}</option>
                           @endforeach
                         </select>
                       </div>

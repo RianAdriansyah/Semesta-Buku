@@ -16,13 +16,12 @@ class FrontendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $buku = Buku::with('kategori')->paginate(6);
-        $allbuku = Buku::with('kategori')->get();
         $artikel = Artikel::with('buku')->paginate(3);
         $review = Review::with('buku')->paginate(10);
-        return view('frontend.index', compact('buku', 'artikel', 'review', 'allbuku'));
+        return view('frontend.index', compact('buku', 'review', 'artikel'));
     }
     public function buku(Request $request)
     {

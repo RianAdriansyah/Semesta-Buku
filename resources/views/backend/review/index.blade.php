@@ -92,7 +92,7 @@
               </div>
               <div class="form-group">
                 <label for="">Quotes</label>
-                <input type="text" class="form-control" required name="quotes"> 
+                <input type="text" class="form-control" name="quotes"> 
                 <small class="text-danger">*Opsional</small>           
             </div>
             <div class="form-group">

@@ -19,6 +19,7 @@ class ArtikelGenres extends Migration
             $table->bigInteger('genre_id')->unsigned();
             $table->foreign('artikel_id')->references('id')->on('artikels')->onDelete('CASCADE');
             $table->foreign('genre_id')->references('id')->on('genres')->onDelete('CASCADE');
+            $table->string('slug');
             $table->timestamps();
         });
     }

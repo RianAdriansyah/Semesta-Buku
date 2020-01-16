@@ -39,7 +39,7 @@
     					    <h2>Knowledge Is Power</h2>
     					    <div class="skill-container">
     					        <div class="thumb">
-									<img src="{{ asset('assets/frontend/images/about/team/1.jpg') }}" alt="Team images">
+									<img src="{{ asset('assets/frontend/images/about/team/7.jpg') }}" alt="Team images">
 								</div>
     					    </div>
         				</div>
@@ -48,10 +48,9 @@
         				<div class="content">
         					<h3>Membaca Buku</h3>
         					<h2>Menambah Ilmu</h2>
-        					<p class="mt--20 mb--20">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-        					<strong>London Address</strong>
-        					<p>34 Parer Place via Musk Avenue Kelvin Grove, QLD, 4059</p>
-        					<p class="mt--20 mb--20">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+        					<p class="mt--20 mb--20"> &nbsp; Semesta Buku bertujuan untuk menarik minat para pembaca dan menyediakan referensi referensi literatur pengguna untuk menemukan buku buku yang menarik dan terbaik.</p>
+							<p>Semesta buku didirikan pada tahun 2020.</p>
+        					<p class="mt--20 mb--20">&nbsp; Dengan website Semesta Buku ini, pengguna dapat mencari dan menemukan review, identitas buku, artikel dari buku buku yang menarik, terpopuler, terbaik, dll di dunia maupun di Indonesia dengan dikemas secara lengkap.</strong>
         				</div>
         			</div>
         		</div>
@@ -74,18 +73,10 @@
         			<div class="col-lg-4 col-md-4 col-sm-6 col-12">
         				<div class="wn__team">
         					<div class="thumb">
-        						<img src="{{ asset('assets/frontend/images/about/team/1.jpg') }}" alt="Team images">
+        						<img src="{{ asset('assets/frontend/images/about/team/me.png') }}" alt="Team images">
         					</div>
         					<div class="content text-center text_style--2">
-        						<h3>RIAN ADRIANSYAH</h3>
-        						<p>Marketer</p>
-        						<ul class="team__social__net">
-        							<li><a href="#"><i class="icon-social-twitter icons"></i></a></li>
-        							<li><a href="#"><i class="icon-social-tumblr icons"></i></a></li>
-        							<li><a href="#"><i class="icon-social-facebook icons"></i></a></li>
-        							<li><a href="#"><i class="icon-social-linkedin icons"></i></a></li>
-        							<li><a href="#"><i class="icon-social-pinterest icons"></i></a></li>
-        						</ul>
+        						
         					</div>
         				</div>
         			</div>
@@ -94,7 +85,7 @@
         			<div class="col-lg-4 col-md-4 col-sm-6 col-12">
         				<div class="wn__team">
         					<div class="thumb">
-        						<img src="{{ asset('assets/frontend/images/about/team/2.jpg') }}" alt="Team images">
+        						<img src="{{ asset('assets/frontend/images/about/team/me2.jpg') }}" alt="Team images">
         					</div>
         					<div class="content text-center">
         						<h3>RIAN ADRIANSYAH</h3>
@@ -114,18 +105,10 @@
         			<div class="col-lg-4 col-md-4 col-sm-6 col-12">
         				<div class="wn__team">
         					<div class="thumb">
-        						<img src="{{ asset('assets/frontend/images/about/team/3.jpg') }}" alt="Team images">
+        						<img src="{{ asset('assets/frontend/images/about/team/me3.png') }}" alt="Team images">
         					</div>
         					<div class="content text-center">
-        						<h3>RIAN ADRIANSYAH</h3>
-        						<p>Co-Founder</p>
-        						<ul class="team__social__net">
-        							<li><a href="#"><i class="icon-social-twitter icons"></i></a></li>
-        							<li><a href="#"><i class="icon-social-tumblr icons"></i></a></li>
-        							<li><a href="#"><i class="icon-social-facebook icons"></i></a></li>
-        							<li><a href="#"><i class="icon-social-linkedin icons"></i></a></li>
-        							<li><a href="#"><i class="icon-social-pinterest icons"></i></a></li>
-        						</ul>
+        						
         					</div>
         				</div>
         			</div>

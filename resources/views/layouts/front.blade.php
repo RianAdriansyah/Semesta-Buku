@@ -53,8 +53,8 @@
 									<div class="megamenu mega02">
 										<ul class="item item01">
 											<li class="title">Review Buku</li>
-										<li><a href="{{ route('review') }}">Buku 1</a></li>
-										<li><a href="{{ route('review') }}">Buku 2</a></li>
+										<li><a href="{{ route('review') }}">11.11</a></li>
+										<li><a href="{{ route('review') }}">Heart Decor</a></li>
 										</ul>
 									</div>
 								</li>
@@ -62,27 +62,27 @@
 									<div class="megamenu mega03">
 										<ul class="item item03">
 											<li class="title">Kategori</li>
-											<li><a href="#">Biography </a></li>
-											<li><a href="#">Business </a></li>
-											<li><a href="#">Cookbooks </a></li>
-											<li><a href="#">Health & Fitness </a></li>
-											<li><a href="#">History </a></li>
+											<li><a href="#">Biografi </a></li>
+											<li><a href="#">Bisnis </a></li>
+											<li><a href="#">Resep Makanan </a></li>
+											<li><a href="#">Gaya Hidup</a></li>
+											<li><a href="#">Sejarah</a></li>
 										</ul>
 										<ul class="item item03">
 											<li class="title">Genre</li>
-											<li><a href="#">Mystery</a></li>
-											<li><a href="#">Religion & Inspiration</a></li>
-											<li><a href="#">Romance</a></li>
-											<li><a href="#">Fiction/Fantasy</a></li>
-											<li><a href="#">Sleeveless</a></li>
+											<li><a href="#">Misteri</a></li>
+											<li><a href="#">Self-Improvement</a></li>
+											<li><a href="#">Romantis</a></li>
+											<li><a href="#">Fiksi</a></li>
+											<li><a href="#">Humor</a></li>
 										</ul>
 										<ul class="item item03">
 											<li class="title">Koleksi</li>
-											<li><a href="#">Science </a></li>
-											<li><a href="#">Fiction/Fantasy</a></li>
-											<li><a href="#">Self-Improvemen</a></li>
-											<li><a href="#">Home & Garden</a></li>
-											<li><a href="#">Humor Books</a></li>
+											<li><a href="#">How Could ? </a></li>
+											<li><a href="#">11.11</a></li>
+											<li><a href="#">Tanjung Kemarau</a></li>
+											<li><a href="#">Ensiklopedia Sains</a></li>
+											<li><a href="#">Heart Decor</a></li>
 										</ul>
 									</div>
 								</li>
@@ -96,8 +96,8 @@
 						<ul class="header__sidebar__right d-flex justify-content-end align-items-center">
                             <li class="shop_search"><a class="search__active" href="#"></a></li>
                             &nbsp; &nbsp; &nbsp; &nbsp;
-							<li class="setting__bar__icon"><a class="setting__active" href="#"></a>
-								<div class="searchbar__content setting__block">
+							<li>
+								{{-- <div class="searchbar__content setting__block">
 									<div class="content-inner">
 										<div class="switcher-currency">
 											<strong class="label switcher-label">
@@ -116,7 +116,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> --}}
 							</li>
 						</ul>
 					</div>

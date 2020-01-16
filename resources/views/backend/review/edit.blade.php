@@ -36,7 +36,7 @@
                             <select name="buku_id" class="form-control" required>
                               <option value="">-- Pilih Buku --</option>
                               @foreach ($buku as $data)
-                            <option value="{{ $data->id }}" selected>{{ $data->judul }}</option>
+                            <option value="{{ $data->id }}" {{ ($review->buku->id == $data->id) ? 'selected': '' }}>{{ $data->judul }}</option>
                               @endforeach
                             </select>            
                           </div>

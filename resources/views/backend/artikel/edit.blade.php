@@ -26,7 +26,7 @@
                             <label for="">Judul Buku</label>
                             <select name="buku_id" class="form-control" required>
                               @foreach ($buku as $list)
-                            <option value="{{ $list->id }}" selected>{{ $list->judul }}</option>
+                            <option value="{{ $list->id }}"{{ ($artikel->buku->id == $list->id) ? 'selected': '' }}>{{ $list->judul }}</option>
                               @endforeach
                             </select>
                         </div>
