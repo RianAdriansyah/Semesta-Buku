@@ -10,6 +10,7 @@ use App\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Auth;
+use Session;
 
 class ArtikelController extends Controller
 {
@@ -58,6 +59,11 @@ class ArtikelController extends Controller
         $artikel->slug = str_slug($request->judul);
         $artikel->save();
         $artikel->genre()->attach($request->genre);
+
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Artikel <b>$artikel->judul</b> berhasil ditambahkan!"
+        ]);
 
         return redirect()->route('artikel.index');
     }
@@ -129,6 +135,11 @@ class ArtikelController extends Controller
         $artikel->save();
         $artikel->genre()->sync($request->genre);
 
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Artikel <b>$artikel->judul</b> berhasil diedit!"
+        ]);
+
         return redirect()->route('artikel.index');
     }
 
@@ -153,6 +164,11 @@ class ArtikelController extends Controller
 
         $artikel->genre()->detach($artikel->id);
         $artikel->delete();
+
+        Session::flash("flash_notification", [
+            "level" => "danger",
+            "message" => "Artikel <b>$artikel->judul</b> berhasil dihapus!"
+        ]);
 
         return redirect()->route('artikel.index');
     }

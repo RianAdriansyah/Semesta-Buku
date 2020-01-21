@@ -3956,9 +3956,11 @@ h3.widget-title-modal {
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
-  line-height: 30px; }
+  line-height: 30px; 
+}
 .bradcaump__inner .bradcaump-content {
-  padding: 15px 0; }
+  padding: 15px 0;
+ }
   .bradcaump__inner .bradcaump-content .breadcrumb_item {
     font-size: 14px;
     font-style: italic;

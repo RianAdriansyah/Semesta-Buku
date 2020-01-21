@@ -173,14 +173,13 @@
                             </a>
                             <p>Semesta Buku menyediakan beberapa artikel tentang literasi buku, informasi buku beserta review buku yang bisa menambah referensi literatur Anda
 							</p>
-                        </div>
-                        <div class="footer__content">
+						</div>
+                        <div class="footer__content" style="margin-left:30px;">
                             <ul class="social__net social__net--2 d-flex justify-content-center">
-                                <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                                <li><a href="#"><i class="bi bi-google"></i></a></li>
-                                <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-                                <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
-                                <li><a href="#"><i class="bi bi-youtube"></i></a></li>
+                                <li><a href="https://www.facebook.com/rian.adriansyah.98434"><i class="bi bi-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/RianAd01"><i class="bi bi-twitter"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCo9Uy0N2dhhXHTeI8y7ywzw?view_as=subscriber"><i class="bi bi-youtube"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/rian-adriansyah-5b07371a0/"><i class="bi bi-linkedin"></i></a></li>
                             </ul>
                             <ul class="mainmenu d-flex justify-content-center">
                                 <li><a href="{{ route('index') }}">Beranda</a></li>

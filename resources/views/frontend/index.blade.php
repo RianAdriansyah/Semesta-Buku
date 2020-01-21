@@ -15,10 +15,10 @@
 	            		<div class="col-lg-12">
 	            			<div class="slider__content">
 		            			<div class="contentbox">
-		            				<h2 style="color: white;">Cari <span>dan </span></h2>
-		            				<h2 style="color: white;">temukan <span>Buku </span></h2>
-		            				<h2 style="color: white;">terbaik <span>Disini </span></h2>
-				                   	<a class="shopbtn" style="color:white;" href="#">Temukan sekarang</a>
+		            				<h2 style="color: white;">Cari <span style="color:orange">dan </span></h2>
+		            				<h2 style="color: white;">temukan <span style="color:orange">Buku </span></h2>
+		            				<h2 style="color: white;">terbaik <span style="color:orange">Disini </span></h2>
+				                   	<a class="shopbtn" href="#">Temukan sekarang</a>
 		            			</div>
 	            			</div>
 	            		</div>
@@ -33,10 +33,10 @@
 	            		<div class="col-lg-12">
 	            			<div class="slider__content">
 		            			<div class="contentbox">
-		            				<h2 style="color: white;">Cari <span>dan </span></h2>
-		            				<h2 style="color: white;">temukan <span>Buku </span></h2>
-		            				<h2 style="color: white;">terbaik <span>Disini </span></h2>
-				                   	<a class="shopbtn" style="color:white;" href="#">Temukan sekarang</a>
+		            				<h2 style="color: white;">Cari <span style="color:orange">dan </span></h2>
+		            				<h2 style="color: white;">temukan <span style="color:orange">Buku </span></h2>
+		            				<h2 style="color: white;">terbaik <span style="color:orange">Disini </span></h2>
+				                   	<a class="shopbtn" href="#">Temukan sekarang</a>
 		            			</div>
 	            			</div>
 	            		</div>

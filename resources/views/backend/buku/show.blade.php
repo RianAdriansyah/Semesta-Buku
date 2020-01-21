@@ -71,7 +71,7 @@
                         <td>
                           <p>
                             <p>&nbsp; &nbsp;
-								{{ $buku->sinopsis }}</p>
+								{!! $buku->sinopsis !!}</p>
                           </p>
                         </td>
                       </tr>

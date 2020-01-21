@@ -8,6 +8,7 @@ use App\Buku;
 use Illuminate\Support\Facades\File;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Auth;
+use Session;
 
 class ReviewController extends Controller
 {
@@ -56,6 +57,11 @@ class ReviewController extends Controller
         $review->quotes = $request->quotes;
         $review->slug = str_slug($request->judul);
         $review->save();
+
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Review <b>$review->judul</b> berhasil ditambahkan!"
+        ]);
 
         return redirect()->route('review.index');
     }
@@ -122,6 +128,11 @@ class ReviewController extends Controller
         $review->slug = str_slug($request->judul);
         $review->save();
 
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Review <b>$review->judul</b> berhasil diedit!"
+        ]);
+
         return redirect()->route('review.index');
     }
 
@@ -143,6 +154,10 @@ class ReviewController extends Controller
                 //Exception $e;
             }
         }
+        Session::flash("flash_notification", [
+            "level" => "danger",
+            "message" => "Review <b>$review->judul</b> berhasil dihapus!"
+        ]);
         $review->delete();
 
         return redirect()->route('review.index');

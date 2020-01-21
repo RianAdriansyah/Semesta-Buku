@@ -8,6 +8,7 @@ use App\Kategori;
 use Illuminate\Support\Facades\File;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Auth;
+use Session;
 
 
 class BukuController extends Controller
@@ -62,6 +63,11 @@ class BukuController extends Controller
         $buku->jml_halaman = $request->jml_halaman;
         $buku->kategori_id = $request->kategori_id;
         $buku->save();
+
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Buku <b>$buku->judul</b> berhasil ditambahkan!"
+        ]);
 
         return redirect()->route('buku.index');
     }
@@ -132,6 +138,11 @@ class BukuController extends Controller
         $buku->kategori_id = $request->kategori_id;
         $buku->save();
 
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Buku <b>$buku->judul</b> berhasil diedit!"
+        ]);
+
         return redirect()->route('buku.index');
     }
 
@@ -154,6 +165,11 @@ class BukuController extends Controller
             }
         }
         $buku->delete();
+
+        Session::flash("flash_notification", [
+            "level" => "danger",
+            "message" => "Buku <b>$buku->judul</b> berhasil dihapus!"
+        ]);
 
         return redirect()->route('buku.index');
     }

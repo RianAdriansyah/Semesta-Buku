@@ -12,11 +12,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title">Review Single</h2>
+                        	<h2 class="bradcaump-title" style="color:black;">Review Single</h2>
                             <nav class="bradcaump-content">
-							<a class="breadcrumb_item" href="{{ route('index') }}">Beranda</a>
+							<a class="breadcrumb_item" href="{{ route('index') }}" style="color:black;">Beranda</a>
                               <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active">Review Single</span>
+                              <span class="breadcrumb_item active" style="color:orange;">Review Single</span>
                             </nav>
                         </div>
                     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Genre;
+use Session;
 
 class GenreController extends Controller
 {
@@ -41,6 +42,11 @@ class GenreController extends Controller
         $genre->nama_genre = $request->nama_genre;
         $genre->slug = str_slug($request->nama_genre);
         $genre->save();
+
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Genre <b>$genre->nama_genre</b> berhasil ditambahkan!"
+        ]);
 
         return redirect()->route('genre.index');
     }
@@ -83,6 +89,11 @@ class GenreController extends Controller
         $genre->slug = str_slug($request->nama_genre);
         $genre->save();
 
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Genre <b>$genre->nama_genre</b> berhasil diiedit!"
+        ]);
+
         return redirect()->route('genre.index');
     }
 
@@ -97,6 +108,11 @@ class GenreController extends Controller
         $genre = Genre::findOrFail($id);
         $genre->nama_genre;
         $genre->delete();
+
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Genre <b>$genre->nama_genre</b> berhasil dihapus!"
+        ]);
 
         return redirect()->route('genre.index');
     }

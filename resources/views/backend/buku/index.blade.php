@@ -13,7 +13,8 @@
         <div class="col-lg-12">
           <div class="container-fluid">
             <div class="card">
-              <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#tambahBuku">Tambah</a></h6>
+                <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#tambahBuku">Tambah</a></h6>
+                @include('layouts.flash')
               <div class="card-body">
                 <div class="col-lg-12 table-responsive">
                 <table class="table table-hover" id="table_id">
@@ -30,7 +31,7 @@
                   <tbody>
                     @php $no = 1; @endphp
                     @foreach ($buku as $list)
-                        
+
                     <tr>
                       <th scope="row">{{ $no++ }}</th>
                       <td>{{ $list->judul }}</td>
@@ -140,4 +141,4 @@
     </div>
   </div>
 </div>
-@endsection  
+@endsection

@@ -5,16 +5,17 @@
 @endsection
 
 @section('isi')
-<div class="panel-header panel-header-lg-2  ">
+<div class="panel-header panel-header-lg-2">
     {{-- <canvas id="bigDashboardChart"></canvas> --}}
-  </div>
-    <div class="content">
-      <div class="row">
+</div>
+<div class="content">
+    <div class="row">
         <div class="col-lg-12">
-          <div class="container-fluid">
-            <div class="card">
-              <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a></h6>
-              <div class="card-body">
+            <div class="container-fluid">
+                <div class="card">
+                    <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a></h6>
+                    @include('layouts.flash')
+                    <div class="card-body">
                 <div class="col-lg-12 table-responsive">
                 <table class="table table-hover" id="table_id">
                   <thead class="thead-dark" style="font-size: 9px;">
@@ -28,7 +29,7 @@
                   <tbody>
                     @php $no = 1; @endphp
                     @foreach ($kategori as $list)
-                        
+
                     <tr>
                     <th scope="row" style="width:50px;">{{ $no++ }}</th>
                     <td>{{ $list->nama_kategori }}</td>
@@ -70,7 +71,7 @@
           @csrf
           <div class="form-group">
             <label for="exampleInputEmail1">Nama Kategori</label>
-            <input type="text" class="form-control" name="nama_kategori">            
+            <input type="text" class="form-control" name="nama_kategori">
           </div>
         </div>
         <div class="modal-footer">
@@ -81,4 +82,4 @@
     </div>
   </div>
 </div>
-@endsection  
+@endsection

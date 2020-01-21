@@ -12,8 +12,9 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="container-fluid">
-            <div class="card">
-              <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a></h6>
+              <div class="card">
+                  <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a></h6>
+                  @include('layouts.flash')
               <div class="card-body">
                 <div class="col-lg-12 table-responsive">
                 <table class="table table-hover" id="table_id">
@@ -27,10 +28,10 @@
                   </thead>
                   <tbody>
                     @php
-                        $no = 1; 
+                        $no = 1;
                     @endphp
                     @foreach ($review as $list)
-                        
+
                     <tr>
                     <th scope="row">{{ $no++ }}</th>
                     <td>{{ $list->judul }}</td>
@@ -38,7 +39,7 @@
                     <td class="text-center"><a href="{{ route('review.edit', $list->id) }}" class="btn btn-sm btn-success rounded">
                         <i class="fas fa-fw fa-edit"></i></a> <br>
                     <a href="{{ route('review.show', $list->id) }}" class="btn btn-sm btn-info rounded">
-                          <i class="fas fa-fw fa-info-circle"></i></a> 
+                          <i class="fas fa-fw fa-info-circle"></i></a>
                           <form action="{{ route('review.destroy',$list->id) }}" method="post">
                             {{csrf_field()}}
                                 <input type="hidden" name="_method" value="DELETE">
@@ -74,11 +75,11 @@
         @csrf
             <div class="form-group">
                 <label for="">Judul Review</label>
-                <input type="text" class="form-control" required name="judul">            
+                <input type="text" class="form-control" required name="judul">
             </div>
             <div class="form-group">
                 <label for="">Cover</label>
-                <input type="file" class="form-control" required name="cover">            
+                <input type="file" class="form-control" required name="cover">
             </div>
             <div class="form-group">
                 <label for="">Judul Buku</label>
@@ -88,12 +89,12 @@
                   @foreach ($buku as $data)
                 <option value="{{ $data->id }}">{{ $data->judul }}</option>
                   @endforeach
-                </select>            
+                </select>
               </div>
               <div class="form-group">
                 <label for="">Quotes</label>
-                <input type="text" class="form-control" name="quotes"> 
-                <small class="text-danger">*Opsional</small>           
+                <input type="text" class="form-control" name="quotes">
+                <small class="text-danger">*Opsional</small>
             </div>
             <div class="form-group">
                 <label for="">Isi</label>
@@ -108,4 +109,4 @@
     </div>
   </div>
 </div>
-@endsection  
+@endsection

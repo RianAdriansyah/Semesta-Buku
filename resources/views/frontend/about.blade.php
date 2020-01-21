@@ -9,11 +9,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title">Tentang Kami</h2>
+                        	<h2 class="bradcaump-title" style="color:black;">Tentang Kami</h2>
                             <nav class="bradcaump-content">
-							<a class="breadcrumb_item" href="{{ route('index') }}">Beranda</a>
+							<a class="breadcrumb_item" href="{{ route('index') }}" style="color:black;">Beranda</a>
                               <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active">Tentang Kami</span>
+                              <span class="breadcrumb_item active" style="color:orange;">Tentang Kami</span>
                             </nav>
                         </div>
                     </div>
@@ -91,11 +91,11 @@
         						<h3>RIAN ADRIANSYAH</h3>
         						<p>Founder</p>
         						<ul class="team__social__net">
-        							<li><a href="#"><i class="icon-social-twitter icons"></i></a></li>
-        							<li><a href="#"><i class="icon-social-tumblr icons"></i></a></li>
-        							<li><a href="#"><i class="icon-social-facebook icons"></i></a></li>
-        							<li><a href="#"><i class="icon-social-linkedin icons"></i></a></li>
-        							<li><a href="#"><i class="icon-social-pinterest icons"></i></a></li>
+        							<li><a href="https://twitter.com/RianAd01"><i class="icon-social-twitter icons"></i></a></li>
+        							<li><a href="https://www.youtube.com/channel/UCo9Uy0N2dhhXHTeI8y7ywzw?view_as=subscriber"><i class="icon-social-youtube icons"></i></a></li>
+        							<li><a href="https://www.facebook.com/rian.adriansyah.98434"><i class="icon-social-facebook icons"></i></a></li>
+        							<li><a href="https://www.linkedin.com/in/rian-adriansyah-5b07371a0/"><i class="icon-social-linkedin icons"></i></a></li>
+        							<li><a href="https://id.pinterest.com/rianjh2/"><i class="icon-social-pinterest icons"></i></a></li>
         						</ul>
         					</div>
         				</div>

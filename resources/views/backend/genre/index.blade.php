@@ -15,6 +15,7 @@
             <div class="card">
               <h6 class="card-header text-center"><a href="" class="btn btn-primary"
                  data-toggle="modal" data-target="#tambahGenre">Tambah</a></h6>
+                 @include('layouts.flash')
               <div class="card-body">
                 <div class="col-lg-12 table-responsive">
                 <table class="table table-hover" id="table_id">
@@ -34,7 +35,7 @@
                     <td>{{ $list->nama_genre }}</td>
                     <td>{{ $list->slug }}</td>
                     <td class="text-center">
-                      {{-- <a href="{{ route('genre.edit', $list->id) }}" class="btn btn-sm btn-success rounded" 
+                      {{-- <a href="{{ route('genre.edit', $list->id) }}" class="btn btn-sm btn-success rounded"
                     data-toggle="modal" data-target="#editGenre{{ $list->id }}">
                         <i class="fas fa-fw fa-edit"></i></a> --}}
                         <a href="{{ route('genre.edit', $list->id) }}" class="btn btn-sm btn-success rounded"><i class="fas fa-fw fa-edit"></i></a>
@@ -86,4 +87,4 @@
     </div>
   </div>
 </div>
-@endsection  
+@endsection

@@ -13,8 +13,9 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="container-fluid">
-            <div class="card">
-              <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#tambahArtikel">Tambah</a></h6>
+              <div class="card">
+                  <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#tambahArtikel">Tambah</a></h6>
+                  @include('layouts.flash')
               <div class="card-body">
                 <div class="col-lg-12 table-responsive">
                 <table class="table table-hover" id="table_id">
@@ -29,7 +30,7 @@
                   </thead>
                   <tbody>
                     @php $no = 1; @endphp
-                    @foreach ($artikel as $data) 
+                    @foreach ($artikel as $data)
                     <tr>
                     <th scope="row">{{ $no++ }}</th>
                     <td>{{ $data->judul }}</td>
@@ -76,7 +77,7 @@
           <div class="form-row">
             <div class="form-group col-lg-6">
                 <label for="">Judul Artikel</label>
-                <input type="text" class="form-control" required name="judul">            
+                <input type="text" class="form-control" required name="judul">
             </div>
             <div class="form-group col-lg-6">
                 <label for="">Judul Buku</label>
@@ -90,7 +91,7 @@
           </div>
           <div class="form-group">
             <label for=""><i class="now-ui-icons larrows-1_cloud-upload-94"></i>Cover</label>
-            <input type="file" class="form-control" required name="cover">            
+            <input type="file" class="form-control" required name="cover">
           </div>
           <div class="form-group">
               <label for="">Genre</label>
@@ -115,4 +116,4 @@
     </div>
   </div>
 </div>
-@endsection  
+@endsection
