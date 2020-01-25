@@ -33,90 +33,31 @@
         					<div class="page__header">
         						<h2>Blog Kami</h2>
         					</div>
-        					<!-- Start Single Post -->
+							<!-- Start Single Post -->
+							@foreach ($artikel as $item)
+								
         					<article class="blog__post d-flex flex-wrap">
-        						<div class="thumb">
-        							<a href="{{ route('blog_single') }}">
-        								<img src="{{ asset('assets/frontend/images/blog/blog-3/1.jpg') }}" alt="blog images">
+								<div class="thumb">
+									<a href="{{ route('blog_single', $item->slug) }}">
+        								<img src="{{ asset('assets/img/artikel/cover/'.$item->cover)}}" alt="blog images">
         							</a>
         						</div>
         						<div class="content">
-        							<h4><a href="{{ route('blog_single') }}">Blog image post</a></h4>
+								<h4><a href="{{ route('blog_single', $item->slug) }}">{{ $item->judul }}</a></h4>
         							<ul class="post__meta">
-        								<li>Posts by : <a href="#">road theme</a></li>
+									<li>Posts by : <a href="#">{{ $item->user->name }}</a></li>
         								<li class="post_separator">/</li>
-        								<li>Mar 10 2018</li>
+									<li>{{ $item->created_at->diffForHumans() }}</li>
         							</ul>
-        							<p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
+        							<p>{!! str_limit( $item->konten, $limit = 100, $end = '...') !!}</p>
         							<div class="blog__btn">
-        								<a href="{{ route('blog_single') }}">read more</a>
+										<a href="{{ route('blog_single', $item->slug) }}">read more</a>
         							</div>
         						</div>
         					</article>
+							@endforeach
         					<!-- End Single Post -->
-        					<!-- Start Single Post -->
-        					<article class="blog__post d-flex flex-wrap">
-        						<div class="thumb">
-        							<a href="{{ route('blog_single') }}">
-        								<img src="{{ asset('assets/frontend/images/blog/blog-3/1.jpg') }}" alt="blog images">
-        							</a>
-        						</div>
-        						<div class="content">
-        							<h4><a href="{{ route('blog_single') }}">Post with Gallery</a></h4>
-        							<ul class="post__meta">
-        								<li>Posts by : <a href="#">road theme</a></li>
-        								<li class="post_separator">/</li>
-        								<li>Mar 10 2018</li>
-        							</ul>
-        							<p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-        							<div class="blog__btn">
-        								<a href="{{ route('blog_single') }}">read more</a>
-        							</div>
-        						</div>
-        					</article>
-        					<!-- End Single Post -->
-        					<!-- Start Single Post -->
-        					<article class="blog__post d-flex flex-wrap">
-        						<div class="thumb">
-        							<a href="{{ route('blog_single') }}">
-        								<img src="{{ asset('assets/frontend/images/blog/blog-3/1.jpg') }}" alt="blog images">
-        							</a>
-        						</div>
-        						<div class="content">
-        							<h4><a href="{{ route('blog_single') }}">Post with Gallery</a></h4>
-        							<ul class="post__meta">
-        								<li>Posts by : <a href="#">road theme</a></li>
-        								<li class="post_separator">/</li>
-        								<li>Mar 10 2018</li>
-        							</ul>
-        							<p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-        							<div class="blog__btn">
-        								<a href="{{ route('blog_single') }}">read more</a>
-        							</div>
-        						</div>
-        					</article>
-        					<!-- End Single Post -->
-        					<!-- Start Single Post -->
-        					<article class="blog__post d-flex flex-wrap">
-        						<div class="thumb">
-        							<a href="{{ route('blog_single') }}">
-        								<img src="{{ asset('assets/frontend/images/blog/blog-3/1.jpg') }}" alt="blog images">
-        							</a>
-        						</div>
-        						<div class="content">
-        							<h4><a href="{{ route('blog_single') }}">Blog image post</a></h4>
-        							<ul class="post__meta">
-        								<li>Posts by : <a href="#">road theme</a></li>
-        								<li class="post_separator">/</li>
-        								<li>Mar 10 2018</li>
-        							</ul>
-        							<p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-        							<div class="blog__btn">
-        								<a href="{{ route('blog_single') }}">read more</a>
-        							</div>
-        						</div>
-        					</article>
-        					<!-- End Single Post -->
+        					
         				</div>
         				<ul class="wn__pagination">
         					<li class="active"><a href="#">1</a></li>
@@ -143,32 +84,21 @@
         					<aside class="widget category_widget">
         						<h3 class="widget-title">Kategori Buku</h3>
         						<ul>
-        							<li><a href="#">Fashion</a></li>
-        							<li><a href="#">Creative</a></li>
-        							<li><a href="#">Electronics</a></li>
-        							<li><a href="#">Kids</a></li>
-        							<li><a href="#">Flower</a></li>
-        							<li><a href="#">Books</a></li>
-        							<li><a href="#">Jewelle</a></li>
+									@php
+										$kategori = \App\Kategori::all();
+									@endphp
+									@foreach ($kategori as $item)
+								<li><a href="#">{{ $item->nama_kategori }}</a></li>
+									@endforeach
         						</ul>
         					</aside>
 							<!-- End Single Widget -->
 							<aside class="wedget__categories poroduct--tag">
         						<h3 class="wedget__title">Genre Buku</h3>
         						<ul>
-        							<li><a href="#">Biography</a></li>
-        							<li><a href="#">Business</a></li>
-        							<li><a href="#">Cookbooks</a></li>
-        							<li><a href="#">Health & Fitness</a></li>
-        							<li><a href="#">History</a></li>
-        							<li><a href="#">Mystery</a></li>
-        							<li><a href="#">Inspiration</a></li>
-        							<li><a href="#">Religion</a></li>
-        							<li><a href="#">Fiction</a></li>
-        							<li><a href="#">Fantasy</a></li>
-        							<li><a href="#">Music</a></li>
-        							<li><a href="#">Toys</a></li>
-        							<li><a href="#">Hoodies</a></li>
+									@foreach ($genre as $item)
+								<li><a href="#">{{ $item->nama_genre }}</a></li>
+									@endforeach
         						</ul>
         					</aside>
         				</div>

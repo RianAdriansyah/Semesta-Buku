@@ -1,7 +1,7 @@
 ﻿@extends('layouts.front')
 
 @section('web-title')
-	Blog Single
+	{{ $artikel->judul }}
 @endsection
 
 @section('isi')
@@ -12,11 +12,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title" style="color:black;">Blog Single</h2>
+						<h2 class="bradcaump-title" style="color:black;">{{ $artikel->judul }}</h2>
                             <nav class="bradcaump-content">
 							<a class="breadcrumb_item" href="{{ route('index') }}" style="color:black;">Beranda</a>
                               <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active" style="color:orange;">Blog Single</span>
+							<span class="breadcrumb_item active" style="color:black;">{{ $artikel->judul }}</span>
                             </nav>
                         </div>
                     </div>
@@ -31,32 +31,32 @@
 						<div class="blog-details content">
 							<article class="blog-post-details">
 								<div class="post-thumbnail">
-									<img src="{{ asset('assets/frontend/images/blog/big-img/1.jpg') }}" alt="blog images">
+									<img src="{{ asset('assets/img/artikel/cover/'.$artikel->cover)}}" alt="blog images">
 								</div>
 								<div class="post_wrapper">
 									<div class="post_header">
-										<h2>International activities of the Book</h2>
+									<h2>{{ $artikel->judul }}</h2>
 										<div class="blog-date-categori">
 											<ul>
-												<li>June 27, 2018</li>
-												<li><a href="#" title="Posts by boighor" rel="author">boighor</a></li>
+											<li>{{ $artikel->created_at->diffForHumans() }}</li>
+											<li>Judul Buku : <b>{{ $artikel->buku->judul }}</b></li>
+											<li><a href="#" title="Posts by boighor" rel="author">by : {{ $artikel->user->name }}</a></li><br>
 											</ul>
 										</div>
 									</div>
 									<div class="post_content">
-										<p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio. Nunc id leo ultrices, mollis ligula in, finibus tortor. Mauris eu dui ut lectus fermentum eleifend. Pellentesque faucibus sem ante, non malesuada odio varius nec. Suspendisse potenti. Proin consectetur aliquam odio nec fringilla. Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit amet ligula condimentum sagittis.</p>
-
-										<blockquote>Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor deo incididunt labo dolor magna aliqua. Ut enim ad minim veniam quis nostrud geolans work.</blockquote>
-
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehendrit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of to magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehnderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dser mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
+										<p>{!! $artikel->konten !!}</p>
 
 									</div>
 									<ul class="blog_meta">
-										<li><a href="#">3 comments</a></li>
-										<li> / </li>
-										<li>Tags:<span>fashion</span> <span>t-shirt</span> <span>white</span></li>
+											
+										<li>Genre : 
+											<span>
+											@foreach ($genre as $list)
+											{{ $list->nama_genre }}, 
+											@endforeach
+											</span>
+										</li>
 									</ul>
 								</div>
 							</article>
@@ -142,13 +142,10 @@
 							<aside class="widget category_widget">
 								<h3 class="widget-title">Kategori Buku</h3>
 								<ul>
-									<li><a href="#">Fashion</a></li>
-									<li><a href="#">Creative</a></li>
-									<li><a href="#">Electronics</a></li>
-									<li><a href="#">Kids</a></li>
-									<li><a href="#">Flower</a></li>
-									<li><a href="#">Books</a></li>
-									<li><a href="#">Jewelle</a></li>
+									@foreach ($kategori as $item)
+										
+        							<li><a href="#">{{ $item->nama_kategori }} <span>(3)</span></a></li>
+									@endforeach
 								</ul>
 							</aside>
 							<!-- End Single Widget -->
@@ -157,19 +154,10 @@
 							<aside class="wedget__categories poroduct--tag">
         						<h3 class="wedget__title">Genre Buku</h3>
         						<ul>
-        							<li><a href="#">Biography</a></li>
-        							<li><a href="#">Business</a></li>
-        							<li><a href="#">Cookbooks</a></li>
-        							<li><a href="#">Health & Fitness</a></li>
-        							<li><a href="#">History</a></li>
-        							<li><a href="#">Mystery</a></li>
-        							<li><a href="#">Inspiration</a></li>
-        							<li><a href="#">Religion</a></li>
-        							<li><a href="#">Fiction</a></li>
-        							<li><a href="#">Fantasy</a></li>
-        							<li><a href="#">Music</a></li>
-        							<li><a href="#">Toys</a></li>
-        							<li><a href="#">Hoodies</a></li>
+        							@foreach ($genre as $item)
+										
+								<li><a href="#">{{ $item->nama_genre }}</a></li>
+									@endforeach
         						</ul>
         					</aside>
 							<!-- End Single Widget -->

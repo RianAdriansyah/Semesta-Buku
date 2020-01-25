@@ -53,8 +53,13 @@
 									<div class="megamenu mega02">
 										<ul class="item item01">
 											<li class="title">Review Buku</li>
-										<li><a href="{{ route('review') }}">11.11</a></li>
-										<li><a href="{{ route('review') }}">Heart Decor</a></li>
+											@php
+												$review = \App\Review::with('buku')->orderBy('created_at', 'desc')->paginate(5);
+											@endphp
+											@foreach ($review as $item)
+												
+										<li><a href="{{ route('review_single') }}">{{ $item->buku->judul }}</a></li>
+											@endforeach
 										</ul>
 									</div>
 								</li>
@@ -62,28 +67,33 @@
 									<div class="megamenu mega03">
 										<ul class="item item03">
 											<li class="title">Kategori</li>
-											<li><a href="#">Biografi </a></li>
-											<li><a href="#">Bisnis </a></li>
-											<li><a href="#">Resep Makanan </a></li>
-											<li><a href="#">Gaya Hidup</a></li>
-											<li><a href="#">Sejarah</a></li>
+											@php
+												$kategori = \App\Kategori::all();
+											@endphp
+											@foreach ($kategori as $item)
+												
+										<li><a href="#">{{ $item->nama_kategori }}</a></li>
+											@endforeach
 										</ul>
 										<ul class="item item03">
 											<li class="title">Genre</li>
-											<li><a href="#">Misteri</a></li>
-											<li><a href="#">Self-Improvement</a></li>
-											<li><a href="#">Romantis</a></li>
-											<li><a href="#">Fiksi</a></li>
-											<li><a href="#">Humor</a></li>
+											@php
+												$genre = \App\Genre::all();
+											@endphp
+											@foreach ($genre as $item)
+												
+										<li><a href="#">{{ $item->nama_genre }}</a></li>
+											@endforeach
 										</ul>
 										<ul class="item item03">
-											<li class="title">Koleksi</li>
-											<li><a href="#">How Could ? </a></li>
-											<li><a href="#">11.11</a></li>
-											<li><a href="#">Tanjung Kemarau</a></li>
-											<li><a href="#">Ensiklopedia Sains</a></li>
-											<li><a href="#">Heart Decor</a></li>
-										</ul>
+											<li class="title">Koleksi Buku</li>
+											@php
+											$buku = \App\Buku::with('kategori')->orderBy('created_at', 'desc')->paginate(5);
+										@endphp
+										@foreach ($buku as $item)
+											
+									<li><a href="#">{{ $item->judul }}</a></li>
+										@endforeach										</ul>
 									</div>
 								</li>
                             <li class="title"><a href="{{ route('blog') }}">Blog</a>

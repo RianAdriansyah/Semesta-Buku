@@ -1,7 +1,7 @@
 ﻿@extends('layouts.front')
 
 @section('web-title')
-	Buku Single
+	{{ $buku->judul }}
 @endsection
 
 @section('isi')
@@ -12,11 +12,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title" style="color:black;">Buku Single</h2>
+						<h2 class="bradcaump-title" style="color:black;">{{ $buku->judul }}</h2>
                             <nav class="bradcaump-content">
 							<a class="breadcrumb_item" href="{{ route('index') }}" style="color:black;">Beranda</a>
                               <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active" style="color:orange;">Buku Single</span>
+							<span class="breadcrumb_item active" style="color:black;">{{ $buku->judul }}</span>
                             </nav>
                         </div>
                     </div>
@@ -34,13 +34,13 @@
         						<div class="col-lg-6 col-12">
         							<div class="wn__fotorama__wrapper">
 	        							<div class="fotorama wn__fotorama__action" data-nav="thumbs">
-		        							  <a href="1.jpg') }}"><img src="{{ asset('assets/frontend/images/product/1.jpg') }}" alt=""></a>
+		        							  <a href="1.jpg') }}"><img src="{{ asset('assets/img/buku/cover/'.$buku->cover)}}" alt=""></a>
 	        							</div>
         							</div>
         						</div>
         						<div class="col-lg-6 col-12">
         							<div class="product__info__main">
-        								<h1>Who We Are</h1>
+									<h1>{{ $buku->judul }}</h1>
         								<div class="price-box">
         									<ul class="prize d-flex">
 												<ul class="rating d-flex">
@@ -57,32 +57,32 @@
 												<tr>
 													<td style="width: 35%;">Nama Penulis</td>
 													<td style="width: 5%;">: </td>
-													<td>One Direction</td>
+												<td>{{ $buku->penulis }}</td>
 												</tr> <br>
 												<tr>
 													<td style="width: 35%;">Nama Penerbit</td>
 													<td style="width: 5%;">: </td>
-													<td>The Sun</td>
+													<td>{{ $buku->penerbit }}</td>
 												</tr>
 												<tr>
 													<td style="width: 35%;">Kategori</td>
 													<td style="width: 5%;">: </td>
-													<td>Biografi</td>
+													<td>{{ $buku->kategori->nama_kategori }}</td>
 												</tr>
 												<tr>
 													<td style="width: 35%;">Nomor ISBN</td>
 													<td style="width: 5%;">: </td>
-													<td>081910186646</td>
+													<td>{{ $buku->no_isbn }}</td>
 												</tr>
 												<tr>
 													<td style="width: 35%;">Tanggal Terbit</td>
 													<td style="width: 5%;">: </td>
-													<td>21 Desember 2002</td>
+													<td>{{ $buku->tgl_terbit }}</td>
 												</tr>
 												<tr>
 													<td style="width: 35%;">Jumlah Halaman</td>
 													<td style="width: 5%;">: </td>
-													<td>300 Halaman</td>
+													<td>{{ $buku->jml_halaman }} Halaman</td>
 												</tr>
 											</table>
         								</div>
@@ -99,12 +99,7 @@
 	                        	<!-- Start Single Tab Content -->
 	                        	<div class="pro__tab_label tab-pane fade show active" id="nav-details" role="tabpanel">
 									<div class="description__attribute">
-										<p>Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. Thick material blocks out the wind as ribbed cuffs and bottom band seal in body heat.Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. Thick material blocks out the wind as ribbed cuffs and bottom band seal in body heat.Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. Thick material blocks out the wind as ribbed cuffs and bottom band seal in body heat.Ideal for cold-weather training or work outdoors, the Chaz Hoodie promises superior warmth with every wear. Thick material blocks out the wind as ribbed cuffs and bottom band seal in body heat.</p>
-										<ul>
-											<li>• Two-tone gray heather hoodie.</li>
-											<li>• Drawstring-adjustable hood. </li>
-											<li>• Machine wash/dry.</li>
-										</ul>
+										<p>{!! $buku->sinopsis !!}</p>
 									</div>
 	                        	</div>
 	                        	<!-- End Single Tab Content -->
@@ -117,16 +112,20 @@
 							<div class="row mt--60">
 								<div class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
 									<!-- Start Single Product -->
+									@php
+										$new = \App\Buku::with('kategori')->paginate(6);
+									@endphp
+									@foreach ($new as $item)
+										
 									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="{{ asset('assets/frontend/images/books/1.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="{{ asset('assets/frontend/images/books/2.jpg') }}" alt="product image"></a>
+											<a class="first__img" href="{{ route('buku_single', $item->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$item->cover)}}" alt="product image"></a>
 											<div class="hot__box">
-												<span class="hot-label">BEST SALLER</span>
+											<span class="hot-label">{{ $item->kategori->nama_kategori }}</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
-											<h4><a href="single-product.html">robin parrish</a></h4>
+										<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
 											<ul class="prize d-flex">
 												<ul class="rating d-flex">
 													<li class="on"><i class="fa fa-star-o"></i></li>
@@ -138,122 +137,9 @@
 											</ul>
 										</div>
 									</div>
+									@endforeach
 									<!-- Start Single Product -->
-									<!-- Start Single Product -->
-									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
-										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="{{ asset('assets/frontend/images/books/3.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="{{ asset('assets/frontend/images/books/4.jpg') }}" alt="product image"></a>
-											<div class="hot__box color--2">
-												<span class="hot-label">HOT</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="single-product.html">The Remainng</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-									<!-- Start Single Product -->
-									<!-- Start Single Product -->
-									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
-										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="{{ asset('assets/frontend/images/books/7.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="{{ asset('assets/frontend/images/books/8.jpg') }}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">HOT</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="single-product.html">Lando</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-									<!-- Start Single Product -->
-									<!-- Start Single Product -->
-									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
-										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="{{ asset('assets/frontend/images/books/9.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="{{ asset('assets/frontend/images/books/10.jpg') }}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">HOT</span>
-											</div>
-										</div>
-										<div class="product__content content--center">
-											<h4><a href="single-product.html">Doctor Wldo</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-									<!-- Start Single Product -->
-									<!-- Start Single Product -->
-									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
-										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="{{ asset('assets/frontend/images/books/11.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="{{ asset('assets/frontend/images/books/2.jpg') }}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">BEST SALER</span>
-											</div>
-										</div>
-										<div class="product__content content--center content--center">
-											<h4><a href="single-product.html">Animals Life</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-									<!-- Start Single Product -->
-									<!-- Start Single Product -->
-									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
-										<div class="product__thumb">
-											<a class="first__img" href="single-product.html"><img src="{{ asset('assets/frontend/images/books/1.jpg') }}" alt="product image"></a>
-											<a class="second__img animation1" href="single-product.html"><img src="{{ asset('assets/frontend/images/books/6.jpg') }}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">BEST SALER</span>
-											</div>
-										</div>
-										<div class="product__content content--center content--center">
-											<h4><a href="single-product.html">Olio Madu</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
-									<!-- Start Single Product -->
+									
 								</div>
 							</div>
 						</div>
@@ -263,40 +149,20 @@
         					<aside class="wedget__categories poroduct--cat">
         						<h3 class="wedget__title">Kategori Buku</h3>
         						<ul>
-        							<li><a href="#">Biography <span>(3)</span></a></li>
-        							<li><a href="#">Business <span>(4)</span></a></li>
-        							<li><a href="#">Cookbooks <span>(6)</span></a></li>
-        							<li><a href="#">Health & Fitness <span>(7)</span></a></li>
-        							<li><a href="#">History <span>(8)</span></a></li>
-        							<li><a href="#">Mystery <span>(9)</span></a></li>
-        							<li><a href="#">Inspiration <span>(13)</span></a></li>
-        							<li><a href="#">Romance <span>(20)</span></a></li>
-        							<li><a href="#">Fiction/Fantasy <span>(22)</span></a></li>
-        							<li><a href="#">Self-Improvement <span>(13)</span></a></li>
-        							<li><a href="#">Humor Books <span>(17)</span></a></li>
-        							<li><a href="#">Harry Potter <span>(20)</span></a></li>
-        							<li><a href="#">Land of Stories <span>(34)</span></a></li>
-        							<li><a href="#">Kids' Music <span>(60)</span></a></li>
-        							<li><a href="#">Toys & Games <span>(3)</span></a></li>
-        							<li><a href="#">hoodies <span>(3)</span></a></li>
+									@foreach ($kategori as $item)
+										
+        							<li><a href="#">{{ $item->nama_kategori }} <span>(3)</span></a></li>
+									@endforeach
         						</ul>
         					</aside>
         					<aside class="wedget__categories poroduct--tag">
         						<h3 class="wedget__title">Genre Buku</h3>
         						<ul>
-        							<li><a href="#">Biography</a></li>
-        							<li><a href="#">Business</a></li>
-        							<li><a href="#">Cookbooks</a></li>
-        							<li><a href="#">Health & Fitness</a></li>
-        							<li><a href="#">History</a></li>
-        							<li><a href="#">Mystery</a></li>
-        							<li><a href="#">Inspiration</a></li>
-        							<li><a href="#">Religion</a></li>
-        							<li><a href="#">Fiction</a></li>
-        							<li><a href="#">Fantasy</a></li>
-        							<li><a href="#">Music</a></li>
-        							<li><a href="#">Toys</a></li>
-        							<li><a href="#">Hoodies</a></li>
+									@foreach ($genre as $item)
+										
+								<li><a href="#">{{ $item->nama_genre }}</a></li>
+									@endforeach
+        							
         						</ul>
         					</aside>
         				</div>
