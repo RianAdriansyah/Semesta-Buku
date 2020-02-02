@@ -49,10 +49,10 @@
 						<nav class="mainmenu__nav">
 							<ul class="meninmenu d-flex justify-content-start">
                             <li class="drop with--one--item"><a href="{{ route('index') }}">Beranda</a></li>
-                            <li class="drop"><a href="{{ route('review') }}">Review</a>
+                            <li class="drop"><a href="{{ route('review') }}">Ulasan</a>
 									<div class="megamenu mega02">
 										<ul class="item item01">
-											<li class="title">Review Buku</li>
+											<li class="title">Ulasan Buku</li>
 											@php
 												$review = \App\Review::with('buku')->orderBy('created_at', 'desc')->paginate(5);
 											@endphp
@@ -76,13 +76,13 @@
 											@endforeach
 										</ul>
 										<ul class="item item03">
-											<li class="title">Genre</li>
+											<li class="title">Tag</li>
 											@php
-												$genre = \App\Genre::all();
+												$tag = \App\Tag::all();
 											@endphp
-											@foreach ($genre as $item)
+											@foreach ($tag as $item)
 												
-										<li><a href="#">{{ $item->nama_genre }}</a></li>
+										<li><a href="#">{{ $item->nama_tag }}</a></li>
 											@endforeach
 										</ul>
 										<ul class="item item03">
@@ -97,7 +97,7 @@
 									</div>
 								</li>
                             <li class="title"><a href="{{ route('blog') }}">Blog</a>
-                            <li class="title"><a href="{{ route('about') }}">Tentang Kami</a>
+                            <li class="title"><a href="{{ route('about') }}">Tentang</a>
 								</li>
 							</ul>
 						</nav>
@@ -193,10 +193,10 @@
                             </ul>
                             <ul class="mainmenu d-flex justify-content-center">
                                 <li><a href="{{ route('index') }}">Beranda</a></li>
-								<li><a href="{{ route('review') }}">Review</a></li>
+								<li><a href="{{ route('review') }}">Ulasan</a></li>
                                 <li><a href="{{ route('buku') }}">Buku</a></li>
                                 <li><a href="{{ route('blog') }}">Blog</a></li>
-                                <li><a href="{{ route('about') }}">Tentang Kami</a></li>
+                                <li><a href="{{ route('about') }}">Tentang</a></li>
                             </ul>
                         </div>
                     </div>

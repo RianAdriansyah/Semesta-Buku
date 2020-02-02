@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Buku;
+use App\Tag;
 use App\Kategori;
 use Illuminate\Support\Facades\File;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
@@ -63,6 +64,7 @@ class BukuController extends Controller
         $buku->jml_halaman = $request->jml_halaman;
         $buku->kategori_id = $request->kategori_id;
         $buku->save();
+        $buku->tag()->attach($request->tag);
 
         Session::flash("flash_notification", [
             "level" => "success",
@@ -82,7 +84,8 @@ class BukuController extends Controller
     {
         $buku = Buku::findOrFail($id);
         $kategori = Kategori::all();
-        return view('backend.buku.show', compact('buku', 'kategori'));
+        $selected = $buku->tag->pluck('id')->toArray();
+        return view('backend.buku.show', compact('buku', 'kategori', 'selected'));
     }
 
     /**
@@ -95,7 +98,8 @@ class BukuController extends Controller
     {
         $buku = Buku::findOrFail($id);
         $kategori = Kategori::all();
-        return view('backend.buku.edit', compact('buku', 'kategori'));
+        $selected = $buku->tag->pluck('id')->toArray();
+        return view('backend.buku.edit', compact('buku', 'kategori', 'selected'));
     }
 
     /**
@@ -137,6 +141,7 @@ class BukuController extends Controller
         $buku->jml_halaman = $request->jml_halaman;
         $buku->kategori_id = $request->kategori_id;
         $buku->save();
+        $buku->tag()->sync($request->tag);
 
         Session::flash("flash_notification", [
             "level" => "success",
@@ -165,6 +170,7 @@ class BukuController extends Controller
             }
         }
         $buku->delete();
+        $buku->tag()->detach($buku->id);
 
         Session::flash("flash_notification", [
             "level" => "danger",

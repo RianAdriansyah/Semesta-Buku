@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Artikel;
 use App\Buku;
-use App\Genre;
+use App\Tag;
 use App\Review;
 use App\Kategori;
 
@@ -20,7 +20,7 @@ class FrontendController extends Controller
     public function index(Request $request)
     {
         $buku = Buku::with('kategori')->paginate(6);
-        $artikel = Artikel::with('buku')->paginate(3);
+        $artikel = Artikel::with('tag')->paginate(3);
         $review = Review::with('buku')->paginate(10);
         $allbuku = Buku::with('kategori')->paginate(9);
         return view('frontend.index', compact('buku', 'review', 'artikel', 'allbuku'));
@@ -30,21 +30,21 @@ class FrontendController extends Controller
     {
         $buku = Buku::with('kategori')->paginate(9);
         $kategori = Kategori::all();
-        $genre = Genre::all();
-        return view('frontend.buku', compact('buku', 'kategori', 'genre'));
+        $tag = Tag::all();
+        return view('frontend.buku', compact('buku', 'kategori', 'tag'));
     }
     public function blog(Request $request)
     {
-        $artikel = Artikel::with('genre', 'buku')->paginate(5);
-        $genre = Genre::all();
-        return view('frontend.blog', compact('artikel', 'genre'));
+        $artikel = Artikel::with('tag', 'buku')->paginate(5);
+        $tag = Tag::all();
+        return view('frontend.blog', compact('artikel', 'tag'));
     }
     public function review(Request $request)
     {
         $review = Review::with('buku')->paginate(5);
         $kategori = Kategori::all();
-        $genre = Genre::all();
-        return view('frontend.review', compact('review', 'kategori', 'genre'));
+        $tag = Tag::all();
+        return view('frontend.review', compact('review', 'kategori', 'tag'));
     }
     public function about(Request $request)
     {
@@ -53,14 +53,14 @@ class FrontendController extends Controller
     public function buku_single(Buku $buku)
     {
         $kategori = Kategori::all();
-        $genre = Genre::all();
-        return view('frontend.buku_single', compact('buku', 'kategori', 'genre'));
+        $tag = Tag::all();
+        return view('frontend.buku_single', compact('buku', 'kategori', 'tag'));
     }
     public function blog_single(Artikel $artikel)
     {
         $kategori = Kategori::all();
-        $genre = Genre::all();
-        return view('frontend.blog_single', compact('artikel', 'kategori', 'genre'));
+        $tag = Tag::all();
+        return view('frontend.blog_single', compact('artikel', 'kategori', 'tag'));
     }
     public function review_single(Request $request)
     {

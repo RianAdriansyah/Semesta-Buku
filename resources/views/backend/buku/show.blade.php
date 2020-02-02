@@ -74,7 +74,19 @@
 								{!! $buku->sinopsis !!}</p>
                           </p>
                         </td>
-                      </tr>
+					  </tr>
+					  <div class="form-group">
+						<label for="">Tag</label>
+						  @php $tag = \App\Tag::all(); @endphp
+						  <select name="tag[]" class="form-control" id="select2" multiple disabled>
+							@foreach($tag as $data)
+							  <option value="{{ $data->id }}"
+								{{ (in_array($data->id, $selected)) ?
+								'selected="selected"' : '' }}>
+								{{ $data->nama_tag }}</option>
+							@endforeach
+						  </select>
+					  </div>
                     </div>
                     <a name="" id="" class="btn btn-md btn-warning" href="{{route('buku.index')}}" role="button">Kembali</a>
                   </div>

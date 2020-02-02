@@ -19,7 +19,7 @@ Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'backend', 'middleware' => ['auth']], function () {
     Route::resource('/buku', 'BukuController');
-    Route::resource('/genre', 'GenreController');
+    Route::resource('/tag', 'TagController');
     Route::resource('/kategori', 'KategoriController');
     Route::resource('/artikel', 'ArtikelController');
     Route::resource('/review', 'ReviewController');

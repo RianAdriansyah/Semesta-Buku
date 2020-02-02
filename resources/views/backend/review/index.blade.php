@@ -96,6 +96,15 @@
                 <input type="text" class="form-control" name="quotes">
                 <small class="text-danger">*Opsional</small>
             </div>
+            <div class="form-group>
+              <label for="">Tag</label>
+                @php $tag = \App\Tag::all(); @endphp
+                <select name="tag[]" class="form-control" required id="select2" style="width:100%;" required multiple>
+                  @foreach ($tag as $list)
+                <option value="{{ $list->id }}">{{ $list->nama_tag }}</option>
+                  @endforeach
+                </select>
+            </div>
             <div class="form-group">
                 <label for="">Isi</label>
                 <textarea name="isi" cols="30" rows="10" class="form-control" required id="editor1"></textarea>

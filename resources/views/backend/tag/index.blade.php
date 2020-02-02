@@ -1,7 +1,7 @@
 @extends('layouts.back')
 
 @section('web-title')
-    Daftar Genre
+    Daftar Tag
 @endsection
 
 @section('isi')
@@ -14,7 +14,7 @@
           <div class="container-fluid">
             <div class="card">
               <h6 class="card-header text-center"><a href="" class="btn btn-primary"
-                 data-toggle="modal" data-target="#tambahGenre">Tambah</a></h6>
+                 data-toggle="modal" data-target="#tambahTag">Tambah</a></h6>
                  @include('layouts.flash')
               <div class="card-body">
                 <div class="col-lg-12 table-responsive">
@@ -22,26 +22,26 @@
                   <thead class="thead-dark" style="font-size: 9px;">
                     <tr>
                       <th scope="col">No</th>
-                      <th scope="col">Nama Genre</th>
+                      <th scope="col">Nama Tag</th>
                       <th scope="col">Slug</th>
                       <th scope="col" class="text-center">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
                     @php $no = 1; @endphp
-                    @foreach($genre as $list)
+                    @foreach($tag as $list)
                     <tr>
                     <th scope="row" style="width:50px;">{{ $no++ }}</th>
-                    <td>{{ $list->nama_genre }}</td>
+                    <td>{{ $list->nama_tag }}</td>
                     <td>{{ $list->slug }}</td>
                     <td class="text-center">
-                      {{-- <a href="{{ route('genre.edit', $list->id) }}" class="btn btn-sm btn-success rounded"
-                    data-toggle="modal" data-target="#editGenre{{ $list->id }}">
+                      {{-- <a href="{{ route('tag.edit', $list->id) }}" class="btn btn-sm btn-success rounded"
+                    data-toggle="modal" data-target="#edittag{{ $list->id }}">
                         <i class="fas fa-fw fa-edit"></i></a> --}}
-                        <a href="{{ route('genre.edit', $list->id) }}" class="btn btn-sm btn-success rounded"><i class="fas fa-fw fa-edit"></i></a>
+                        <a href="{{ route('tag.edit', $list->id) }}" class="btn btn-sm btn-success rounded"><i class="fas fa-fw fa-edit"></i></a>
                       {{-- <a href="" class="btn btn-sm btn-info rounded">
                         <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp; --}}
-                        <form action="{{ route('genre.destroy',$list->id) }}" method="post">
+                        <form action="{{ route('tag.destroy',$list->id) }}" method="post">
                           {{csrf_field()}}
                               <input type="hidden" name="_method" value="DELETE">
                               <button class="btn btn-sm btn-danger" type="submit">
@@ -62,21 +62,21 @@
   </div>
 
 <!-- Modal Tambah-->
-<div class="modal fade" id="tambahGenre" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tambahGenreLabel" aria-hidden="true">
+<div class="modal fade" id="tambahTag" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="tambahTagLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="tambahGenreLabel">Tambah Genre</h5>
+        <h5 class="modal-title" id="tambahTagLabel">Tambah Tag</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{ route('genre.store') }}" method="post">
+        <form action="{{ route('tag.store') }}" method="post">
           {{ csrf_field() }}
           <div class="form-group">
-            <label for="nama_genre">Nama Genre</label>
-            <input type="text" class="form-control" name="nama_genre" required>
+            <label for="nama_tag">Nama Tag</label>
+            <input type="text" class="form-control" name="nama_tag" required>
           </div>
         </div>
       <div class="modal-footer">

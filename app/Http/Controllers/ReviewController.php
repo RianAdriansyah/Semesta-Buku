@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Review;
 use App\Buku;
+use App\Tag;
 use Illuminate\Support\Facades\File;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Auth;
@@ -57,6 +58,7 @@ class ReviewController extends Controller
         $review->quotes = $request->quotes;
         $review->slug = str_slug($request->judul);
         $review->save();
+        $review->tag()->attach($request->tag);
 
         Session::flash("flash_notification", [
             "level" => "success",
@@ -76,7 +78,8 @@ class ReviewController extends Controller
     {
         $review = Review::findOrFail($id);
         $buku = Buku::all();
-        return view('backend.review.show', compact('buku', 'review'));
+        $selected = $review->tag->pluck('id')->toArray();
+        return view('backend.review.show', compact('buku', 'review', 'selected'));
     }
 
     /**
@@ -89,7 +92,8 @@ class ReviewController extends Controller
     {
         $review = Review::findOrFail($id);
         $buku = Buku::all();
-        return view('backend.review.edit', compact('buku', 'review'));
+        $selected = $review->tag->pluck('id')->toArray();
+        return view('backend.review.edit', compact('buku', 'review', 'selected'));
     }
 
     /**
@@ -127,6 +131,7 @@ class ReviewController extends Controller
         $review->quotes = $request->quotes;
         $review->slug = str_slug($request->judul);
         $review->save();
+        $review->tag()->sync($request->tag);
 
         Session::flash("flash_notification", [
             "level" => "success",
@@ -159,6 +164,7 @@ class ReviewController extends Controller
             "message" => "Review <b>$review->judul</b> berhasil dihapus!"
         ]);
         $review->delete();
+        $review->tag()->detach($review->id);
 
         return redirect()->route('review.index');
     }

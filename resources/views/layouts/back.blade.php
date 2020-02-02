@@ -44,9 +44,9 @@
             </a>
           </li>
           <li>
-          <a href="{{ route('genre.index') }}">
+          <a href="{{ route('tag.index') }}">
               <i class="now-ui-icons education_atom"></i>
-              <p>Daftar Genre</p>
+              <p>Daftar Tag</p>
             </a>
           </li>
           <li>

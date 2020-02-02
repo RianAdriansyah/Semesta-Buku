@@ -31,6 +31,18 @@
                             </div>
                         </div>
                         <div class="form-group">
+                          <label for="">Tag</label>
+                          @php $tag = \App\Tag::all(); @endphp
+                          <select name="tag[]" class="form-control" id="select2" multiple>
+                            @foreach($tag as $data)
+                              <option value="{{ $data->id }}"
+                                {{ (in_array($data->id, $selected)) ?
+                                'selected="selected"' : '' }}>
+                                {{ $data->nama_tag }}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="form-group">
                             <label for="">Judul Buku</label>
                             @php $buku = \App\Buku::all(); @endphp
                             <select name="buku_id" class="form-control" required>

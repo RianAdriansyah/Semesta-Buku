@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGenresTable extends Migration
+class ArtikelTags extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateGenresTable extends Migration
      */
     public function up()
     {
-        Schema::create('genres', function (Blueprint $table) {
+        Schema::create('artikel_tags', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama_genre');
-            $table->string('slug');
+            $table->bigInteger('artikel_id')->unsigned();
+            $table->bigInteger('tag_id')->unsigned();
+            $table->foreign('artikel_id')->references('id')->on('artikels')->onDelete('CASCADE');
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('CASCADE');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateGenresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('genres');
+        //
     }
 }

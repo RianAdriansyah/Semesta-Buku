@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Artikel;
-use App\Buku;
-use App\Genre;
+use App\Tag;
 use App\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
@@ -21,7 +20,7 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        $artikel = Artikel::with('buku')->get();
+        $artikel = Artikel::all();
 
         return view('backend.artikel.index', compact('artikel'));
     }
@@ -46,7 +45,6 @@ class ArtikelController extends Controller
         $artikel = new Artikel;
         $artikel->judul = $request->judul;
         $artikel->user_id = Auth::user()->id;
-        $artikel->buku_id = $request->buku_id;
         # Cover
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
@@ -58,7 +56,7 @@ class ArtikelController extends Controller
         $artikel->konten = $request->konten;
         $artikel->slug = str_slug($request->judul);
         $artikel->save();
-        $artikel->genre()->attach($request->genre);
+        $artikel->tag()->attach($request->tag);
 
         Session::flash("flash_notification", [
             "level" => "success",
@@ -77,10 +75,10 @@ class ArtikelController extends Controller
     public function show($id)
     {
         $artikel = Artikel::findOrFail($id);
-        $genre = Genre::all();
-        $selected = $artikel->genre->pluck('id')->toArray();
+        $tag = Tag::all();
+        $selected = $artikel->tag->pluck('id')->toArray();
 
-        return view('backend.artikel.show', compact('selected', 'artikel', 'genre'));
+        return view('backend.artikel.show', compact('selected', 'artikel', 'tag'));
     }
 
     /**
@@ -92,11 +90,10 @@ class ArtikelController extends Controller
     public function edit($id)
     {
         $artikel = Artikel::findOrFail($id);
-        $buku = Buku::all();
-        $genre = Genre::all();
-        $selected = $artikel->genre->pluck('id')->toArray();
+        $tag = Tag::all();
+        $selected = $artikel->tag->pluck('id')->toArray();
 
-        return view('backend.artikel.edit', compact('selected', 'artikel', 'genre', 'buku'));
+        return view('backend.artikel.edit', compact('selected', 'artikel', 'tag'));
     }
 
     /**
@@ -111,7 +108,6 @@ class ArtikelController extends Controller
         $artikel = Artikel::findOrFail($id);
         $artikel->judul = $request->judul;
         $artikel->user_id = Auth::user()->id;
-        $artikel->buku_id = $request->buku_id;
         # Cover
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
@@ -133,7 +129,7 @@ class ArtikelController extends Controller
         $artikel->konten = $request->konten;
         $artikel->slug = str_slug($request->judul);
         $artikel->save();
-        $artikel->genre()->sync($request->genre);
+        $artikel->tag()->sync($request->tag);
 
         Session::flash("flash_notification", [
             "level" => "success",
@@ -162,7 +158,7 @@ class ArtikelController extends Controller
             }
         }
 
-        $artikel->genre()->detach($artikel->id);
+        $artikel->tag()->detach($artikel->id);
         $artikel->delete();
 
         Session::flash("flash_notification", [

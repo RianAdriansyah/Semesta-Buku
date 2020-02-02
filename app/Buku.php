@@ -12,6 +12,10 @@ class Buku extends Model
     {
         return $this->belongsTo('App\Kategori', 'kategori_id');
     }
+    public function tag()
+    {
+        return $this->belongsToMany('App\Tag', 'buku_tags', 'buku_id', 'tag_id');
+    }
 
     public function artikel()
     {

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Genre;
+use App\Tag;
 use Session;
 
-class GenreController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class GenreController extends Controller
      */
     public function index()
     {
-        $genre = Genre::all();
+        $tag = Tag::all();
 
-        return view('backend.genre.index', compact('genre'));
+        return view('backend.tag.index', compact('tag'));
     }
 
     /**
@@ -38,17 +38,17 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        $genre = new Genre;
-        $genre->nama_genre = $request->nama_genre;
-        $genre->slug = str_slug($request->nama_genre);
-        $genre->save();
+        $tag = new Tag;
+        $tag->nama_tag = $request->nama_tag;
+        $tag->slug = str_slug($request->nama_tag);
+        $tag->save();
 
         Session::flash("flash_notification", [
             "level" => "success",
-            "message" => "Genre <b>$genre->nama_genre</b> berhasil ditambahkan!"
+            "message" => "tag <b>$tag->nama_tag</b> berhasil ditambahkan!"
         ]);
 
-        return redirect()->route('genre.index');
+        return redirect()->route('tag.index');
     }
 
     /**
@@ -70,9 +70,9 @@ class GenreController extends Controller
      */
     public function edit($id)
     {
-        $genre = Genre::findOrFail($id);
+        $tag = Tag::findOrFail($id);
 
-        return view('backend.genre.edit', compact('genre'));
+        return view('backend.tag.edit', compact('tag'));
     }
 
     /**
@@ -84,17 +84,17 @@ class GenreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $genre = Genre::findOrFail($id);
-        $genre->nama_genre = $request->nama_genre;
-        $genre->slug = str_slug($request->nama_genre);
-        $genre->save();
+        $tag = Tag::findOrFail($id);
+        $tag->nama_tag = $request->nama_tag;
+        $tag->slug = str_slug($request->nama_tag);
+        $tag->save();
 
         Session::flash("flash_notification", [
             "level" => "success",
-            "message" => "Genre <b>$genre->nama_genre</b> berhasil diiedit!"
+            "message" => "tag <b>$tag->nama_tag</b> berhasil diiedit!"
         ]);
 
-        return redirect()->route('genre.index');
+        return redirect()->route('tag.index');
     }
 
     /**
@@ -105,15 +105,15 @@ class GenreController extends Controller
      */
     public function destroy($id)
     {
-        $genre = Genre::findOrFail($id);
-        $genre->nama_genre;
-        $genre->delete();
+        $tag = Tag::findOrFail($id);
+        $tag->nama_tag;
+        $tag->delete();
 
         Session::flash("flash_notification", [
             "level" => "success",
-            "message" => "Genre <b>$genre->nama_genre</b> berhasil dihapus!"
+            "message" => "tag <b>$tag->nama_tag</b> berhasil dihapus!"
         ]);
 
-        return redirect()->route('genre.index');
+        return redirect()->route('tag.index');
     }
 }

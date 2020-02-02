@@ -23,7 +23,6 @@
                     <tr>
                       <th scope="col">No</th>
                       <th scope="col">Judul Artikel</th>
-                      <th scope="col">Judul Buku</th>
                       <th scope="col">User</th>
                       <th scope="col" class="text-center">Aksi</th>
                     </tr>
@@ -34,7 +33,6 @@
                     <tr>
                     <th scope="row">{{ $no++ }}</th>
                     <td>{{ $data->judul }}</td>
-                      <td>{{ $data->buku->judul }}</td>
                       <td>{{ $data->user->name }}</td>
                     <td class="text-center"><a href="{{ route('artikel.edit', $data->id) }}" class="btn btn-sm btn-success rounded">
                         <i class="fas fa-fw fa-edit"></i></a> <br>
@@ -80,25 +78,16 @@
                 <input type="text" class="form-control" required name="judul">
             </div>
             <div class="form-group col-lg-6">
-                <label for="">Judul Buku</label>
-                @php $buku = \App\Buku::all(); @endphp
-                <select name="buku_id" class="form-control" required>
-                  @foreach ($buku as $list)
-                <option value="{{ $list->id }}">{{ $list->judul }}</option>
-                  @endforeach
-                </select>
+              <label for=""><i class="now-ui-icons larrows-1_cloud-upload-94"></i>Cover</label>
+              <input type="file" class="form-control" required name="cover">
             </div>
           </div>
           <div class="form-group">
-            <label for=""><i class="now-ui-icons larrows-1_cloud-upload-94"></i>Cover</label>
-            <input type="file" class="form-control" required name="cover">
-          </div>
-          <div class="form-group">
-              <label for="">Genre</label>
-              @php $genre = \App\Genre::all(); @endphp
-              <select name="genre[]" class="form-control" required id="select2" style="width:100%;" required multiple>
-                @foreach ($genre as $list)
-              <option value="{{ $list->id }}">{{ $list->nama_genre }}</option>
+              <label for="">Tag</label>
+              @php $tag = \App\Tag::all(); @endphp
+              <select name="tag[]" class="form-control" required id="select2" style="width:100%;" required multiple>
+                @foreach ($tag as $list)
+              <option value="{{ $list->id }}">{{ $list->nama_tag }}</option>
                 @endforeach
               </select>
           </div>

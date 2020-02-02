@@ -396,7 +396,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section__title text-center">
-							<h2 class="title__be--2">Blog <span class="color--theme">Kami</span></h2>
+							<h2 class="title__be--2">Blog <span class="color--theme">Ini</span></h2>
 							<p>Beberapa artikel yang berkaitan dengan literasi buku/novel disajikan disini</p>
 						</div>
 					</div>
@@ -426,7 +426,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section__title text-center pb--50">
-							<h2 class="title__be--2">Review <span class="color--theme">Buku </span></h2>
+							<h2 class="title__be--2">Ulasan <span class="color--theme">Buku </span></h2>
 							<p>Beberapa review buku Nasional/Internasional tersedia disini untuk referensi Anda</p>
 						</div>
 					</div>

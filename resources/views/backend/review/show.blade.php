@@ -34,8 +34,20 @@
                           <input type="text" class="form-control" name="quotes" value="{{ $review->quotes }}" disabled> 
                         </div>
                         <div class="form-group">
+                          <label for="">Tag</label>
+                          @php $tag = \App\Tag::all(); @endphp
+                          <select name="tag[]" class="form-control" id="select2" multiple disabled>
+                            @foreach($tag as $data)
+                              <option value="{{ $data->id }}"
+                                {{ (in_array($data->id, $selected)) ?
+                                'selected="selected"' : '' }}>
+                                {{ $data->nama_tag }}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="form-group">
                             <label for="">Isi</label>
-                            <textarea name="isi" cols="30" rows="10" class="form-control" disabled>
+                            <textarea name="isi" cols="30" rows="10" class="form-control" disabled id="editor1">
                                 {{ $review->isi }}
                             </textarea>
                         </div>

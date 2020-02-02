@@ -94,10 +94,10 @@
         					</aside>
 							<!-- End Single Widget -->
 							<aside class="wedget__categories poroduct--tag">
-        						<h3 class="wedget__title">Genre Buku</h3>
+        						<h3 class="wedget__title">Tag Buku</h3>
         						<ul>
-									@foreach ($genre as $item)
-								<li><a href="#">{{ $item->nama_genre }}</a></li>
+									@foreach ($tag as $item)
+								<li><a href="#">{{ $item->nama_tag }}</a></li>
 									@endforeach
         						</ul>
         					</aside>

@@ -1,7 +1,7 @@
 @extends('layouts.front')
 
 @section('web-title')
-	Review
+	Ulasan
 @endsection
 
 @section('isi')
@@ -12,11 +12,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title" style="color:black;">Review Buku</h2>
+                        	<h2 class="bradcaump-title" style="color:black;">Ulasan Buku</h2>
                             <nav class="bradcaump-content">
                             <a class="breadcrumb_item" href="{{ route('index') }}" style="color:black;">Beranda</a>
                               <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active" style="color:darkorange;">Review</span>
+                              <span class="breadcrumb_item active" style="color:darkorange;">Ulasan</span>
                             </nav>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
         			<div class="col-lg-9 col-12">
         				<div class="blog-page">
         					<div class="page__header">
-        						<h2>Review Buku</h2>
+        						<h2>Ulasan Buku</h2>
         					</div>
 							<!-- Start Single Post -->
 							@foreach ($review as $rev)
@@ -93,11 +93,11 @@
         					<!-- End Single Widget -->
         					<!-- Start Single Widget -->
         					<aside class="wedget__categories poroduct--tag">
-        						<h3 class="wedget__title">Genre Buku</h3>
+        						<h3 class="wedget__title">Tag Buku</h3>
         						<ul>
-									@foreach ($genre as $item)
+									@foreach ($tag as $item)
 										
-								<li><a href="#">{{ $item->nama_genre }}</a></li>
+								<li><a href="#">{{ $item->nama_tag }}</a></li>
 									@endforeach
         						</ul>
         					</aside>

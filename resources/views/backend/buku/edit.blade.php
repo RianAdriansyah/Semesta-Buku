@@ -52,8 +52,16 @@
                         </select>
                       </div>
                       <div class="form-group col-lg-6">
-                        <label for="">Nomor ISBN</label>
-                        <input type="text" class="form-control" value="{{ $buku->no_isbn }}" name="no_isbn">
+                        <label for="">Tag</label>
+                          @php $tag = \App\Tag::all(); @endphp
+                          <select name="tag[]" class="form-control" id="select2" multiple>
+                            @foreach($tag as $data)
+                              <option value="{{ $data->id }}"
+                                {{ (in_array($data->id, $selected)) ?
+                                'selected="selected"' : '' }}>
+                                {{ $data->nama_tag }}</option>
+                            @endforeach
+                          </select>
                       </div>
                     </div>
                     <div class="form-row">
@@ -62,14 +70,20 @@
                         <input type="number" class="form-control" value="{{ $buku->rating }}" name="rating">
                       </div>
                       <div class="form-group col-lg-6">
+                        <label for="">Nomor ISBN</label>
+                        <input type="text" class="form-control" value="{{ $buku->no_isbn }}" name="no_isbn">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-lg-6">
                         <label for="">Jumlah Halaman</label>
                         <input type="number" class="form-control" value="{{ $buku->jml_halaman }}" name="jml_halaman">
                       </div>
-                    </div>
-                      <div class="form-group">
+                      <div class="form-group col-lg-6">
                         <label for="">Tanggal Terbit</label>
                         <input type="date" class="form-control" value="{{ $buku->tgl_terbit }}" name="tgl_terbit">
                       </div>
+                    </div>
                       <div class="form-group">
                         <label for="">Sinopsis</label>
                         <textarea name="sinopsis" cols="30" rows="10" class="form-control" id="editor1">

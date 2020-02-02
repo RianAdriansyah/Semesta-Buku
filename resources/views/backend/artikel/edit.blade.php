@@ -22,14 +22,6 @@
                             <label for="">Judul Artikel</label>
                             <input type="text" class="form-control" value="{{ $artikel->judul }}" name="judul">            
                         </div>
-                        <div class="form-group col-lg-6">
-                            <label for="">Judul Buku</label>
-                            <select name="buku_id" class="form-control" required>
-                              @foreach ($buku as $list)
-                            <option value="{{ $list->id }}"{{ ($artikel->buku->id == $list->id) ? 'selected': '' }}>{{ $list->judul }}</option>
-                              @endforeach
-                            </select>
-                        </div>
                       </div>
                       <div class="form-row">
                         <div class="form-group col-lg-4">
@@ -41,14 +33,14 @@
                         </div>
                     </div>
                       <div class="form-group">
-                          <label for="">Genre</label>
-                          @php $genre = \App\Genre::all(); @endphp
-                          <select name="genre[]" class="form-control" id="select2" multiple>
-                            @foreach($genre as $data)
+                          <label for="">Tag</label>
+                          @php $tag = \App\Tag::all(); @endphp
+                          <select name="tag[]" class="form-control" id="select2" multiple>
+                            @foreach($tag as $data)
                               <option value="{{ $data->id }}"
                                 {{ (in_array($data->id, $selected)) ?
                                 'selected="selected"' : '' }}>
-                                {{ $data->nama_genre }}</option>
+                                {{ $data->nama_tag }}</option>
                             @endforeach
                           </select>
                       </div>

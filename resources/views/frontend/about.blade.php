@@ -9,11 +9,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title" style="color:black;">Tentang Kami</h2>
+                        	<h2 class="bradcaump-title" style="color:black;">Tentang</h2>
                             <nav class="bradcaump-content">
 							<a class="breadcrumb_item" href="{{ route('index') }}" style="color:black;">Beranda</a>
                               <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active" style="color:orange;">Tentang Kami</span>
+                              <span class="breadcrumb_item active" style="color:orange;">Tentang</span>
                             </nav>
                         </div>
                     </div>
@@ -63,8 +63,8 @@
         		<div class="row">
         			<div class="col-lg-12">
         				<div class="section__title--3 text-center">
-        					<h2>Profil Kami</h2>
-        					<p>Beberapa elemen yang penting bagi blog kami</p>
+        					<h2>Profil</h2>
+        					<p>Beberapa elemen yang penting bagi blog ini</p>
         				</div>
         			</div>
         		</div>

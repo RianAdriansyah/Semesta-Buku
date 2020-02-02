@@ -23,29 +23,25 @@
                             <input type="text" class="form-control" disabled value="{{ $artikel->judul }}" name="judul">            
                         </div>
                         <div class="form-group col-lg-6">
-                            <label for="">Judul Buku</label>
-                        <input type="text" name="judul" class="form-control" value="{{ $artikel->buku->judul }}" disabled>
+                            <label for=""><i class="now-ui-icons larrows-1_cloud-upload-94"></i>Cover</label> <br>
+                            <img src="{{ asset('assets/img/artikel/cover/'.$artikel->cover)}}" width="40%" alt="product image">
                         </div>
                       </div>
                       <div class="form-group">
-                          <label for=""><i class="now-ui-icons larrows-1_cloud-upload-94"></i>Cover</label> <br>
-                          <img src="{{ asset('assets/img/artikel/cover/'.$artikel->cover)}}" width="40%" alt="product image">
-                      </div>
-                      <div class="form-group">
-                          <label for="">Genre</label>
-                          @php $genre = \App\Genre::all(); @endphp
-                          <select name="genre[]" class="form-control" id="select2" multiple disabled>
-                            @foreach($genre as $data)
+                          <label for="">Tag</label>
+                          @php $tag = \App\Tag::all(); @endphp
+                          <select name="tag[]" class="form-control" id="select2" multiple disabled>
+                            @foreach($tag as $data)
                               <option value="{{ $data->id }}"
                                 {{ (in_array($data->id, $selected)) ?
                                 'selected="selected"' : '' }}>
-                                {{ $data->nama_genre }}</option>
+                                {{ $data->nama_tag }}</option>
                             @endforeach
                           </select>
                       </div>
                       <div class="form-group">
                           <label for="">Konten</label>
-                          <textarea name="konten" cols="30" rows="10" class="form-control" disabled >
+                          <textarea name="konten" cols="30" rows="10" class="form-control" disabled id="editor1">
                               {!! $artikel->konten !!}
                           </textarea>
                       </div>

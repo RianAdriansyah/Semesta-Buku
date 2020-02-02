@@ -39,7 +39,6 @@
 										<div class="blog-date-categori">
 											<ul>
 											<li>{{ $artikel->created_at->diffForHumans() }}</li>
-											<li>Judul Buku : <b>{{ $artikel->buku->judul }}</b></li>
 											<li><a href="#" title="Posts by boighor" rel="author">by : {{ $artikel->user->name }}</a></li><br>
 											</ul>
 										</div>
@@ -50,10 +49,10 @@
 									</div>
 									<ul class="blog_meta">
 											
-										<li>Genre : 
+										<li>Tag : 
 											<span>
-											@foreach ($genre as $list)
-											{{ $list->nama_genre }}, 
+											@foreach ($tag as $list)
+											{{ $list->nama_tag }}, 
 											@endforeach
 											</span>
 										</li>
@@ -152,11 +151,11 @@
 							
 							<!-- Start Single Widget -->
 							<aside class="wedget__categories poroduct--tag">
-        						<h3 class="wedget__title">Genre Buku</h3>
+        						<h3 class="wedget__title">Tag Buku</h3>
         						<ul>
-        							@foreach ($genre as $item)
+        							@foreach ($tag as $item)
 										
-								<li><a href="#">{{ $item->nama_genre }}</a></li>
+								<li><a href="#">{{ $item->nama_tag }}</a></li>
 									@endforeach
         						</ul>
         					</aside>

@@ -8,6 +8,11 @@ class Review extends Model
 {
     public $timestamps = true;
 
+    public function tag()
+    {
+        return $this->belongsToMany('App\Tag', 'review_tags', 'review_id', 'tag_id');
+    }
+
     public function user()
     {
         return $this->belongsTo('App\User', 'user_id');

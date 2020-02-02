@@ -109,8 +109,13 @@
             </select>
           </div>
           <div class="form-group col-lg-6">
-            <label for="">Nomor ISBN</label>
-            <input type="text" class="form-control" required name="no_isbn">
+            <label for="">Tag</label>
+              @php $tag = \App\Tag::all(); @endphp
+              <select name="tag[]" class="form-control" required id="select2" style="width:100%;" required multiple>
+                @foreach ($tag as $list)
+              <option value="{{ $list->id }}">{{ $list->nama_tag }}</option>
+                @endforeach
+              </select>
           </div>
         </div>
         <div class="form-row">
@@ -119,14 +124,20 @@
             <input type="number" class="form-control" required name="rating">
           </div>
           <div class="form-group col-lg-6">
+            <label for="">Nomor ISBN</label>
+            <input type="text" class="form-control" required name="no_isbn">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-lg-6">
             <label for="">Jumlah Halaman</label>
             <input type="number" class="form-control" required name="jml_halaman">
           </div>
-        </div>
-          <div class="form-group">
+          <div class="form-group col-lg-6">
             <label for="">Tanggal Terbit</label>
             <input type="date" class="form-control" required name="tgl_terbit">
           </div>
+        </div>
           <div class="form-group">
             <label for="">Sinopsis</label>
             <textarea name="sinopsis" cols="30" rows="10" class="form-control" required id="editor1"></textarea>

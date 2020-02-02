@@ -1,7 +1,7 @@
 @extends('layouts.back')
 
 @section('web-title')
-    Edit Genre
+    Edit Tag
 @endsection
 
 @section('isi')
@@ -14,15 +14,15 @@
           <div class="container-fluid">
             <div class="card">
               <div class="card-body">
-              <form action="{{ route('genre.update', $genre->id) }}" method="post">
+              <form action="{{ route('tag.update', $tag->id) }}" method="post">
                 <input type="hidden" name="_method" value="PATCH">
                     @csrf
                     <div class="form-group">
-                        <label for="">Nama Genre</label>
-                        <input type="text" name="nama_genre" id="" class="form-control" value="{{ $genre->nama_genre }}">
+                        <label for="">Nama Tag</label>
+                        <input type="text" name="nama_tag" id="" class="form-control" value="{{ $tag->nama_tag }}">
                     </div>
                         <button type="submit" class="btn btn-md btn-info">Simpan</button>
-                        <a name="" id="" class="btn btn-md btn-warning" href="{{route('genre.index')}}" role="button">Kembali</a>
+                        <a name="" id="" class="btn btn-md btn-warning" href="{{route('tag.index')}}" role="button">Kembali</a>
             </form>
             </div>
           </div>

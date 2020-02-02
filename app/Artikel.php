@@ -8,9 +8,9 @@ class Artikel extends Model
 {
     public $timestamps = true;
 
-    public function genre()
+    public function tag()
     {
-        return $this->belongsToMany('App\Genre', 'artikel_genres', 'artikel_id', 'genre_id');
+        return $this->belongsToMany('App\Tag', 'artikel_tags', 'artikel_id', 'tag_id');
     }
 
     public function user()

@@ -15,6 +15,7 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('judul');
             $table->string('cover');
             $table->string('quotes');
             $table->bigInteger('user_id')->unsigned();
@@ -22,6 +23,7 @@ class CreateReviewsTable extends Migration
             $table->bigInteger('buku_id')->unsigned();
             $table->foreign('buku_id')->references('id')->on('bukus');
             $table->text('isi');
+            $table->string('slug');
             $table->timestamps();
         });
     }
