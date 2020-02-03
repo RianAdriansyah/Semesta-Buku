@@ -31,7 +31,7 @@ Route::get('/review', 'FrontendController@review')->name('review');
 Route::get('/about', 'FrontendController@about')->name('about');
 Route::get('/buku/{buku}', 'FrontendController@buku_single')->name('buku_single');
 Route::get('/blog/{artikel}', 'FrontendController@blog_single')->name('blog_single');
-Route::get('/review/review_single', 'FrontendController@review_single')->name('review_single');
+Route::get('/review/{review}', 'FrontendController@review_single')->name('review_single');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

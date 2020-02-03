@@ -19,11 +19,12 @@ class FrontendController extends Controller
      */
     public function index(Request $request)
     {
-        $buku = Buku::with('kategori')->paginate(6);
-        $artikel = Artikel::with('tag')->paginate(3);
+        $buku = Buku::with('kategori')->orderBy('created_at', 'desc')->paginate(6);
+        $best = Buku::with('kategori')->inRandomOrder()->paginate(8);
+        $artikel = Artikel::with('tag')->orderBy('created_at', 'desc')->paginate(3);
         $review = Review::with('buku')->paginate(10);
         $allbuku = Buku::with('kategori')->paginate(9);
-        return view('frontend.index', compact('buku', 'review', 'artikel', 'allbuku'));
+        return view('frontend.index', compact('buku', 'review', 'artikel', 'allbuku', 'best'));
     }
 
     public function buku(Request $request)
@@ -62,9 +63,11 @@ class FrontendController extends Controller
         $tag = Tag::all();
         return view('frontend.blog_single', compact('artikel', 'kategori', 'tag'));
     }
-    public function review_single(Request $request)
+    public function review_single(Review $review)
     {
-        return view('frontend.review_single');
+        $kategori = Kategori::all();
+        $tag = Tag::all();
+        return view('frontend.review_single', compact('review', 'kategori', 'tag'));
     }
 
     /**

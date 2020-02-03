@@ -58,7 +58,7 @@
 											@endphp
 											@foreach ($review as $item)
 												
-										<li><a href="{{ route('review_single') }}">{{ $item->buku->judul }}</a></li>
+										<li><a href="{{ route('review_single', $item->slug) }}">{{ $item->buku->judul }}</a></li>
 											@endforeach
 										</ul>
 									</div>
