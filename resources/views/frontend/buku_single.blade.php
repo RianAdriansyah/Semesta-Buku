@@ -149,9 +149,12 @@
         					<aside class="wedget__categories poroduct--cat">
         						<h3 class="wedget__title">Kategori Buku</h3>
         						<ul>
+									@php
+									$kategori = \App\Kategori::orderBy('nama_kategori', 'asc')->paginate(50);
+									@endphp
 									@foreach ($kategori as $item)
 										
-        							<li><a href="#">{{ $item->nama_kategori }} <span>(3)</span></a></li>
+        							<li><a href="#">{{ $item->nama_kategori }} <span>({{ $item->Buku->count() }})</span></a></li>
 									@endforeach
         						</ul>
         					</aside>

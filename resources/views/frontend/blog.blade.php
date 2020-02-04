@@ -16,7 +16,7 @@
                             <nav class="bradcaump-content">
 							<a class="breadcrumb_item" href="{{ route('index') }}" style="color:black;">Beranda</a>
                               <span class="brd-separetor">/</span>
-                              <span class="breadcrumb_item active" style="color:orange;">Blog</span>
+                              <span class="breadcrumb_item active" style="color:black;">Blog</span>
                             </nav>
                         </div>
                     </div>
@@ -31,11 +31,14 @@
         			<div class="col-lg-9 col-12">
         				<div class="blog-page">
         					<div class="page__header">
-        						<h2>Blog Kami</h2>
+        						<h2>Semua Blog</h2>
         					</div>
 							<!-- Start Single Post -->
-							@foreach ($artikel as $item)
+							@if ($artikel->count() > 0)
 								
+							
+							@foreach ($artikel as $item)
+							
         					<article class="blog__post d-flex flex-wrap">
 								<div class="thumb">
 									<a href="{{ route('blog_single', $item->slug) }}">
@@ -43,11 +46,11 @@
         							</a>
         						</div>
         						<div class="content">
-								<h4><a href="{{ route('blog_single', $item->slug) }}">{{ $item->judul }}</a></h4>
+									<h4><a href="{{ route('blog_single', $item->slug) }}">{{ $item->judul }}</a></h4>
         							<ul class="post__meta">
-									<li>Posts by : <a href="#">{{ $item->user->name }}</a></li>
+										<li>Posts by : <a href="#">{{ $item->user->name }}</a></li>
         								<li class="post_separator">/</li>
-									<li>{{ $item->created_at->diffForHumans() }}</li>
+										<li>{{ $item->created_at->diffForHumans() }}</li>
         							</ul>
         							<p>{!! str_limit( $item->konten, $limit = 100, $end = '...') !!}</p>
         							<div class="blog__btn">
@@ -55,26 +58,27 @@
         							</div>
         						</div>
         					</article>
+							<!-- End Single Post -->
 							@endforeach
-        					<!-- End Single Post -->
-        					
-        				</div>
-        				<ul class="wn__pagination">
-        					<li class="active"><a href="#">1</a></li>
-        					<li><a href="#">2</a></li>
-        					<li><a href="#">3</a></li>
-        					<li><a href="#">4</a></li>
-        					<li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-        				</ul>
+						</div><br>
+						<ul>
+							<li>
+								{{ $artikel->links() }}
+							</li>
+						</ul>
+						@else
+						<p>Tidak ada artikel</p>
+						</div>
+						@endif
         			</div>
         			<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
         				<div class="wn__sidebar">
         					<!-- Start Single Widget -->
         					<aside class="widget search_widget">
-        						<h3 class="widget-title">Search</h3>
-        						<form action="#">
+        						<h3 class="widget-title">Cari</h3>
+							<form action="{{ route('blog') }}">
         							<div class="form-input">
-        								<input type="text" placeholder="Search...">
+        								<input type="text" placeholder="Cari..." name="cariblog">
         								<button><i class="fa fa-search"></i></button>
         							</div>
         						</form>
@@ -82,13 +86,13 @@
         					<!-- End Single Widget -->
         					<!-- Start Single Widget -->
         					<aside class="widget category_widget">
-        						<h3 class="widget-title">Kategori Buku</h3>
+        						<h3 class="widget-title">Buku Terbaru</h3>
         						<ul>
 									@php
-										$kategori = \App\Kategori::all();
+										$buku = \App\Buku::orderBy('created_at', 'desc')->take(5)->get();
 									@endphp
-									@foreach ($kategori as $item)
-								<li><a href="#">{{ $item->nama_kategori }}</a></li>
+									@foreach ($buku as $item)
+								<li><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></li>
 									@endforeach
         						</ul>
         					</aside>

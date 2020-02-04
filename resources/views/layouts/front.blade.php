@@ -154,16 +154,16 @@
 		<!-- //Header -->
 		<!-- Start Search Popup -->
 		<div class="brown--color box-search-content search_active block-bg close__top">
-			<form id="search_mini_form" class="minisearch" action="#">
+		<form id="search_mini_form" class="minisearch" action="{{ route('buku') }}">
 				<div class="field__search">
-					<input type="text" placeholder="Cari buku disini..">
+					<input type="text" placeholder="Cari buku disini.." name="caribuku">
 					<div class="action">
-						<a href="#"><i class="zmdi zmdi-search"></i></a>
+					<a href="{{ route('buku') }}"><i class="zmdi zmdi-search"></i></a>
 					</div>
 				</div>
 			</form>
 			<div class="close__wrap">
-				<span>close</span>
+				<span>Tutup</span>
 			</div>
 		</div>
 		<!-- End Search Popup -->

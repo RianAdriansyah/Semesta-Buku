@@ -59,6 +59,9 @@
 									</ul>
 								</div>
 							</article>
+
+							@include('layouts.disqus')
+
 							{{-- <div class="comments_area">
 								<h3 class="comment__title">1 comment</h3>
 								<ul class="comment__list">
@@ -127,10 +130,10 @@
 						<div class="wn__sidebar">
 							<!-- Start Single Widget -->
 							<aside class="widget search_widget">
-								<h3 class="widget-title">Search</h3>
+								<h3 class="widget-title">Cari Artikel</h3>
 								<form action="#">
 									<div class="form-input">
-										<input type="text" placeholder="Search...">
+										<input type="text" placeholder="Cari...">
 										<button><i class="fa fa-search"></i></button>
 									</div>
 								</form>
@@ -139,11 +142,13 @@
 							
 							<!-- Start Single Widget -->
 							<aside class="widget category_widget">
-								<h3 class="widget-title">Kategori Buku</h3>
+								<h3 class="widget-title">Buku Terbaru</h3>
 								<ul>
-									@foreach ($kategori as $item)
-										
-        							<li><a href="#">{{ $item->nama_kategori }} <span>(3)</span></a></li>
+									@php
+										$buku = \App\Buku::orderBy('created_at', 'desc')->take(5)->get();
+									@endphp
+									@foreach ($buku as $item)
+								<li><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></li>
 									@endforeach
 								</ul>
 							</aside>

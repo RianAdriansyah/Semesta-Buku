@@ -29,15 +29,27 @@ class FrontendController extends Controller
 
     public function buku(Request $request)
     {
-        $buku = Buku::with('kategori')->paginate(9);
-        $kategori = Kategori::all();
+        $buku = Buku::with('kategori')->paginate(6);
+        $kategori = Kategori::orderBy('nama_kategori', 'asc')->paginate(50);
         $tag = Tag::all();
+
+        $caribuku = $request->caribuku;
+
+        if ($caribuku) {
+            $buku = Buku::where('judul', 'LIKE', "%$caribuku%")->paginate(5);
+        }
         return view('frontend.buku', compact('buku', 'kategori', 'tag'));
     }
     public function blog(Request $request)
     {
         $artikel = Artikel::with('tag', 'buku')->paginate(5);
         $tag = Tag::all();
+
+        $cariblog = $request->cariblog;
+
+        if ($cariblog) {
+            $artikel = Artikel::where('judul', 'LIKE', "%$cariblog%")->paginate(5);
+        }
         return view('frontend.blog', compact('artikel', 'tag'));
     }
     public function review(Request $request)
@@ -45,6 +57,12 @@ class FrontendController extends Controller
         $review = Review::with('buku')->paginate(5);
         $kategori = Kategori::all();
         $tag = Tag::all();
+
+        $carireview = $request->carireview;
+
+        if ($carireview) {
+            $review = Review::where('judul', 'LIKE', "%$carireview%")->paginate(5);
+        }
         return view('frontend.review', compact('review', 'kategori', 'tag'));
     }
     public function about(Request $request)
@@ -61,12 +79,24 @@ class FrontendController extends Controller
     {
         $kategori = Kategori::all();
         $tag = Tag::all();
+
+        $cariblog = $artikel->cariblog;
+
+        if ($cariblog) {
+            $artikel = Artikel::where('judul', 'LIKE', "%$cariblog%")->paginate(5);
+        }
         return view('frontend.blog_single', compact('artikel', 'kategori', 'tag'));
     }
     public function review_single(Review $review)
     {
         $kategori = Kategori::all();
         $tag = Tag::all();
+
+        $carireview = $review->carireview;
+
+        if ($carireview) {
+            $review = Review::where('judul', 'LIKE', "%$carireview%")->paginate(5);
+        }
         return view('frontend.review_single', compact('review', 'kategori', 'tag'));
     }
 

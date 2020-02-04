@@ -96,28 +96,9 @@
 									</ul>
 								</div>
 							</article>
-
-							<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://semesta-buku.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                            
+							
+							@include('layouts.disqus')
+							
 							{{-- <div class="comments_area">
 								<h3 class="comment__title">1 comment</h3>
 								<ul class="comment__list">
@@ -186,11 +167,11 @@ s.setAttribute('data-timestamp', +new Date());
 						<div class="wn__sidebar">
 							<!-- Start Single Widget -->
 							<aside class="widget search_widget">
-								<h3 class="widget-title">Search</h3>
-								<form action="#">
+								<h3 class="widget-title">Cari Ulasan</h3>
+							<form action="{{ route('review') }}">
 									<div class="form-input">
-										<input type="text" placeholder="Search...">
-										<button><i class="fa fa-search"></i></button>
+										<input type="text" placeholder="Cari..." name="carireview">
+										<button type="submit"><i class="fa fa-search"></i></button>
 									</div>
 								</form>
 							</aside>
@@ -198,11 +179,13 @@ s.setAttribute('data-timestamp', +new Date());
 							
 							<!-- Start Single Widget -->
 							<aside class="widget category_widget">
-								<h3 class="widget-title">Kategori Buku</h3>
+								<h3 class="widget-title">Buku Terbaru</h3>
 								<ul>
-									@foreach ($kategori as $item)
-										
-        							<li><a href="#">{{ $item->nama_kategori }} <span>(3)</span></a></li>
+									@php
+										$buku = \App\Buku::orderBy('created_at', 'desc')->take(5)->get();
+									@endphp
+									@foreach ($buku as $item)
+								<li><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></li>
 									@endforeach
 								</ul>
 							</aside>

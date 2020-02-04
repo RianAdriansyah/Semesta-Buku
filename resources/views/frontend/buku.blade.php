@@ -35,7 +35,7 @@
         						<ul>
 									
 									@foreach ($kategori as $item)
-										<li><a href="#">{{ $item->nama_kategori }} <span>()</span></a></li>
+										<li><a href="#">{{ $item->nama_kategori }} <span>({{ $item->Buku->count() }})</span></a></li>
 									@endforeach
         						</ul>
         					</aside>
@@ -59,9 +59,9 @@
 			                            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-grid" role="tab"><i class="fa fa-th"></i></a>
 			                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-list" role="tab"><i class="fa fa-list"></i></a>
 			                        </div>
-			                        <p>Showing 1–12 of 40 results</p>
+			                        <p>Menampilkan {{ $buku->count() }} dari {{ \App\Buku::all()->count() }} hasil</p>
 			                        <div class="orderby__wrapper">
-			                        	<span>Sort By</span>
+			                        	<span>Urutkan</span>
 			                        	<select class="shot__byselect">
 			                        		<option>Default sorting</option>
 			                        		<option>HeadPhone</option>
@@ -77,14 +77,16 @@
         				<div class="tab__container">
 	        				<div class="shop-grid tab-pane fade show active" id="nav-grid" role="tabpanel">
 	        					<div class="row">
-									<!-- Start Single Product -->
-									@foreach ($buku as $item)
+									@if ($buku->count() > 0)
 										
-		        					<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
-										<div class="product__thumb">
-											<a class="first__img" href="{{ route('buku_single', $item->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$item->cover)}}" alt="product image"></a>
-											<div class="hot__box">
-												<span class="hot-label">{{ $item->kategori->nama_kategori }}</span>
+										<!-- Start Single Product -->
+										@foreach ($buku as $item)
+										
+										<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
+											<div class="product__thumb">
+												<a class="first__img" href="{{ route('buku_single', $item->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$item->cover)}}" alt="product image"></a>
+												<div class="hot__box">
+													<span class="hot-label">{{ $item->kategori->nama_kategori }}</span>
 											</div>
 										</div>
 										<div class="product__content content--center">
@@ -101,16 +103,18 @@
 										</div>
 		        					</div>
 									@endforeach
-		        					<!-- End Single Product -->
+									<!-- End Single Product -->
+
+									@else
+									<p>Tidak ada buku</p>
+									@endif
 	        						
 	        					</div>
-	        					<ul class="wn__pagination">
-	        						<li class="active"><a href="#">1</a></li>
-	        						<li><a href="#">2</a></li>
-	        						<li><a href="#">3</a></li>
-	        						<li><a href="#">4</a></li>
-	        						<li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-	        					</ul>
+	        					<ul>
+									<li>
+										{{ $buku->links() }}
+									</li>
+								</ul>
 	        				</div>
 	        				<div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
 	        					<div class="list__view__wrapper">
@@ -141,13 +145,11 @@
 									@endforeach
 	        						<!-- End Single Product -->
 	        						
-	        					</div>
-								<ul class="wn__pagination">
-									<li class="active"><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
+	        					</div><br>
+								<ul>
+									<li>
+										{{ $buku->links() }}
+									</li>
 								</ul>
 	        				</div>
         				</div>
