@@ -17,7 +17,6 @@ class CreateArtikelsTable extends Migration
             $table->bigIncrements('id');
             $table->string('judul');
             $table->string('cover');
-            $table->string('quotes');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->text('konten');

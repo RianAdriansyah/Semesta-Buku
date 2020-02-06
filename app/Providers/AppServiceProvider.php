@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        config(['app_locale' => 'in']);
+        \carbon\Carbon::setLocale('in');
     }
 }

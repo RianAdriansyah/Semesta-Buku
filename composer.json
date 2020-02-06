@@ -13,7 +13,8 @@
         "laravel/framework": "^6.0",
         "laravel/helpers": "^1.1",
         "laravel/tinker": "^1.0",
-        "laravel/ui": "^1.1"
+        "laravel/ui": "^1.1",
+        "santigarcor/laratrust": "5.2.*"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

@@ -54,6 +54,7 @@
 					<div class="col-lg-12">
 						<div class="section__title text-center">
 							<h2 class="title__be--2">Buku <span class="color--theme">Terbaru</span></h2>
+							@if ($buku->count() > 0)
 							<p>Disini sudah ada beberapa buku terbaru yang sudah terbit ke publik</p>
 						</div>
 					</div>
@@ -61,30 +62,34 @@
 				<!-- Start Single Tab Content -->
 				<div class="furniture--4 border--round arrows_style owl-carousel owl-theme row mt--50">
 					<!-- Start Single Product -->
-					@foreach ($buku as $item)
 						
+					@foreach ($buku as $item)
+					
 					<div class="product product__style--3">
 						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 							<div class="product__thumb">
 								<a class="first__img" href="{{ route('buku_single', $item->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$item->cover)}}" alt="product image"></a>
 								<a class="second__img animation1" href="{{ route('buku_single', $item->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$item->cover)}}" alt="product image"></a>
 								<div class="hot__box">
-								<span class="hot-label">{{ $item->kategori->nama_kategori }}</span>
+									<span class="hot-label">{{ $item->kategori->nama_kategori }}</span>
 								</div>
 							</div>
 							<div class="product__content content--center">
-							<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
+								<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
 								<ul class="prize d-flex">
 									<ul class="rating d-flex">
 										{{-- @foreach ($item->rating as $rate)
-									<li class="on" value="{{ $rate }}"><i class="fa fa-star-o"></i></li>
-										@endforeach --}}
+											<li class="on" value="{{ $rate }}"><i class="fa fa-star-o"></i></li>
+											@endforeach --}}
+										</ul>
 									</ul>
-								</ul>
+								</div>
 							</div>
 						</div>
-					</div>
-					@endforeach
+						@endforeach
+						@else
+						<p>Tidak ada buku</p>
+						@endif
 					<!-- Start Single Product -->
 					
 					</div>
@@ -102,6 +107,8 @@
 					<div class="col-lg-12">
 						<div class="section__title text-center">
 							<h2 class="title__be--2">Buku <span class="color--theme">Populer</span></h2>
+							@if ($best->count() > 0)
+								
 							<p>Beberapa buku yang sedang hangat dan populer tersedia di bawah ini</p>
 						</div>
 					</div>
@@ -110,29 +117,32 @@
 				<div class="furniture--4 border--round arrows_style owl-carousel owl-theme row mt--50">
 					<!-- Start Single Product -->
 					@foreach ($best as $item)
-						
+					
 					<div class="product product__style--3">
 						<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 							<div class="product__thumb">
 								<a class="first__img" href="{{ route('buku_single', $item->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$item->cover)}}" alt="product image"></a>
 								<a class="second__img animation1" href="{{ route('buku_single', $item->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$item->cover)}}" alt="product image"></a>
 								<div class="hot__box">
-								<span class="hot-label">{{ $item->kategori->nama_kategori }}</span>
+									<span class="hot-label">{{ $item->kategori->nama_kategori }}</span>
 								</div>
 							</div>
 							<div class="product__content content--center">
-							<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
+								<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
 								<ul class="prize d-flex">
 									<ul class="rating d-flex">
 										{{-- @foreach ($item->rating as $rate)
-									<li class="on" value="{{ $rate }}"><i class="fa fa-star-o"></i></li>
-										@endforeach --}}
+											<li class="on" value="{{ $rate }}"><i class="fa fa-star-o"></i></li>
+											@endforeach --}}
+										</ul>
 									</ul>
-								</ul>
+								</div>
 							</div>
 						</div>
-					</div>
-					@endforeach
+						@endforeach
+						@else
+						<p>Tidak ada buku</p>
+						@endif
 					<!-- Start Single Product -->
 					
 					</div>
@@ -147,13 +157,15 @@
 					<div class="col-lg-12">
 						<div class="section__title text-center">
 							<h2 class="title__be--2">Blog <span class="color--theme">Ini</span></h2>
+							@if ($artikel->count() > 0)
+								
 							<p>Beberapa artikel yang berkaitan dengan literasi buku/novel disajikan disini</p>
 						</div>
 					</div>
 				</div>
 				<div class="row mt--50">
 					@foreach ($artikel as $post)
-						
+					
 					<div class="col-md-6 col-lg-4 col-sm-12">
 						<div class="post__itam">
 							<div class="content">
@@ -166,6 +178,9 @@
 						</div>
 					</div>
 					@endforeach
+					@else
+					<p>Tidak ada artikel</p>
+					@endif
 				</div>
 			</div>
 		</section>
@@ -177,6 +192,8 @@
 					<div class="col-lg-12">
 						<div class="section__title text-center pb--50">
 							<h2 class="title__be--2">Ulasan <span class="color--theme">Buku </span></h2>
+							@if ($review->count() > 0)
+								
 							<p>Beberapa review buku Nasional/Internasional tersedia disini untuk referensi Anda</p>
 							<p>Geser untuk selengkapnya</p>
 						</div>
@@ -186,11 +203,11 @@
 			<div class="slider center">
 				<!-- Single product start -->
 				@foreach ($review as $rev)
-					
+				
 				<div class="product product__style--3">
 					<div class="product__thumb">
 						<button style="border:none; background:none; padding:0;" data-toggle="tooltip" data-placement="bottom" title="{{ $rev->buku->judul }}"><a class="first__img" href="{{ route('review_single', $rev->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$rev->buku->cover)}}" alt="product image"></a></button>
-					
+						
 					</div>
 					<div class="product__content content--center">
 						{{-- <div class="product__hover--content">
@@ -205,6 +222,9 @@
 					</div>
 				</div>
 				@endforeach
+				@else
+				<p>Tidak ada ulasan</p>
+				@endif
 				<!-- Single product end -->
 			</div>
 		</section>

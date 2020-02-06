@@ -34,9 +34,15 @@ class FrontendController extends Controller
         $tag = Tag::all();
 
         $caribuku = $request->caribuku;
-
+        $sort = $request->sort;
         if ($caribuku) {
             $buku = Buku::where('judul', 'LIKE', "%$caribuku%")->paginate(5);
+        }
+        if ($sort == 'awal') {
+            Buku::orderBy('id', 'asc')->paginate(5);
+        }
+        if ($sort == 'akhir') {
+            Buku::orderBy('id', 'desc')->paginate(5);
         }
         return view('frontend.buku', compact('buku', 'kategori', 'tag'));
     }
@@ -50,6 +56,7 @@ class FrontendController extends Controller
         if ($cariblog) {
             $artikel = Artikel::where('judul', 'LIKE', "%$cariblog%")->paginate(5);
         }
+
         return view('frontend.blog', compact('artikel', 'tag'));
     }
     public function review(Request $request)

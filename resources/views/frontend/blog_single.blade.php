@@ -39,7 +39,7 @@
 										<div class="blog-date-categori">
 											<ul>
 											<li>{{ $artikel->created_at->diffForHumans() }}</li>
-											<li><a href="#" title="Posts by boighor" rel="author">by : {{ $artikel->user->name }}</a></li><br>
+											<li><p title="Posts by boighor">oleh : {{ $review->user->name }}</p></li><br>
 											</ul>
 										</div>
 									</div>
@@ -59,71 +59,7 @@
 									</ul>
 								</div>
 							</article>
-
 							@include('layouts.disqus')
-
-							{{-- <div class="comments_area">
-								<h3 class="comment__title">1 comment</h3>
-								<ul class="comment__list">
-									<li>
-										<div class="wn__comment">
-											<div class="thumb">
-												<img src="{{ asset('assets/frontend/images/blog/comment/1.jpeg') }}" alt="comment images">
-											</div>
-											<div class="content">
-												<div class="comnt__author d-block d-sm-flex">
-													<span><a href="#">admin</a> Post author</span>
-													<span>October 6, 2014 at 9:26 am</span>
-													<div class="reply__btn">
-														<a href="#">Reply</a>
-													</div>
-												</div>
-												<p>Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit</p>
-											</div>
-										</div>
-									</li>
-									<li class="comment_reply">
-										<div class="wn__comment">
-											<div class="thumb">
-												<img src="{{ asset('assets/frontend/images/blog/comment/1.jpeg') }}" alt="comment images">
-											</div>
-											<div class="content">
-												<div class="comnt__author d-block d-sm-flex">
-													<span><a href="#">admin</a> Post author</span>
-													<span>October 6, 2014 at 9:26 am</span>
-													<div class="reply__btn">
-														<a href="#">Reply</a>
-													</div>
-												</div>
-												<p>Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit</p>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<div class="comment_respond">
-								<h3 class="reply_title">Leave a Reply <small><a href="#">Cancel reply</a></small></h3>
-								<form class="comment__form" action="#">
-									<p>Your email address will not be published.Required fields are marked </p>
-									<div class="input__box">
-										<textarea name="comment" placeholder="Your comment here"></textarea>
-									</div>
-									<div class="input__wrapper clearfix">
-										<div class="input__box name one--third">
-											<input type="text" placeholder="name">
-										</div>
-										<div class="input__box email one--third">
-											<input type="email" placeholder="email">
-										</div>
-										<div class="input__box website one--third">
-											<input type="text" placeholder="website">
-										</div>
-									</div>
-									<div class="submite__btn">
-										<a href="#">Post Comment</a>
-									</div>
-								</form>
-							</div> --}}
 						</div>
 					</div>
 					<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
@@ -147,9 +83,14 @@
 									@php
 										$buku = \App\Buku::orderBy('created_at', 'desc')->take(5)->get();
 									@endphp
+									@if ($buku->count() > 4)
+										
 									@foreach ($buku as $item)
-								<li><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></li>
+									<li><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></li>
 									@endforeach
+									@else
+									<li><p>Tidak ada buku terbaru</p></li>
+									@endif
 								</ul>
 							</aside>
 							<!-- End Single Widget -->

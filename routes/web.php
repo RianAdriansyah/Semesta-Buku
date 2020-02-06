@@ -15,15 +15,22 @@
 //     return view('welcome');
 // });
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 
-Route::group(['prefix' => 'backend', 'middleware' => ['auth']], function () {
+
+Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin']], function () {
     Route::resource('/buku', 'BukuController');
     Route::resource('/tag', 'TagController');
     Route::resource('/kategori', 'KategoriController');
     Route::resource('/artikel', 'ArtikelController');
     Route::resource('/review', 'ReviewController');
 });
+Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin||member']], function () {
+
+    Route::resource('/review', 'ReviewController');
+});
+
+
 Route::resource('/', 'FrontendController');
 Route::get('/buku', 'FrontendController@buku')->name('buku');
 Route::get('/blog', 'FrontendController@blog')->name('blog');

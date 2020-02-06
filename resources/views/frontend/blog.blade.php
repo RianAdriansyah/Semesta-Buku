@@ -91,18 +91,28 @@
 									@php
 										$buku = \App\Buku::orderBy('created_at', 'desc')->take(5)->get();
 									@endphp
+									@if ($buku->count() > 0)
+										
 									@foreach ($buku as $item)
-								<li><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></li>
+									<li><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></li>
 									@endforeach
+									@else
+									<li><p>Tidak ada buku terbaru</p></li>
+									@endif
         						</ul>
         					</aside>
 							<!-- End Single Widget -->
 							<aside class="wedget__categories poroduct--tag">
         						<h3 class="wedget__title">Tag Buku</h3>
         						<ul>
+									@if ($tag->count() > 3)
+										
 									@foreach ($tag as $item)
-								<li><a href="#">{{ $item->nama_tag }}</a></li>
+									<li><a href="#">{{ $item->nama_tag }}</a></li>
 									@endforeach
+									@else
+									<li><p>Tidak ada tag</p></li>
+									@endif
         						</ul>
         					</aside>
         				</div>

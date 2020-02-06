@@ -56,10 +56,16 @@
 											@php
 												$review = \App\Review::with('buku')->orderBy('created_at', 'desc')->paginate(5);
 											@endphp
-											@foreach ($review as $item)
+											@if ($review->count() > 0)
 												
-										<li><a href="{{ route('review_single', $item->slug) }}">{{ $item->buku->judul }}</a></li>
+											@foreach ($review as $item)
+											
+											<li><a href="{{ route('review_single', $item->slug) }}">{{ $item->buku->judul }}</a></li>
 											@endforeach
+											@else
+											<li>Tidak ada ulasan</li>
+
+											@endif
 										</ul>
 									</div>
 								</li>
@@ -70,30 +76,49 @@
 											@php
 												$kategori = \App\Kategori::all();
 											@endphp
-											@foreach ($kategori as $item)
+											@if ($kategori->count() > 0)
 												
-										<li><a href="#">{{ $item->nama_kategori }}</a></li>
+											@foreach ($kategori as $item)
+											
+											<li><a href="#">{{ $item->nama_kategori }}</a></li>
 											@endforeach
+											@else
+											<li>Tidak ada kategori</li>
+
+											@endif
 										</ul>
 										<ul class="item item03">
 											<li class="title">Tag</li>
 											@php
 												$tag = \App\Tag::all();
 											@endphp
-											@foreach ($tag as $item)
+											@if ($tag->count() > 0)
 												
-										<li><a href="#">{{ $item->nama_tag }}</a></li>
+											@foreach ($tag as $item)
+											
+											<li><a href="#">{{ $item->nama_tag }}</a></li>
 											@endforeach
+											@else
+											<li>Tidak ada tag</li>
+
+											@endif
 										</ul>
 										<ul class="item item03">
 											<li class="title">Koleksi Buku</li>
 											@php
 											$buku = \App\Buku::with('kategori')->orderBy('created_at', 'desc')->paginate(5);
 										@endphp
-										@foreach ($buku as $item)
+										@if ($buku->count() > 0)
 											
-									<li><a href="#">{{ $item->judul }}</a></li>
-										@endforeach										</ul>
+										@foreach ($buku as $item)
+										
+										<li><a href="#">{{ $item->judul }}</a></li>
+										@endforeach
+										@else
+										<li>Tidak ada buku</li>
+
+										@endif
+									</ul>
 									</div>
 								</li>
                             <li class="title"><a href="{{ route('blog') }}">Blog</a>
@@ -233,6 +258,6 @@
 	<script src="{{asset('assets/frontend/js/bootstrap.min.js') }}"></script>
 	<script src="{{asset('assets/frontend/js/plugins.js') }}"></script>
 	<script src="{{asset('assets/frontend/js/active.js') }}"></script>
-	
+	@stack('script')
 </body>
 </html> 
