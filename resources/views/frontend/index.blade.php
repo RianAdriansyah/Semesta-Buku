@@ -195,7 +195,7 @@
 							@if ($review->count() > 0)
 								
 							<p>Beberapa review buku Nasional/Internasional tersedia disini untuk referensi Anda</p>
-							<p>Geser untuk selengkapnya</p>
+							<a class="shopbtn" href="{{ route('review') }}">Geser Foto untuk lebih banyak</a>
 						</div>
 					</div>
 				</div>

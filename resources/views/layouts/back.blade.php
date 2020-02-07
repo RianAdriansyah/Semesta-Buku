@@ -71,7 +71,7 @@
           <a href="{{ route('logout') }}" 
           data-toggle="modal" data-target="#logoutModal">
               <i class="now-ui-icons media-1_button-power"></i>
-              <p>Logout</p>
+              <p>Keluar</p>
             </a>
           </li>
         </ul>
@@ -158,13 +158,13 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="logoutModalLabel">Logout</h5>
+            <h6 class="modal-title" id="logoutModalLabel">Peringatan</h6>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            Apakah Anda ingin melanjutkan untuk logout ?
+            Apakah Anda ingin melanjutkan untuk keluar ?
           </div>
           <div class="modal-footer">
             

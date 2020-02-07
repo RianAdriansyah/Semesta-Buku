@@ -72,9 +72,9 @@ Koleksi Buku
 								<span>Urutkan</span>
 								<select class="shot__byselect" name="sort" onchange="pindah(this)">
 									<option disabled selected>Pilih Urutan</option>
-									<option value=" {{ url('buku')}} ">Urutan awal</option>
-									<option value=" {{url('buku?sort=awal')}} ">Waktu (Terbaru)</option>
-									<option value="{{url('buku?sort=akhir')}}">Waktu (Terlama)</option>
+									<option value=" {{ url('buku') }}">Urutan awal</option>
+									<option value=" {{url('buku?sort=baru')}}">Waktu (Terbaru)</option>
+									<option value="{{url('buku?sort=lama')}}">Waktu (Terlama)</option>
 								</select>
 							</div>
 						</div>

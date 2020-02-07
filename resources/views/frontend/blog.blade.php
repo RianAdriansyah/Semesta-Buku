@@ -48,7 +48,7 @@
         						<div class="content">
 									<h4><a href="{{ route('blog_single', $item->slug) }}">{{ $item->judul }}</a></h4>
         							<ul class="post__meta">
-										<li>Posts by : <a href="#">{{ $item->user->name }}</a></li>
+										<li>Dibuat oleh : <a href="#">{{ $item->user->name }}</a></li>
         								<li class="post_separator">/</li>
 										<li>{{ $item->created_at->diffForHumans() }}</li>
         							</ul>
@@ -103,12 +103,14 @@
         					</aside>
 							<!-- End Single Widget -->
 							<aside class="wedget__categories poroduct--tag">
-        						<h3 class="wedget__title">Tag Buku</h3>
+        						<h3 class="wedget__title">Tag</h3>
         						<ul>
-									@if ($tag->count() > 3)
+									@if ($tag->count() > 0)
 										
-									@foreach ($tag as $item)
-									<li><a href="#">{{ $item->nama_tag }}</a></li>
+									@foreach ($artikel as $item)
+										@foreach($item->tag as $a)
+									<li><a href="#">{{ $a->nama_tag }}</a></li>
+										@endforeach
 									@endforeach
 									@else
 									<li><p>Tidak ada tag</p></li>

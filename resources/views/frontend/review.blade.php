@@ -47,7 +47,7 @@
         						<div class="content">
 									<h4><a href="{{ route('review_single', $rev->slug) }}">{{ $rev->judul }}</a></h4>
         							<ul class="post__meta">
-										<li>Posts by : <a href="#">{{ $rev->user->name }}</a></li>
+										<li>Dibuat oleh : <a href="#">{{ $rev->user->name }}</a></li>
         								<li class="post_separator">/</li>
 										<li>{{ $rev->created_at->diffForHumans() }}</li>
         							</ul>
@@ -63,7 +63,7 @@
         				</div><br>
         				<ul>
 							<li>{{ $review->links() }}</li>
-							</ul>
+						</ul>
 						@else
 						<p>Tidak ada review</p>
         			</div>

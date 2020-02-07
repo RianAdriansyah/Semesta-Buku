@@ -38,18 +38,18 @@ class FrontendController extends Controller
         if ($caribuku) {
             $buku = Buku::where('judul', 'LIKE', "%$caribuku%")->paginate(5);
         }
-        if ($sort == 'awal') {
-            Buku::orderBy('id', 'asc')->paginate(5);
+        if ($sort == 'baru') {
+            $buku = Buku::orderBy('created_at', 'desc')->paginate(6);
         }
-        if ($sort == 'akhir') {
-            Buku::orderBy('id', 'desc')->paginate(5);
+        if ($sort == 'lama') {
+            $buku = Buku::orderBy('created_at', 'asc')->paginate(6);
         }
         return view('frontend.buku', compact('buku', 'kategori', 'tag'));
     }
     public function blog(Request $request)
     {
         $artikel = Artikel::with('tag', 'buku')->paginate(5);
-        $tag = Tag::all();
+        $tag = Tag::with('artikel')->get();
 
         $cariblog = $request->cariblog;
 
