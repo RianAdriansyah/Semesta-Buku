@@ -106,12 +106,15 @@
         						<h3 class="wedget__title">Tag</h3>
         						<ul>
 									@if ($tag->count() > 0)
+									@foreach ($tag as $item)
+									<li><a href="#">{{ $item->nama_tag }}</a></li>
+									@endforeach
 										
-									@foreach ($artikel as $item)
+									{{-- @foreach ($artikel as $item)
 										@foreach($item->tag as $a)
 									<li><a href="#">{{ $a->nama_tag }}</a></li>
 										@endforeach
-									@endforeach
+									@endforeach --}}
 									@else
 									<li><p>Tidak ada tag</p></li>
 									@endif

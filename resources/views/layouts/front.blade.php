@@ -74,7 +74,7 @@
 										<ul class="item item03">
 											<li class="title">Kategori</li>
 											@php
-												$kategori = \App\Kategori::all();
+												$kategori = \App\Kategori::orderBy('nama_kategori', 'asc')->paginate(5);
 											@endphp
 											@if ($kategori->count() > 0)
 												
@@ -90,7 +90,7 @@
 										<ul class="item item03">
 											<li class="title">Tag</li>
 											@php
-												$tag = \App\Tag::all();
+												$tag = \App\Tag::orderBy('created_at', 'desc')->paginate(5);
 											@endphp
 											@if ($tag->count() > 0)
 												
@@ -129,7 +129,7 @@
 					</div>
 					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
 						<ul class="header__sidebar__right d-flex justify-content-end align-items-center">
-                            <li class="shop_search"><a class="search__active" href="#"></a></li>
+							<li class="shop_search"><a class="search__active" href="#"></a>
                             &nbsp; &nbsp; &nbsp; &nbsp;
 							<li>
 								{{-- <div class="searchbar__content setting__block">
@@ -153,6 +153,7 @@
 									</div>
 								</div> --}}
 							</li>
+							<li class="setting__bar__icon"><a class="setting__active" href="#"></a>
 						</ul>
 					</div>
 				</div>

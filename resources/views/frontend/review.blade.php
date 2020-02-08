@@ -32,7 +32,7 @@
         				<div class="blog-page">
         					<div class="page__header">
         						<h2>Ulasan Buku</h2>
-        					</div>
+							</div>
 							<!-- Start Single Post -->
 							@if ($review->count() > 0)
 								
@@ -72,6 +72,10 @@
         			<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
         				<div class="wn__sidebar">
         					<!-- Start Single Widget -->
+        					<aside class="widget search_widget">
+								<a class="shopbtn" href="backend/review">Tambah Ulasan</a>
+
+        					</aside>
         					<aside class="widget search_widget">
         						<h3 class="widget-title">Cari Ulasan</h3>
 							<form action="{{ route('review') }}">

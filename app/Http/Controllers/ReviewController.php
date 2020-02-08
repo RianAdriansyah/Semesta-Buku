@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Review;
 use App\Buku;
 use App\Tag;
+use App\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Auth;

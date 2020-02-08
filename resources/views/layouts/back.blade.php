@@ -19,7 +19,8 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{asset('assets/backend/demo/demo.css ') }}" }} rel="stylesheet" />
   <link rel="stylesheet" href="{{asset('assets/backend/dataTables/datatables.min.css ') }}">
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" /></head>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+</head>
 
 <body class="">
   <div class="wrapper ">
@@ -37,6 +38,8 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
+          @role('admin')
+              
           <li>
           <a href="{{ route('buku.index') }}">
               <i class="now-ui-icons education_agenda-bookmark"></i>
@@ -74,6 +77,22 @@
               <p>Keluar</p>
             </a>
           </li>
+          @endrole
+          @role('member')
+          <li>
+            <a href="{{ route('review.index') }}">
+              <i class="now-ui-icons design_bullet-list-67"></i>
+              <p>Daftar Review</p>
+            </a>
+          </li>
+          <li class="active-pro">
+          <a href="{{ route('logout') }}" 
+          data-toggle="modal" data-target="#logoutModal">
+              <i class="now-ui-icons media-1_button-power"></i>
+              <p>Keluar</p>
+            </a>
+          </li>
+          @endrole
         </ul>
       </div>
     </div>
