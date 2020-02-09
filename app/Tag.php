@@ -12,11 +12,11 @@ class Tag extends Model
     }
     public function buku()
     {
-        return $this->belongsToMany('App\Buku', 'buku', 'tag_id');
+        return $this->belongsToMany('App\Buku', 'buku_tags', 'tag_id', 'buku_id');
     }
     public function review()
     {
-        return $this->belongsToMany('App\Review', 'review', 'tag_id');
+        return $this->belongsToMany('App\Review', 'review_tags', 'tag_id', 'review_id');
     }
 
     public function getRouteKeyName()

@@ -1,7 +1,7 @@
 @extends('layouts.front')
 
 @section('web-title')
-	Ulasan
+	Tag Ulasan {{ $tag->nama_tag }}
 @endsection
 
 @section('isi')
@@ -32,11 +32,12 @@
         				<div class="blog-page">
         					<div class="page__header">
         						<h2>Ulasan Buku</h2>
+							<h6>Tag : {{ $tag->nama_tag }}</h6>
 							</div>
 							<!-- Start Single Post -->
 							@if ($review->count() > 0)
 								
-							@foreach ($review as $rev)
+							@foreach ($tag->review as $rev)
 							
         					<article class="blog__post d-flex flex-wrap">
 								<div class="thumb">
@@ -106,11 +107,14 @@
         					<!-- End Single Widget -->
         					<!-- Start Single Widget -->
         					<aside class="wedget__categories poroduct--tag">
-        						<h3 class="wedget__title">Tag Buku</h3>
+        						<h3 class="wedget__title">Tag Ulasan</h3>
         						<ul>
-									@if ($tag->count() > 0)
+									@php
+										$tagall = \App\Tag::all();
+									@endphp
+									@if ($tagall->count() > 0)
 										
-									@foreach ($tag as $item)
+									@foreach ($tagall as $item)
 									
 								<li><a href="{{ route('tagreview', $item->slug) }}">{{ $item->nama_tag }}</a></li>
 									@endforeach

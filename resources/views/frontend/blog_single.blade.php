@@ -7,7 +7,7 @@
 @section('isi')
 	
         <!-- Start Bradcaump area -->
-        <div class="ht__bradcaump__area bg-image--6">
+        <div class="ht__bradcaump__area bg-image--2">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -39,7 +39,7 @@
 										<div class="blog-date-categori">
 											<ul>
 											<li>{{ $artikel->created_at->diffForHumans() }}</li>
-											<li><p title="Posts by boighor">oleh : {{ $review->user->name }}</p></li><br>
+											<li><p title="Posts by boighor">oleh : {{ $artikel->user->name }}</p></li><br>
 											</ul>
 										</div>
 									</div>
@@ -101,7 +101,7 @@
         						<ul>
         							@foreach ($tag as $item)
 										
-								<li><a href="#">{{ $item->nama_tag }}</a></li>
+								<li><a href="{{ route('tagblog', $item->slug) }}">{{ $item->nama_tag }}</a></li>
 									@endforeach
         						</ul>
         					</aside>

@@ -39,6 +39,10 @@ Route::get('/about', 'FrontendController@about')->name('about');
 Route::get('/buku/{buku}', 'FrontendController@buku_single')->name('buku_single');
 Route::get('/blog/{artikel}', 'FrontendController@blog_single')->name('blog_single');
 Route::get('/review/{review}', 'FrontendController@review_single')->name('review_single');
+Route::get('/buku/kategori/{kategori}', 'FrontendController@catbuku')->name('kategoribuku');
+Route::get('/buku/tag/{tag}', 'FrontendController@tagbuku')->name('tagbuku');
+Route::get('/review/tag/{tag}', 'FrontendController@tagreview')->name('tagreview');
+Route::get('/blog/tag/{tag}', 'FrontendController@tagblog')->name('tagblog');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

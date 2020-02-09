@@ -80,7 +80,7 @@
 												
 											@foreach ($kategori as $item)
 											
-											<li><a href="#">{{ $item->nama_kategori }}</a></li>
+										<li><a href="{{ route('kategoribuku', $item->slug) }}">{{ $item->nama_kategori }}</a></li>
 											@endforeach
 											@else
 											<li>Tidak ada kategori</li>
@@ -96,7 +96,7 @@
 												
 											@foreach ($tag as $item)
 											
-											<li><a href="#">{{ $item->nama_tag }}</a></li>
+											<li><a href="{{ route('tagbuku', $item->slug) }}">{{ $item->nama_tag }}</a></li>
 											@endforeach
 											@else
 											<li>Tidak ada tag</li>
@@ -112,7 +112,7 @@
 											
 										@foreach ($buku as $item)
 										
-										<li><a href="#">{{ $item->judul }}</a></li>
+										<li><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></li>
 										@endforeach
 										@else
 										<li>Tidak ada buku</li>

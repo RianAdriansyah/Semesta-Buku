@@ -107,6 +107,58 @@ class FrontendController extends Controller
         return view('frontend.review_single', compact('review', 'kategori', 'tag'));
     }
 
+    public function catbuku(Kategori $kategori, Request $request)
+    {
+        $tag = Tag::all();
+        $sort = $request->sort;
+        $buku = $kategori->buku()->latest()->paginate(5);
+
+        if ($sort == 'baru') {
+            $buku = Buku::orderBy('created_at', 'desc')->paginate(6);
+        }
+        if ($sort == 'lama') {
+            $buku = Buku::orderBy('created_at', 'asc')->paginate(6);
+        }
+        return view('frontend.kategoribuku', compact('buku', 'kategori', 'tag'));
+    }
+    public function tagbuku(Tag $tag, Request $request)
+    {
+        $kategori = Kategori::all();
+        $sort = $request->sort;
+        $buku = $tag->buku()->latest()->paginate(5);
+
+        if ($sort == 'baru') {
+            $buku = Buku::orderBy('created_at', 'desc')->paginate(6);
+        }
+        if ($sort == 'lama') {
+            $buku = Buku::orderBy('created_at', 'asc')->paginate(6);
+        }
+        return view('frontend.tagbuku', compact('buku', 'kategori', 'tag'));
+    }
+
+    public function tagreview(Tag $tag, Request $request)
+    {
+        $review = $tag->review()->latest()->paginate(5);
+        $carireview = $request->carireview;
+
+        if ($carireview) {
+            $review = Review::where('judul', 'LIKE', "%$carireview%")->paginate(5);
+        }
+
+        return view('frontend.tagreview', compact('review', 'tag'));
+    }
+    public function tagblog(Tag $tag, Request $request)
+    {
+        $artikel = $tag->artikel()->latest()->paginate(5);
+        $cariblog = $request->cariblog;
+
+        if ($cariblog) {
+            $blog = Artikel::where('judul', 'LIKE', "%$cariblog%")->paginate(5);
+        }
+
+        return view('frontend.tagblog', compact('artikel', 'tag'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

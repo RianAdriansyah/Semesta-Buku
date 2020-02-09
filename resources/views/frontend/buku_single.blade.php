@@ -154,7 +154,7 @@
 									@endphp
 									@foreach ($kategori as $item)
 										
-        							<li><a href="#">{{ $item->nama_kategori }} <span>({{ $item->Buku->count() }})</span></a></li>
+								<li><a href="{{ route('kategoribuku', $item->slug) }}">{{ $item->nama_kategori }} <span>({{ $item->Buku->count() }})</span></a></li>
 									@endforeach
         						</ul>
         					</aside>
@@ -163,7 +163,7 @@
         						<ul>
 									@foreach ($tag as $item)
 										
-								<li><a href="#">{{ $item->nama_tag }}</a></li>
+								<li><a href="{{ route('tagbuku', $item->slug) }}">{{ $item->nama_tag }}</a></li>
 									@endforeach
         							
         						</ul>

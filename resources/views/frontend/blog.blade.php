@@ -1,13 +1,13 @@
 ﻿@extends('layouts.front')
 
 @section('web-title')
-	Blog Kami
+	Blog
 @endsection
 
 @section('isi')
 	
         <!-- Start Bradcaump area -->
-        <div class="ht__bradcaump__area bg-image--4">
+        <div class="ht__bradcaump__area bg-image--2">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -31,7 +31,7 @@
         			<div class="col-lg-9 col-12">
         				<div class="blog-page">
         					<div class="page__header">
-        						<h2>Semua Blog</h2>
+        						<h2>Semua Artikel</h2>
         					</div>
 							<!-- Start Single Post -->
 							@if ($artikel->count() > 0)
@@ -107,7 +107,7 @@
         						<ul>
 									@if ($tag->count() > 0)
 									@foreach ($tag as $item)
-									<li><a href="#">{{ $item->nama_tag }}</a></li>
+								<li><a href="{{ route('tagblog', $item->slug) }}">{{ $item->nama_tag }}</a></li>
 									@endforeach
 										
 									{{-- @foreach ($artikel as $item)

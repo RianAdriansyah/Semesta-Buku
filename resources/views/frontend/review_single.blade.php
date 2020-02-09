@@ -7,7 +7,7 @@
 @section('isi')
 	
         <!-- Start Bradcaump area -->
-        <div class="ht__bradcaump__area bg-image--6">
+        <div class="ht__bradcaump__area bg-image--7">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -139,7 +139,7 @@
 										
 									@foreach ($tag as $item)
 									
-									<li><a href="#">{{ $item->nama_tag }}</a></li>
+								<li><a href="{{ route('tagreview', $item->slug) }}">{{ $item->nama_tag }}</a></li>
 									@endforeach
 									@else
 									<li><p>Tidak ada tag</p></li>

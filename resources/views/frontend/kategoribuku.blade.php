@@ -1,7 +1,7 @@
-﻿@extends('layouts.front')
+@extends('layouts.front')
 
 @section('web-title')
-Koleksi Buku
+Kategori {{ $kategori->nama_kategori }}
 @endsection
 
 @section('isi')
@@ -32,10 +32,13 @@ Koleksi Buku
 				<div class="shop__sidebar">
 					<aside class="wedget__categories poroduct--cat">
 						<h3 class="wedget__title">Kategori Buku</h3>
+						@php
+							$kategoriall = App\Kategori::all();
+						@endphp
 						<ul>
-							@if ($kategori->count() > 0)
+							@if ($kategoriall->count() > 0)
 								
-							@foreach ($kategori as $item)
+							@foreach ($kategoriall as $item)
 						<li><a href="{{ route('kategoribuku', $item->slug) }}">{{ $item->nama_kategori }} <span>({{ $item->Buku->count() }})</span></a></li>
 							@endforeach
 							@else
@@ -67,7 +70,7 @@ Koleksi Buku
 								<a class="nav-item nav-link active" data-toggle="tab" href="#nav-grid" role="tab"><i class="fa fa-th"></i></a>
 								<a class="nav-item nav-link" data-toggle="tab" href="#nav-list" role="tab"><i class="fa fa-list"></i></a>
 							</div>
-							<p>Menampilkan {{ $buku->count() }} dari {{ \App\Buku::all()->count() }} hasil</p>
+							<p>Menampilkan {{ $buku->count() }} dari {{ $kategori->buku->count() }} hasil</p>
 							<div class="orderby__wrapper">
 								<span>Urutkan</span>
 								<select class="shot__byselect" name="sort" onchange="pindah(this)">
@@ -86,7 +89,7 @@ Koleksi Buku
 							@if ($buku->count() > 0)
 								
 								<!-- Start Single Product -->
-								@foreach ($buku as $item)
+								@foreach ($kategori->buku as $item)
 								
 								<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 									<div class="product__thumb">
@@ -127,7 +130,7 @@ Koleksi Buku
 							<!-- Start Single Product -->
 							@if ($buku->count() > 0)
 
-							@foreach ($buku as $item)
+							@foreach ($kategori->buku as $item)
 								
 							<div class="list__view mt--40">
 								<div class="thumb">
