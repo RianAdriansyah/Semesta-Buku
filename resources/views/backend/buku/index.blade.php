@@ -25,7 +25,7 @@
                       <th scope="col">Nama Penulis</th>
                       <th scope="col">Kategori</th>
                       <th scope="col">Rating</th>
-                      <th scope="col" class="text-center">Aksi</th>
+                      <th scope="col" class="text-center" style="size:30%;">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -42,10 +42,10 @@
                         <i class="fas fa-fw fa-edit"></i></a><br>
                         <a href="{{ route('buku.show', $list->id) }}" class="btn btn-sm btn-info rounded">
                         <i class="fas fa-fw fa-info-circle"></i></a>
-                      <form action="{{ route('buku.destroy',$list->id) }}" method="post">
+                        <form action="{{ route('buku.destroy', $list->id) }}" method="post">
                           {{csrf_field()}}
                               <input type="hidden" name="_method" value="DELETE">
-                              <button class="btn btn-sm btn-danger" type="submit">
+                              <button class="btn btn-danger btn-sm rounded" type="submit">
                                 <i class="fas fa-fw fa-trash-alt"></i>
                               </button>
                           </form>
@@ -62,7 +62,7 @@
     </div>
   </div>
 
-<!-- Modal -->
+<!-- Modal Add-->
 
 <div class="modal fade bd-example-modal-lg" data-backdrop="static" id="tambahBuku" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -152,4 +152,37 @@
     </div>
   </div>
 </div>
+
+<!-- Modal Remove-->
+<div class="modal fade" id="hapusModal-{{ $list->id }}" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="hapusModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="hapusModalLabel">Peringatan</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Apakah Anda ingin menghapus buku ini ?
+      </div>
+      <div class="modal-footer">
+        
+        <div class="col-md-6 mx-auto">
+          <button type="button" class="btn btn-secondary btn-block rounded" data-dismiss="modal">Batal</button>
+        </div>
+        <div class="col-md-6 mx-auto">
+          <form action="{{ route('buku.destroy', $list->id) }}" method="post">
+            {{csrf_field()}}
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="btn btn-danger btn-block rounded" type="submit">
+                  <i class="fas fa-fw fa-trash-alt"></i> Hapus
+                </button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 @endsection

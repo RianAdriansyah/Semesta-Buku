@@ -17,9 +17,9 @@ class Buku extends Model
         return $this->belongsToMany('App\Tag', 'buku_tags', 'buku_id', 'tag_id');
     }
 
-    public function artikel()
+    public function review()
     {
-        return $this->hasMany('App\Artikel', 'artikel_id');
+        return $this->belongsTo('App\Review', 'review_id');
     }
 
     public function getRouteKeyName()

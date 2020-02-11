@@ -34,10 +34,12 @@ Koleksi Buku
 						<h3 class="wedget__title">Kategori Buku</h3>
 						<ul>
 							@if ($kategori->count() > 0)
-								
-							@foreach ($kategori as $item)
-						<li><a href="{{ route('kategoribuku', $item->slug) }}">{{ $item->nama_kategori }} <span>({{ $item->Buku->count() }})</span></a></li>
-							@endforeach
+
+								@foreach ($kategori as $item)
+									@if ($item->buku->count() > 0)
+									<li><a href="{{ route('kategoribuku', $item->slug) }}">{{ $item->nama_kategori }} <span>({{ $item->Buku->count() }})</span></a></li>
+									@endif
+								@endforeach
 							@else
 							<li><p>Tidak ada kategori</p></li>
 							@endif
@@ -49,9 +51,11 @@ Koleksi Buku
 						<ul>
 							@if ($tag->count() > 0)
 								
-							@foreach ($tag as $item)
-						<li><a href="{{ route('tagbuku', $item->slug) }}">{{ $item->nama_tag }}</a></li>
-							@endforeach
+								@foreach ($tag as $item)
+									@if ($item->buku->count() > 0)
+									<li><a href="{{ route('tagbuku', $item->slug) }}">{{ $item->nama_tag }}</a></li>
+									@endif
+								@endforeach
 							@else
 							<li><p>Tidak ada tag</p></li>
 							@endif

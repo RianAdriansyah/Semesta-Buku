@@ -54,7 +54,7 @@
         							</ul>
         							<p>{!! str_limit( $item->konten, $limit = 100, $end = '...') !!}</p>
         							<div class="blog__btn">
-										<a href="{{ route('blog_single', $item->slug) }}">read more</a>
+										<a href="{{ route('blog_single', $item->slug) }}">Baca Selengkapnya</a>
         							</div>
         						</div>
         					</article>
@@ -106,15 +106,11 @@
         						<h3 class="wedget__title">Tag</h3>
         						<ul>
 									@if ($tag->count() > 0)
-									@foreach ($tag as $item)
-								<li><a href="{{ route('tagblog', $item->slug) }}">{{ $item->nama_tag }}</a></li>
-									@endforeach
-										
-									{{-- @foreach ($artikel as $item)
-										@foreach($item->tag as $a)
-									<li><a href="#">{{ $a->nama_tag }}</a></li>
+										@foreach ($tag as $item)
+											@if ($item->artikel->count() > 0)
+											<li><a href="{{ route('tagblog', $item->slug) }}">{{ $item->nama_tag }}</a></li>
+											@endif
 										@endforeach
-									@endforeach --}}
 									@else
 									<li><p>Tidak ada tag</p></li>
 									@endif

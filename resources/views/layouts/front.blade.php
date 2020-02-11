@@ -79,8 +79,9 @@
 											@if ($kategori->count() > 0)
 												
 											@foreach ($kategori as $item)
-											
-										<li><a href="{{ route('kategoribuku', $item->slug) }}">{{ $item->nama_kategori }}</a></li>
+												@if ($item->buku->count() > 0)
+												<li><a href="{{ route('kategoribuku', $item->slug) }}">{{ $item->nama_kategori }}</a></li>
+												@endif
 											@endforeach
 											@else
 											<li>Tidak ada kategori</li>
@@ -94,10 +95,11 @@
 											@endphp
 											@if ($tag->count() > 0)
 												
-											@foreach ($tag as $item)
-											
-											<li><a href="{{ route('tagbuku', $item->slug) }}">{{ $item->nama_tag }}</a></li>
-											@endforeach
+												@foreach ($tag as $item)
+													@if ($item->buku->count() > 0)
+													<li><a href="{{ route('tagbuku', $item->slug) }}">{{ $item->nama_tag }}</a></li>
+													@endif
+												@endforeach
 											@else
 											<li>Tidak ada tag</li>
 
@@ -153,7 +155,7 @@
 									</div>
 								</div> --}}
 							</li>
-							<li class="setting__bar__icon"><a class="setting__active" href="#"></a>
+							<li class="setting__bar__icon"><a href="backend/review"></a>
 						</ul>
 					</div>
 				</div>

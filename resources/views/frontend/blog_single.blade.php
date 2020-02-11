@@ -99,10 +99,15 @@
 							<aside class="wedget__categories poroduct--tag">
         						<h3 class="wedget__title">Tag Buku</h3>
         						<ul>
-        							@foreach ($tag as $item)
-										
-								<li><a href="{{ route('tagblog', $item->slug) }}">{{ $item->nama_tag }}</a></li>
-									@endforeach
+        							@if ($tag->count() > 0)
+										@foreach ($tag as $item)
+											@if ($item->artikel->count() > 0)
+											<li><a href="{{ route('tagblog', $item->slug) }}">{{ $item->nama_tag }}</a></li>
+											@endif
+										@endforeach
+									@else
+									<li><p>Tidak ada tag</p></li>
+									@endif
         						</ul>
         					</aside>
 							<!-- End Single Widget -->

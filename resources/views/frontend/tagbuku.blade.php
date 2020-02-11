@@ -38,11 +38,13 @@ Tag {{ $tag->nama_tag }}
 						<ul>
 							@if ($kategoriall->count() > 0)
 								
-							@foreach ($kategoriall as $item)
-						<li><a href="{{ route('kategoribuku', $item->slug) }}">{{ $item->nama_kategori }} <span>({{ $item->Buku->count() }})</span></a></li>
-							@endforeach
+								@foreach ($kategoriall as $item)
+									@if ($item->buku->count() > 0)
+									<li><a href="{{ route('kategoribuku', $item->slug) }}">{{ $item->nama_kategori }} <span>({{ $item->Buku->count() }})</span></a></li>
+									@endif
+								@endforeach
 							@else
-							<li><p>Tidak ada kategori</p></li>
+								<li><p>Tidak ada kategori</p></li>
 							@endif
 						</ul>
 					</aside>
@@ -54,12 +56,13 @@ Tag {{ $tag->nama_tag }}
                                 $tagall = \App\Tag::all();
                             @endphp
 							@if ($tagall->count() > 0)
-								
-							@foreach ($tagall as $item)
-						<li><a href="{{ route('tagbuku', $item->slug) }}">{{ $item->nama_tag }}</a></li>
-							@endforeach
+								@foreach ($tagall as $item)
+									@if ($item->buku->count() > 0)
+									<li><a href="{{ route('tagblog', $item->slug) }}">{{ $item->nama_tag }}</a></li>
+									@endif
+								@endforeach
 							@else
-							<li><p>Tidak ada tag</p></li>
+								<li><p>Tidak ada tag</p></li>
 							@endif
 						</ul>
 					</aside>

@@ -35,11 +35,11 @@
                     <td>{{ $list->nama_kategori }}</td>
                     <td>{{ $list->slug }}</td>
                       <td class="text-center"><a href="{{ route('kategori.edit', $list->id) }}" class="btn btn-sm btn-success rounded">
-                        <i class="fas fa-fw fa-edit"></i></a>
+                        <i class="fas fa-fw fa-edit"></i></a><br>
                         <form action="{{ route('kategori.destroy',$list->id) }}" method="post">
                           {{csrf_field()}}
                               <input type="hidden" name="_method" value="DELETE">
-                              <button class="btn btn-sm btn-danger" type="submit">
+                              <button class="btn btn-danger btn-sm rounded" type="submit">
                                 <i class="fas fa-fw fa-trash-alt"></i>
                               </button>
                           </form>
@@ -79,6 +79,39 @@
           <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
       </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Remove-->
+<div class="modal fade" id="hapusModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="hapusModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="hapusModalLabel">Peringatan</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Apakah Anda ingin menghapus kategori ini ?
+      </div>
+      <div class="modal-footer">
+        
+        <div class="col-md-6 mx-auto">
+          <button type="button" class="btn btn-secondary btn-block rounded" data-dismiss="modal">Batal</button>
+        </div>
+        <div class="col-md-6 mx-auto">
+          <form action="{{ route('kategori.destroy',$list->id) }}" method="post">
+            {{csrf_field()}}
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="btn btn-danger btn-block rounded" type="submit">
+                  <i class="fas fa-fw fa-trash-alt"></i> Hapus
+                </button>
+            </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>

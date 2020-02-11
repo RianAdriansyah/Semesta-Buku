@@ -48,7 +48,7 @@ class FrontendController extends Controller
     }
     public function blog(Request $request)
     {
-        $artikel = Artikel::with('tag', 'buku')->paginate(5);
+        $artikel = Artikel::with('tag', 'buku')->orderBy('created_at', 'desc')->paginate(5);
         $tag = Tag::with('artikel')->get();
 
         $cariblog = $request->cariblog;
@@ -61,15 +61,27 @@ class FrontendController extends Controller
     }
     public function review(Request $request)
     {
-        $review = Review::with('buku')->paginate(5);
+        $review = Review::with('buku')->orderBy('created_at', 'desc')->paginate(6);
         $kategori = Kategori::all();
         $tag = Tag::all();
 
         $carireview = $request->carireview;
-
+        $sort = $request->sort;
         if ($carireview) {
-            $review = Review::where('judul', 'LIKE', "%$carireview%")->paginate(5);
+            $review = Review::where('judul', 'LIKE', "%$carireview%")->paginate(6);
         }
+        if ($sort == 'baru') {
+            $review = Review::orderBy('created_at', 'desc')->paginate(6);
+        }
+        if ($sort == 'lama') {
+            $review = Review::orderBy('created_at', 'asc')->paginate(6);
+        }
+
+        // $carireview = $request->carireview;
+
+        // if ($carireview) {
+        //     $caribuku = Buku::where('judul', 'LIKE', "%$carireview%")->paginate(5);
+        // }
         return view('frontend.review', compact('review', 'kategori', 'tag'));
     }
     public function about(Request $request)
@@ -88,6 +100,7 @@ class FrontendController extends Controller
         $tag = Tag::all();
 
         $cariblog = $artikel->cariblog;
+
 
         if ($cariblog) {
             $artikel = Artikel::where('judul', 'LIKE', "%$cariblog%")->paginate(5);

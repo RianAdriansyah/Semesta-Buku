@@ -136,11 +136,11 @@
         						<h3 class="wedget__title">Tag Buku</h3>
         						<ul>
 									@if ($tag->count() > 0)
-										
-									@foreach ($tag as $item)
-									
-								<li><a href="{{ route('tagreview', $item->slug) }}">{{ $item->nama_tag }}</a></li>
-									@endforeach
+										@foreach ($tag as $item)
+											@if ($item->review->count() > 0)
+											<li><a href="{{ route('tagreview', $item->slug) }}">{{ $item->nama_tag }}</a></li>
+											@endif
+										@endforeach
 									@else
 									<li><p>Tidak ada tag</p></li>
 									@endif

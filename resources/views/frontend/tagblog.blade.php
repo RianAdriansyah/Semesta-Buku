@@ -55,7 +55,7 @@
         							</ul>
         							<p>{!! str_limit( $item->konten, $limit = 100, $end = '...') !!}</p>
         							<div class="blog__btn">
-										<a href="{{ route('blog_single', $item->slug) }}">read more</a>
+										<a href="{{ route('blog_single', $item->slug) }}">Baca Selengkapnya</a>
         							</div>
         						</div>
         					</article>
@@ -111,17 +111,13 @@
                                     @endphp
 									@if ($tagall->count() > 0)
 									@foreach ($tagall as $item)
-								<li><a href="{{ route('tagblog', $item->slug) }}">{{ $item->nama_tag }}</a></li>
+										@if ($item->artikel->count() > 0)
+										<li><a href="{{ route('tagblog', $item->slug) }}">{{ $item->nama_tag }}</a></li>
+										@endif
 									@endforeach
-										
-									{{-- @foreach ($artikel as $item)
-										@foreach($item->tag as $a)
-									<li><a href="#">{{ $a->nama_tag }}</a></li>
-										@endforeach
-									@endforeach --}}
-									@else
-									<li><p>Tidak ada tag</p></li>
-									@endif
+								@else
+								<li><p>Tidak ada tag</p></li>
+								@endif
         						</ul>
         					</aside>
         				</div>

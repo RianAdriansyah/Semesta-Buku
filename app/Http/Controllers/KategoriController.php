@@ -111,7 +111,7 @@ class KategoriController extends Controller
 
         Session::flash("flash_notification", [
             "level" => "danger",
-            "message" => "Kategori <b>$kategori->nama_kategori</b> gagal dihapus!"
+            "message" => "Kategori <b>$kategori->nama_kategori</b> berhasil dihapus!"
         ]);
 
         return redirect()->route('kategori.index');

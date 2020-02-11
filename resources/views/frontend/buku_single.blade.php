@@ -86,7 +86,6 @@
 												</tr>
 											</table>
         								</div>
-        								
         							</div>
         						</div>
         					</div>
@@ -117,29 +116,28 @@
 									@endphp
 									@foreach ($new as $item)
 										
-									<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
-										<div class="product__thumb">
-											<a class="first__img" href="{{ route('buku_single', $item->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$item->cover)}}" alt="product image"></a>
-											<div class="hot__box">
-											<span class="hot-label">{{ $item->kategori->nama_kategori }}</span>
+										<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
+											<div class="product__thumb">
+												<a class="first__img" href="{{ route('buku_single', $item->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$item->cover)}}" alt="product image"></a>
+												<div class="hot__box">
+												<span class="hot-label">{{ $item->kategori->nama_kategori }}</span>
+												</div>
+											</div>
+											<div class="product__content content--center">
+											<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
+												<ul class="prize d-flex">
+													<ul class="rating d-flex">
+														<li class="on"><i class="fa fa-star-o"></i></li>
+														<li class="on"><i class="fa fa-star-o"></i></li>
+														<li class="on"><i class="fa fa-star-o"></i></li>
+														<li class="on"><i class="fa fa-star-o"></i></li>
+														<li><i class="fa fa-star-o"></i></li>
+													</ul>
+												</ul>
 											</div>
 										</div>
-										<div class="product__content content--center">
-										<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
-											<ul class="prize d-flex">
-												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</ul>
-										</div>
-									</div>
 									@endforeach
 									<!-- Start Single Product -->
-									
 								</div>
 							</div>
 						</div>
@@ -153,8 +151,9 @@
 									$kategori = \App\Kategori::orderBy('nama_kategori', 'asc')->paginate(50);
 									@endphp
 									@foreach ($kategori as $item)
-										
-								<li><a href="{{ route('kategoribuku', $item->slug) }}">{{ $item->nama_kategori }} <span>({{ $item->Buku->count() }})</span></a></li>
+										@if ($item->buku->count() > 0)
+											<li><a href="{{ route('kategoribuku', $item->slug) }}">{{ $item->nama_kategori }} <span>({{ $item->Buku->count() }})</span></a></li>
+										@endif
 									@endforeach
         						</ul>
         					</aside>
@@ -162,10 +161,11 @@
         						<h3 class="wedget__title">Tag Buku</h3>
         						<ul>
 									@foreach ($tag as $item)
-										
-								<li><a href="{{ route('tagbuku', $item->slug) }}">{{ $item->nama_tag }}</a></li>
+										@if ($item->buku->count() > 0)
+											
+											<li><a href="{{ route('tagbuku', $item->slug) }}">{{ $item->nama_tag }}</a></li>
+										@endif
 									@endforeach
-        							
         						</ul>
         					</aside>
         				</div>
