@@ -6,6 +6,30 @@ Tag Ulasan {{ $tag->nama_tag }}
 
 @section('isi')
 
+<style>
+	.widget.search_widget {
+  margin: 0 0 30px; }
+  .widget.search_widget .form-input {
+    position: relative; }
+    .widget.search_widget .form-input input {
+      border: 1px solid #e1e1e1;
+      height: 40px;
+      padding: 0 44px 0 20px;
+      width: 100%;
+      outline: none; }
+    .widget.search_widget .form-input button {
+      background: transparent none repeat scroll 0 0;
+      border: 0 none;
+      color: #222;
+      font-size: 12px;
+      padding: 0 12px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%); }
+</style>
+
 <!-- Start Bradcaump area -->
 <div class="ht__bradcaump__area bg-image--7">
 	<div class="container">
@@ -30,6 +54,18 @@ Tag Ulasan {{ $tag->nama_tag }}
 		<div class="row">
 			<div class="col-lg-3 col-12 order-2 order-lg-1 md-mt-40 sm-mt-40">
 				<div class="shop__sidebar">
+					<!-- Start Single Widget -->
+					<aside class="widget search_widget">
+						<h3 class="wedget__title">Cari Ulasan</h3>
+					<form action="{{ route('review') }}">
+							<div class="form-input">
+								<input type="text" placeholder="Cari..." name="carireview">
+								<button type="submit"><i class="fa fa-search"></i></button>
+							</div>
+						</form>
+					</aside>
+					<!-- End Single Widget -->
+
 					<aside class="wedget__categories poroduct--cat">
 						<h3 class="wedget__title">Buku Terbaru</h3>
 						<ul>

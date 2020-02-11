@@ -108,7 +108,7 @@ Ulasan Buku
 								<a class="nav-item nav-link active" data-toggle="tab" href="#nav-grid" role="tab"><i class="fa fa-th"></i></a>
 								<a class="nav-item nav-link" data-toggle="tab" href="#nav-list" role="tab"><i class="fa fa-list"></i></a>
 							</div>
-							<p>Menampilkan {{ $review->count() }} dari {{ \App\Review::all()->count() }} hasil</p>
+							<p>Menampilkan {{ $review->count() }} dari {{ \App\Review::all()->count() }} ulasan</p>
 							<div class="orderby__wrapper">
 								<span>Urutkan</span>
 								<select class="shot__byselect" name="sort" onchange="pindah(this)">

@@ -154,9 +154,21 @@ class FrontendController extends Controller
         $review = $tag->review()->latest()->paginate(5);
         $carireview = $request->carireview;
 
+        $carireview = $request->carireview;
+        $sort = $request->sort;
         if ($carireview) {
-            $review = Review::where('judul', 'LIKE', "%$carireview%")->paginate(5);
+            $review = Review::where('judul', 'LIKE', "%$carireview%")->paginate(6);
         }
+        if ($sort == 'baru') {
+            $review = Review::orderBy('created_at', 'desc')->paginate(6);
+        }
+        if ($sort == 'lama') {
+            $review = Review::orderBy('created_at', 'asc')->paginate(6);
+        }
+
+        // if ($carireview) {
+        //     $review = Review::where('judul', 'LIKE', "%$carireview%")->paginate(5);
+        // }
 
         return view('frontend.tagreview', compact('review', 'tag'));
     }
