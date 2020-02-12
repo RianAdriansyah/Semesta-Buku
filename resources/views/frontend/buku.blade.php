@@ -101,7 +101,7 @@ Koleksi Buku
 								</div>
 								<div class="product__content content--center">
 									<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
-									<ul class="prize d-flex">
+									{{-- <ul class="prize d-flex">
 										<ul class="rating d-flex">
 											<li class="on"><i class="fa fa-star-o"></i></li>
 											<li class="on"><i class="fa fa-star-o"></i></li>
@@ -109,7 +109,7 @@ Koleksi Buku
 											<li class="on"><i class="fa fa-star-o"></i></li>
 											<li><i class="fa fa-star-o"></i></li>
 										</ul>
-									</ul>
+									</ul> --}}
 								</div>
 							</div>
 							@endforeach
@@ -139,7 +139,7 @@ Koleksi Buku
 								</div>
 								<div class="content">
 								<h2><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h2>
-									<ul class="prize__box">
+									{{-- <ul class="prize__box">
 										<ul class="rating d-flex">
 											<li class="on"><i class="fa fa-star-o"></i></li>
 											<li class="on"><i class="fa fa-star-o"></i></li>
@@ -147,7 +147,7 @@ Koleksi Buku
 											<li class="on"><i class="fa fa-star-o"></i></li>
 											<li><i class="fa fa-star-o"></i></li>
 										</ul>
-									</ul>
+									</ul> --}}
 									<p>{!! str_limit( $item->sinopsis, $limit = 300, $end = '...') !!}</p>
 									<ul class="cart__action d-flex">
 										<li class="cart"><a href="{{ route('buku_single', $item->slug) }}">Lihat Selengkapnya</a></li>

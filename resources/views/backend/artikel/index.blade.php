@@ -22,8 +22,8 @@
                   <thead class="thead-dark" style="font-size: 9px;">
                     <tr>
                       <th scope="col">No</th>
+                      <th scope="col">Cover</th>
                       <th scope="col">Judul Artikel</th>
-                      <th scope="col">User</th>
                       <th scope="col" class="text-center">Aksi</th>
                     </tr>
                   </thead>
@@ -32,8 +32,8 @@
                     @foreach ($artikel as $data)
                     <tr>
                     <th scope="row">{{ $no++ }}</th>
+                    <td><img src="{{ asset('assets/img/artikel/cover/' .$data->cover) }}" width="200px"></td>
                     <td>{{ $data->judul }}</td>
-                      <td>{{ $data->user->name }}</td>
                     <td class="text-center"><a href="{{ route('artikel.edit', $data->id) }}" class="btn btn-sm btn-success rounded">
                         <i class="fas fa-fw fa-edit"></i></a> <br>
                     <a href="{{ route('artikel.show', $data->id) }}" class="btn btn-sm btn-info rounded">

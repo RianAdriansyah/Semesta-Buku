@@ -134,28 +134,27 @@
 							<li class="shop_search"><a class="search__active" href="#"></a>
                             &nbsp; &nbsp; &nbsp; &nbsp;
 							<li>
-								{{-- <div class="searchbar__content setting__block">
+							<li class="setting__bar__icon"><a class="setting__active" href="#"></a>
+								<div class="searchbar__content setting__block">
 									<div class="content-inner">
 										<div class="switcher-currency">
 											<strong class="label switcher-label">
-												<span>My Account</span>
+												<span>Akun Saya</span>
 											</strong>
+										</div>
+										<div class="switcher-currency">
 											<div class="switcher-options">
 												<div class="switcher-currency-trigger">
 													<div class="setting__menu">
-														<span><a href="#">Compare Product</a></span>
-														<span><a href="#">My Account</a></span>
-														<span><a href="#">My Wishlist</a></span>
-														<span><a href="#">Sign In</a></span>
-														<span><a href="#">Create An Account</a></span>
+														<span><a href="{{ route('login') }}">Masuk</a></span>
+														<span><a href="{{ route('register') }}">Buat Akun</a></span>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div> --}}
+								</div>
 							</li>
-							<li class="setting__bar__icon"><a href="backend/review"></a>
 						</ul>
 					</div>
 				</div>

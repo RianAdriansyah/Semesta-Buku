@@ -1,5 +1,5 @@
 ﻿@extends('layouts.front')
-@section('web-title', 'Tentang Kami')
+@section('web-title', 'Tentang')
 
 @section('isi')
 	

@@ -61,13 +61,19 @@
           <li>
           <a href="{{ route('kategori.index') }}">
               <i class="now-ui-icons location_bookmark"></i>
-              <p>Daftar Kategori</p>
+              <p>Daftar Kategori Buku</p>
             </a>
           </li>
           <li>
             <a href="{{ route('review.index') }}">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Daftar Review</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('user.index') }}">
+              <i class="now-ui-icons users_single-02"></i>
+              <p>Daftar User</p>
             </a>
           </li>
           <li class="active-pro">
@@ -117,8 +123,11 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="navbar-nav">
+              @php
+                  $user = \App\User::all();
+              @endphp
               <li class="nav-item">
-                <a class="nav-link" href="#">
+              <a class="nav-link" href="#">
                   <p>
                     {{ Auth::user()->name }}
                   </p>
@@ -246,4 +255,4 @@
   </script>
     </body>
     
-    </html>
+</html>

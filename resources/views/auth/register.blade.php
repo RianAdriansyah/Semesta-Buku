@@ -365,6 +365,9 @@
         @enderror
         </center>
       </form>
+      <center>
+        <p style="color:white;">Sudah punya akun ? <a href="{{ route('login') }}"> Masuk</a></p>
+      </center>
   
       {{-- <p class="text--center">Not a member? <a href="#">Sign up now</a> <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#arrow-right"></use></svg></p>
    --}}

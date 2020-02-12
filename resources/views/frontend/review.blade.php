@@ -169,7 +169,7 @@ Ulasan Buku
 								<div class="content">
 								<h3><a href="{{ route('review_single', $item->slug) }}">{{ $item->judul }}</a></h3>
 								<h6>{{ $item->buku->judul }}</h6>
-									<ul class="prize__box">
+									{{-- <ul class="prize__box">
 										<ul class="rating d-flex">
 											<li class="on"><i class="fa fa-star-o"></i></li>
 											<li class="on"><i class="fa fa-star-o"></i></li>
@@ -177,7 +177,7 @@ Ulasan Buku
 											<li class="on"><i class="fa fa-star-o"></i></li>
 											<li><i class="fa fa-star-o"></i></li>
 										</ul>
-									</ul>
+									</ul> --}}
 									<p>{!! str_limit( $item->isi, $limit = 300, $end = '...') !!}</p>
 									<ul class="cart__action d-flex">
 										<li class="cart"><a href="{{ route('buku_single', $item->slug) }}">Lihat Selengkapnya</a></li>

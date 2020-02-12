@@ -24,6 +24,7 @@ Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin']], fu
     Route::resource('/kategori', 'KategoriController');
     Route::resource('/artikel', 'ArtikelController');
     Route::resource('/review', 'ReviewController');
+    Route::resource('/user', 'UserController');
 });
 Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin||member']], function () {
 
