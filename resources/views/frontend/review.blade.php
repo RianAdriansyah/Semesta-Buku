@@ -56,6 +56,9 @@ Ulasan Buku
 				<div class="shop__sidebar">
 					<!-- Start Single Widget -->
 					<aside class="widget search_widget">
+						<a class="shopbtn" href="/backend/review/" target="_blank">Tambah Ulasan</a>
+					</aside>
+					<aside class="widget search_widget">
 						<h3 class="wedget__title">Cari Ulasan</h3>
 					<form action="{{ route('review') }}">
 							<div class="form-input">

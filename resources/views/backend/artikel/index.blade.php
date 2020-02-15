@@ -85,7 +85,7 @@
           <div class="form-group">
               <label for="">Tag</label>
               @php $tag = \App\Tag::all(); @endphp
-              <select name="tag[]" class="form-control" required id="select2" style="width:100%;" required multiple>
+              <select name="tag[]" class="form-control" required id="select2" style="width:100%;" multiple>
                 @foreach ($tag as $list)
               <option value="{{ $list->id }}">{{ $list->nama_tag }}</option>
                 @endforeach

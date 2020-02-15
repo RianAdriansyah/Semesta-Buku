@@ -19,7 +19,7 @@ class Buku extends Model
 
     public function review()
     {
-        return $this->belongsTo('App\Review', 'review_id');
+        return $this->hasMany('App\Review', 'buku_id');
     }
 
     public function getRouteKeyName()
@@ -27,26 +27,26 @@ class Buku extends Model
         return 'slug';
     }
 
-    // public static function boot()
-    // {
-    //     parent::boot();
-    //     self::deleting(function ($buku) {
+    public static function boot()
+    {
+        parent::boot();
+        self::deleting(function ($buku) {
 
-    //         if ($buku->artikel->count() > 0) {
+            if ($buku->review->count() > 0) {
 
-    //             $html = 'Buku ini memiliki artikel : ';
-    //             $html .= '<ul>';
-    //             foreach ($buku->artikel as $data) {
-    //                 $html .= "<li>$data->judul</li>";
-    //             }
-    //             $html .= '</ul>';
-    //             Session::flash("flash_notification", [
-    //                 "level" => "danger",
-    //                 "message" => $html
-    //             ]);
-    //             // membatalkan proses penghapusan
-    //             return false;
-    //         }
-    //     });
-    // }
+                $html = 'Buku ini memiliki review : ';
+                $html .= '<ul>';
+                foreach ($buku->review as $data) {
+                    $html .= "<li>$data->judul</li>";
+                }
+                $html .= '</ul>';
+                Session::flash("flash_notification", [
+                    "level" => "danger",
+                    "message" => $html
+                ]);
+                // membatalkan proses penghapusan
+                return false;
+            }
+        });
+    }
 }

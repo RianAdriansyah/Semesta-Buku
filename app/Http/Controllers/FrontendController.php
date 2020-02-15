@@ -91,7 +91,9 @@ class FrontendController extends Controller
     public function buku_single(Buku $buku)
     {
         $kategori = Kategori::all();
+        // $buuku  = Buku::with('review')->get();
         $tag = Tag::all();
+        // return dd($buku); 
         return view('frontend.buku_single', compact('buku', 'kategori', 'tag'));
     }
     public function blog_single(Artikel $artikel)

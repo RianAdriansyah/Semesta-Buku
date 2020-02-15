@@ -146,8 +146,8 @@
 											<div class="switcher-options">
 												<div class="switcher-currency-trigger">
 													<div class="setting__menu">
-														<span><a href="{{ route('login') }}">Masuk</a></span>
-														<span><a href="{{ route('register') }}">Buat Akun</a></span>
+														<span><a href="{{ route('login') }}" target="_blank">Masuk</a></span>
+														<span><a href="{{ route('register') }}" target="_blank">Buat Akun</a></span>
 													</div>
 												</div>
 											</div>

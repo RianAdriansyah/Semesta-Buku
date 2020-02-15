@@ -92,7 +92,9 @@
         				</div>
         				<div class="product__info__detailed">
 							<div class="pro_details_nav nav justify-content-start" role="tablist">
-	                            <a class="nav-item nav-link active" data-toggle="tab" href="#nav-details" role="tab">Sinopsis</a>
+								<a class="nav-item nav-link active" data-toggle="tab" href="#nav-details" role="tab">Sinopsis</a>
+	                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-review" role="tab">Ulasan</a>
+								
 	                        </div>
 	                        <div class="tab__container">
 	                        	<!-- Start Single Tab Content -->
@@ -100,7 +102,45 @@
 									<div class="description__attribute">
 										<p>{!! $buku->sinopsis !!}</p>
 									</div>
-	                        	</div>
+									
+								</div>
+								<div class="pro__tab_label tab-pane fade" id="nav-review" role="tabpanel">
+									{{-- <div class="review-fieldset">
+										<h2>You're reviewing:</h2>
+										<h3>Chaz Kangeroo Hoodie</h3>
+										<div class="review-field-ratings">
+											<div class="product-review-table">
+												
+											</div>
+										</div>
+										<div class="review_form_field">
+											<div class="input__box">
+												<span>Nickname</span>
+												<input id="nickname_field" type="text" name="nickname">
+											</div>
+											<div class="input__box">
+												<span>Summary</span>
+												<input id="summery_field" type="text" name="summery">
+											</div>
+											<div class="input__box">
+												<span>Review</span>
+												<textarea name="review"></textarea>
+											</div>
+											<div class="review-form-actions">
+												<button>Submit Review</button>
+											</div>
+										</div>
+									</div> --}}
+									<div class="description__attribute">
+										{{-- @if ($buku->review[0])
+										<p>{!! $buku->review[0]->isi !!}</p>
+										@else
+										<p>Tidak ada ulasan</p>
+										@endif --}}
+									</div>
+								</div>
+								<!-- End Single Tab Content -->
+								<!-- Start Single Tab Content -->
 	                        	<!-- End Single Tab Content -->
 	                        </div>
         				</div>
@@ -125,7 +165,7 @@
 											</div>
 											<div class="product__content content--center">
 											<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
-												<ul class="prize d-flex">
+												{{-- <ul class="prize d-flex">
 													<ul class="rating d-flex">
 														<li class="on"><i class="fa fa-star-o"></i></li>
 														<li class="on"><i class="fa fa-star-o"></i></li>
@@ -133,10 +173,11 @@
 														<li class="on"><i class="fa fa-star-o"></i></li>
 														<li><i class="fa fa-star-o"></i></li>
 													</ul>
-												</ul>
+												</ul> --}}
 											</div>
 										</div>
 									@endforeach
+									
 									<!-- Start Single Product -->
 								</div>
 							</div>
