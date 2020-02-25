@@ -139,7 +139,8 @@
 									<div class="content-inner">
 										<div class="switcher-currency">
 											<strong class="label switcher-label">
-												<span>Akun Saya</span>
+											<a href="/backend/review/"><span>Review Saya</span></a>
+												
 											</strong>
 										</div>
 										<div class="switcher-currency">

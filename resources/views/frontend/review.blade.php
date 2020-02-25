@@ -141,6 +141,8 @@ Ulasan Buku
 								</div>
 								<div class="product__content content--center">
 									<h4><a href="{{ route('review_single', $item->slug) }}">{{ $item->judul }}</a></h4>
+								<small>Dibuat oleh : {{ $item->user->name }}</small>
+
 									
 								</div>
 							</div>
@@ -182,6 +184,8 @@ Ulasan Buku
 										</ul>
 									</ul> --}}
 									<p>{!! str_limit( $item->isi, $limit = 300, $end = '...') !!}</p>
+								<small>Dibuat oleh : {{ $item->user->name }}</small>
+
 									<ul class="cart__action d-flex">
 										<li class="cart"><a href="{{ route('buku_single', $item->slug) }}">Lihat Selengkapnya</a></li>
 									</ul>

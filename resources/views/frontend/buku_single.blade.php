@@ -132,11 +132,24 @@
 										</div>
 									</div> --}}
 									<div class="description__attribute">
-										{{-- @if ($buku->review[0])
-										<p>{!! $buku->review[0]->isi !!}</p>
+										@if (isset($buku->review[0]->isi))
+										<?php $count = 0; ?>
+											@foreach ($buku->review as $item)
+												<?php if ($count == 5) break; ?>
+													<p>{!! $item->isi !!}</p>
+													<small>Dibuat oleh : {{ $item->user->name }}</small>
+													<hr>
+												<?php $count++; ?>
+												@endforeach
+												<div class="row">
+													<div class="col-lg-6 mx-auto pt-4">
+														<a class="shopbtn" href="{{ route('review') }}" target="_blank">Lebih Banyak Ulasan</a>
+													</div>
+												</div>
 										@else
 										<p>Tidak ada ulasan</p>
-										@endif --}}
+										<a class="shopbtn" href="/backend/review/" target="_blank">Tambah Ulasan</a>
+										@endif
 									</div>
 								</div>
 								<!-- End Single Tab Content -->
