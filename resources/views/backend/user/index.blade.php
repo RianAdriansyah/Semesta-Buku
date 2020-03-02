@@ -78,6 +78,11 @@
           <div class="form-group">
             <label for="">Email</label>
             <input type="email" class="form-control" name="email" required>
+            @error('email')
+              <small class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </small>
+            @enderror
           </div>
           <div class="form-group">
             <label for="">Password</label>
@@ -85,8 +90,14 @@
           </div>
           <div class="form-group">
             <label for="">Confirm Password</label>
-            <input type="password" class="form-control" name="password" required>
+            <input type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+            @error('password')
+                <small class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </small>
+            @enderror
           </div>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

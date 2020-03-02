@@ -60,7 +60,7 @@
 												
 											@foreach ($review as $item)
 											
-											<li><a href="{{ route('review_single', $item->slug) }}">{{ $item->buku->judul }}</a></li>
+										<li><a href="{{ route('review_single', $item->slug) }}"><strong>{{ $item->buku->judul }}</strong>  oleh : {{ $item->user->name }}</a></li>
 											@endforeach
 											@else
 											<li>Tidak ada ulasan</li>

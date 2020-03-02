@@ -117,6 +117,8 @@ Ulasan Buku
 								<select class="shot__byselect" name="sort" onchange="pindah(this)">
 									<option disabled selected>Pilih Urutan</option>
 									<option value=" {{ url('review') }}">Urutan awal</option>
+									{{-- <option value=" {{ url('review?sort=bukua') }}">Buku (A - Z)</option>
+									<option value=" {{ url('review?sort=bukuz') }}">Buku (Z - A)</option> --}}
 									<option value=" {{url('review?sort=baru')}}">Waktu (Terbaru)</option>
 									<option value="{{url('review?sort=lama')}}">Waktu (Terlama)</option>
 								</select>
@@ -160,6 +162,7 @@ Ulasan Buku
 							</li>
 						</ul>
 					</div>
+					{{-- LIST VIEW REVIEW --}}
 					<div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
 						<div class="list__view__wrapper">
 							<!-- Start Single Product -->

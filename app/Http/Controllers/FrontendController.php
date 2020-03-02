@@ -70,6 +70,12 @@ class FrontendController extends Controller
         if ($carireview) {
             $review = Review::where('judul', 'LIKE', "%$carireview%")->paginate(6);
         }
+        // if ($sort == 'bukua') {
+        //     $review = Review::orderBy('judul', 'asc')->paginate(6);
+        // }
+        // if ($sort == 'bukuz') {
+        //     $review = Review::orderBy('judul', 'desc')->paginate(6);
+        // }
         if ($sort == 'baru') {
             $review = Review::orderBy('created_at', 'desc')->paginate(6);
         }
