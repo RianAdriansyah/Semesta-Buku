@@ -44,11 +44,20 @@
         								<div class="price-box">
         									<ul class="prize d-flex">
 												<ul class="rating d-flex">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
+													@php
+														$star = $buku->rating;
+														$star_off = 5 - $star;
+													@endphp
+													@for ($s = 0; $s < $star; $s++)
+														<li class="on"><i class="fa fa-star"></i></li>
+													@endfor
+													@for ($i = 0; $i < $star_off; $i++)
+														<li><i class="fa fa-star"></i></li>
+													@endfor
+													{{-- <li class="on"><i class="fa fa-star"></i></li>
+													<li class="on"><i class="fa fa-star"></i></li>
+													<li class="on"><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li> --}}
 												</ul>
 											</ul>
         								</div>
@@ -167,25 +176,28 @@
 									@php
 										$new = \App\Buku::with('kategori')->paginate(6);
 									@endphp
-									@foreach ($new as $item)
+									@foreach ($new as $last)
 										
 										<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 											<div class="product__thumb">
-												<a class="first__img" href="{{ route('buku_single', $item->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$item->cover)}}" alt="product image"></a>
+												<a class="first__img" href="{{ route('buku_single', $last->slug) }}"><img src="{{ asset('assets/img/buku/cover/'.$last->cover)}}" alt="product image"></a>
 												<div class="hot__box">
-												<span class="hot-label">{{ $item->kategori->nama_kategori }}</span>
+												<span class="hot-label">{{ $last->kategori->nama_kategori }}</span>
 												</div>
 											</div>
 											<div class="product__content content--center">
-											<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
+											<h4><a href="{{ route('buku_single', $last->slug) }}">{{ $last->judul }}</a></h4>
 												{{-- <ul class="prize d-flex">
-													<ul class="rating d-flex">
-														<li class="on"><i class="fa fa-star-o"></i></li>
-														<li class="on"><i class="fa fa-star-o"></i></li>
-														<li class="on"><i class="fa fa-star-o"></i></li>
-														<li class="on"><i class="fa fa-star-o"></i></li>
-														<li><i class="fa fa-star-o"></i></li>
-													</ul>
+													@php
+														$star = $latest->rating;
+														$star_off = 5 - $star;
+													@endphp
+													@for ($s = 0; $s < $star; $s++)
+														<li class="on"><i class="fa fa-star"></i></li>
+													@endfor
+													@for ($i = 0; $i < $star_off; $i++)
+														<li><i class="fa fa-star"></i></li>
+													@endfor
 												</ul> --}}
 											</div>
 										</div>

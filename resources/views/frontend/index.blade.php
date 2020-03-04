@@ -78,9 +78,16 @@
 								<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
 								<ul class="prize d-flex">
 									<ul class="rating d-flex">
-										{{-- @foreach ($item->rating as $rate)
-											<li class="on" value="{{ $rate }}"><i class="fa fa-star-o"></i></li>
-											@endforeach --}}
+										@php
+												$star = $item->rating;
+												$star_off = 5 - $star;
+											@endphp
+											@for ($s = 0; $s < $star; $s++)
+												<li class="on"><i class="fa fa-star"></i></li>
+											@endfor
+											@for ($i = 0; $i < $star_off; $i++)
+												<li><i class="fa fa-star"></i></li>
+											@endfor
 										</ul>
 									</ul>
 								</div>
@@ -131,9 +138,16 @@
 								<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
 								<ul class="prize d-flex">
 									<ul class="rating d-flex">
-										{{-- @foreach ($item->rating as $rate)
-											<li class="on" value="{{ $rate }}"><i class="fa fa-star-o"></i></li>
-											@endforeach --}}
+										@php
+												$star = $item->rating;
+												$star_off = 5 - $star;
+											@endphp
+											@for ($s = 0; $s < $star; $s++)
+												<li class="on"><i class="fa fa-star"></i></li>
+											@endfor
+											@for ($i = 0; $i < $star_off; $i++)
+												<li><i class="fa fa-star"></i></li>
+											@endfor
 										</ul>
 									</ul>
 								</div>
@@ -212,11 +226,11 @@
 					<div class="product__content content--center">
 						{{-- <div class="product__hover--content">
 							<ul class="rating d-flex">
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li class="on"><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
-								<li><i class="fa fa-star-o"></i></li>
+								<li class="on"><i class="fa fa-star"></i></li>
+								<li class="on"><i class="fa fa-star"></i></li>
+								<li class="on"><i class="fa fa-star"></i></li>
+								<li><i class="fa fa-star"></i></li>
+								<li><i class="fa fa-star"></i></li>
 							</ul>
 						</div> --}}
 					</div>

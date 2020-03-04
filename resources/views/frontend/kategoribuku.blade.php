@@ -106,11 +106,16 @@ Kategori {{ $kategori->nama_kategori }}
 									<h4><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h4>
 									<ul class="prize d-flex">
 										<ul class="rating d-flex">
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li><i class="fa fa-star-o"></i></li>
+											@php
+												$star = $item->rating;
+												$star_off = 5 - $star;
+											@endphp
+											@for ($s = 0; $s < $star; $s++)
+												<li class="on"><i class="fa fa-star"></i></li>
+											@endfor
+											@for ($i = 0; $i < $star_off; $i++)
+												<li><i class="fa fa-star"></i></li>
+											@endfor
 										</ul>
 									</ul>
 								</div>
@@ -144,11 +149,16 @@ Kategori {{ $kategori->nama_kategori }}
 								<h2><a href="{{ route('buku_single', $item->slug) }}">{{ $item->judul }}</a></h2>
 									<ul class="prize__box">
 										<ul class="rating d-flex">
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li><i class="fa fa-star-o"></i></li>
+											@php
+												$star = $item->rating;
+												$star_off = 5 - $star;
+											@endphp
+											@for ($s = 0; $s < $star; $s++)
+												<li class="on"><i class="fa fa-star"></i></li>
+											@endfor
+											@for ($i = 0; $i < $star_off; $i++)
+												<li><i class="fa fa-star"></i></li>
+											@endfor
 										</ul>
 									</ul>
 									<p>{!! str_limit( $item->sinopsis, $limit = 300, $end = '...') !!}</p>
