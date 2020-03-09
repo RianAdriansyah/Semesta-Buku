@@ -20,7 +20,7 @@ class CreateBukusTable extends Migration
             $table->string('penulis');
             $table->string('penerbit');
             $table->string('no_isbn');
-            $table->string('rating');
+            $table->integer('rating')->nullable();
             $table->string('slug');
             $table->text('sinopsis');
             $table->date('tgl_terbit');

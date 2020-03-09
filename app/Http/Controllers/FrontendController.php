@@ -208,9 +208,33 @@ class FrontendController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function rev_store(Request $request)
     {
-        //
+        $review = new Review;
+        $review->judul = $request->judul;
+        $review->user_id = Auth::user()->id;
+        $review->buku_id = $request->buku_id;
+        # Cover
+        if ($request->hasFile('cover')) {
+            $file = $request->file('cover');
+            $path = public_path() . '/assets/img/review/cover';
+            $filename = str_random(6) . '_' . $file->getClientOriginalName();
+            $upload = $file->move($path, $filename);
+            $review->cover = $filename;
+        }
+        $review->isi = $request->isi;
+        $review->quotes = $request->quotes;
+        $review->rating = $request->rating;
+        $review->slug = str_slug($request->judul);
+        $review->save();
+        $review->tag()->attach($request->tag);
+
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Review <b>$review->judul</b> berhasil ditambahkan!"
+        ]);
+
+        return redirect()->route('review.index');
     }
 
     /**

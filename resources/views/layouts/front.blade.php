@@ -22,10 +22,60 @@
 	<link rel="stylesheet" href="{{asset('assets/frontend/style.css') }}">
 
 	<!-- Cusom css -->
-   <link rel="stylesheet" href="{{asset('assets/frontend/css/custom.css') }}">
+	<link rel="stylesheet" href="{{asset('assets/frontend/css/custom.css') }}">
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="{{asset('assets/backend/dataTables/datatables.min.css ') }}">
+   
 
-	<!-- Modernizer js -->
-	<script src="{{asset('assets/frontend/js/vendor/modernizr-3.5.0.min.js') }}"></script>
+   <style>
+    .ratingf{
+      /* position: absolute;
+      top: 50%;
+      left: 50%; */
+      margin-left: -20px;
+      transform: translate(-50%, -50%) rotateY(180deg);
+      display: flex;
+    }
+    .ratingf input{
+      display: none;
+    }
+    .ratingf label{
+      display: block;
+      cursor: pointer;
+      width: 20px;
+      /* background: #ccc; */
+    }
+    .ratingf label:before{
+      content: '\f005';
+      font-family: fontAwesome;
+      position: relative;
+      display: block;
+      font-size: 20px;
+      margin-top: -20px;
+      opacity: 1;
+    }
+    .ratingf label:after{
+      content: '\f005';
+      font-family: fontAwesome;
+      position: relative;
+      display: block;
+      font-size: 20px;
+      color: #1f9cff;
+      top: 0;
+      opacity: 0;
+      transition: .5s;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, .5)
+    }
+    .ratingf label:hover:after{
+      opacity: 1;
+    }
+    .ratingf label:hover:after,
+    .ratingf label:hover ~ label:after,
+    .ratingf input:checked ~ label:after{
+      opacity: 1;
+    }
+  </style>
+
 </head>
 <body>
 	<!--[if lte IE 9]>
@@ -255,12 +305,32 @@
 	</div>
 	<!-- //Main wrapper -->
 
+	
+
+   
+
 	<!-- JS Files -->
 	<script src="{{asset('assets/frontend/js/vendor/jquery-3.2.1.min.js') }}"></script>
 	<script src="{{asset('assets/frontend/js/popper.min.js') }}"></script>
 	<script src="{{asset('assets/frontend/js/bootstrap.min.js') }}"></script>
 	<script src="{{asset('assets/frontend/js/plugins.js') }}"></script>
 	<script src="{{asset('assets/frontend/js/active.js') }}"></script>
+	
+	<!-- Modernizer js -->
+	<script src="{{asset('assets/frontend/js/vendor/modernizr-3.5.0.min.js') }}"></script>
+	<script src="{{asset('assets/backend/ckeditor/ckeditor.js') }}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+	  <script>
+      $(document).ready(function() {
+        $('#select2').select2();
+      });
+    </script>
+
+  <script>
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace( 'editor1' );
+  </script>
 	@stack('script')
 </body>
 </html> 

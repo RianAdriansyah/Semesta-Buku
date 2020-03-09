@@ -54,10 +54,6 @@
 													@for ($i = 0; $i < $star_off; $i++)
 														<li><i class="fa fa-star"></i></li>
 													@endfor
-													{{-- <li class="on"><i class="fa fa-star"></i></li>
-													<li class="on"><i class="fa fa-star"></i></li>
-													<li class="on"><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li> --}}
 												</ul>
 											</ul>
         								</div>
@@ -93,6 +89,34 @@
 													<td style="width: 5%;">: </td>
 													<td>{{ $buku->jml_halaman }} Halaman</td>
 												</tr>
+												<tr>
+													<td style="width: 35%;">Rating para Pengulas</td>
+													<td style="width: 5%;">: </td>
+													<td>
+														<div class="price-box">
+															<ul class="prize d-flex">
+																<ul class="rating d-flex">
+																	@php
+																		$star = $buku->rating;
+																		$star_off = 5 - $star;
+
+																			// $rate = implode($buku->review[0]->rating);
+																			
+																			// //COUNTING
+																			// $ave = array_sum($rate)/$buku->review->count();
+																		
+																	@endphp
+																	@for ($s = 0; $s < $star; $s++)
+																		<li class="on"><i class="fa fa-star"></i></li>
+																	@endfor
+																	@for ($i = 0; $i < $star_off; $i++)
+																		<li><i class="fa fa-star"></i></li>
+																	@endfor
+																</ul>
+															</ul>
+														</div>
+													</td>
+												</tr>
 											</table>
         								</div>
         							</div>
@@ -103,6 +127,7 @@
 							<div class="pro_details_nav nav justify-content-start" role="tablist">
 								<a class="nav-item nav-link active" data-toggle="tab" href="#nav-details" role="tab">Sinopsis</a>
 	                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-review" role="tab">Ulasan</a>
+	                            <a class="nav-item nav-link" data-toggle="tab" href="#nav-add" role="tab">Tambah Ulasan</a>
 								
 	                        </div>
 	                        <div class="tab__container">
@@ -111,40 +136,32 @@
 									<div class="description__attribute">
 										<p>{!! $buku->sinopsis !!}</p>
 									</div>
-									
 								</div>
 								<div class="pro__tab_label tab-pane fade" id="nav-review" role="tabpanel">
-									{{-- <div class="review-fieldset">
-										<h2>You're reviewing:</h2>
-										<h3>Chaz Kangeroo Hoodie</h3>
-										<div class="review-field-ratings">
-											<div class="product-review-table">
-												
-											</div>
-										</div>
-										<div class="review_form_field">
-											<div class="input__box">
-												<span>Nickname</span>
-												<input id="nickname_field" type="text" name="nickname">
-											</div>
-											<div class="input__box">
-												<span>Summary</span>
-												<input id="summery_field" type="text" name="summery">
-											</div>
-											<div class="input__box">
-												<span>Review</span>
-												<textarea name="review"></textarea>
-											</div>
-											<div class="review-form-actions">
-												<button>Submit Review</button>
-											</div>
-										</div>
-									</div> --}}
 									<div class="description__attribute">
-										@if (isset($buku->review[0]->isi))
+										@if (isset($buku->review[0]))
 										<?php $count = 0; ?>
 											@foreach ($buku->review as $item)
 												<?php if ($count == 5) break; ?>
+												<h4 class="mt-3">Rating Pengulas : 
+													@if ($item->rating == 0)
+														Tidak ada rating
+													@else	
+													<ul class="prize__box">
+														<ul class="rating d-flex">
+															@php
+																$star = $item->rating;
+																$star_off = 5 - $star;
+																@endphp
+															@for ($s = 0; $s < $star; $s++)
+															<li class="on"><i class="fa fa-star"></i></li>
+															@endfor
+															@for ($i = 0; $i < $star_off; $i++)
+															<li><i class="fa fa-star"></i></li>
+															@endfor
+														</ul>
+													</ul></h4>
+													@endif
 													<p>{!! $item->isi !!}</p>
 													<small>Dibuat oleh : {{ $item->user->name }}</small>
 													<hr>
@@ -161,9 +178,70 @@
 										@endif
 									</div>
 								</div>
-								<!-- End Single Tab Content -->
-								<!-- Start Single Tab Content -->
-	                        	<!-- End Single Tab Content -->
+								<div class="pro__tab_label tab-pane fade" id="nav-add" role="tabpanel">
+									<div class="description__attribute">
+										@role('admin||member')
+										<form action="{{ route('review.store') }}" method="POST" enctype="multipart/form-data">
+											@csrf
+											<div class="form-row">
+												<div class="form-group col-lg-6">
+													<label for="">Judul Review</label>
+													<input type="text" class="form-control" required name="judul">
+												</div>
+												<div class="form-group col-lg-6">
+													<label for="">Cover</label>
+													<input type="file" class="form-control" required name="cover">
+												</div>
+											</div>
+											<div class="form-row">
+												<div class="form-group col-lg-6">
+													<label for="">Judul Buku</label>
+													{{-- @php $buku = \App\Buku::all(); @endphp --}}
+													<select name="buku_id" class="form-control" required>
+													<option value="{{$buku->id}}">{{ $buku->judul }}</option>
+													</select>
+												</div>
+												<div class="form-group col-lg-6 ratingf mt-5">
+													<p style="transform: translate(-50%, -50%) rotateY(180deg);">Rating</p>
+													<input type="radio" name="rating" id="star1" value="5"><label for="star1"></label>
+													<input type="radio" name="rating" id="star2" value="4"><label for="star2"></label>
+													<input type="radio" name="rating" id="star3" value="3"><label for="star3"></label>
+													<input type="radio" name="rating" id="star4" value="2"><label for="star4"></label>
+													<input type="radio" name="rating" id="star5" value="1"><label for="star5"></label>
+												</div>
+											</div>
+													<div class="form-group">
+													<label for="">Quotes</label>
+													<input type="text" class="form-control" name="quotes">
+													<small class="text-danger">*Opsional</small>
+												</div>
+												<div class="form-group>
+													<label for="">Tag</label>
+													@php $tag = \App\Tag::all(); @endphp
+													<select name="tag[]" class="form-control" id="select2" style="width:100%;" required multiple>
+														@foreach ($tag as $list)
+													<option value="{{ $list->id }}">{{ $list->nama_tag }}</option>
+														@endforeach
+													</select>
+												</div>
+												<div class="form-group">
+													<label for="">Isi</label>
+													<textarea name="isi" cols="30" rows="10" class="form-control" required id="editor1"></textarea>
+												</div>
+												<button type="submit" class="btn btn-primary">Simpan</button>
+											</form>
+											@endrole
+											@guest
+												
+											<p>Anda harus login terlebih dahulu!</p>
+											<div class="row">
+												<div class="col-lg-6">
+													<a class="shopbtn" href="{{ route('login') }}">Login</a>
+												</div>
+											</div>
+											@endguest
+									</div>
+								</div>
 	                        </div>
         				</div>
 						<div class="wn__related__product pt--80 pb--50">

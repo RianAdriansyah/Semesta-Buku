@@ -20,6 +20,56 @@
   <link href="{{asset('assets/backend/demo/demo.css ') }}" }} rel="stylesheet" />
   <link rel="stylesheet" href="{{asset('assets/backend/dataTables/datatables.min.css ') }}">
   <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+  <style>
+    .rating{
+      /* position: absolute;
+      top: 50%;
+      left: 50%; */
+      margin-left: -20px;
+      transform: translate(-50%, -50%) rotateY(180deg);
+      display: flex;
+    }
+    .rating input{
+      display: none;
+    }
+    .rating label{
+      display: block;
+      cursor: pointer;
+      width: 20px;
+      /* background: #ccc; */
+    }
+    .rating label:before{
+      content: '\f005';
+      font-family: fontAwesome;
+      position: relative;
+      display: block;
+      font-size: 20px;
+      margin-top: -20px;
+      opacity: 1;
+    }
+    .rating label:after{
+      content: '\f005';
+      font-family: fontAwesome;
+      position: relative;
+      display: block;
+      font-size: 20px;
+      color: #1f9cff;
+      top: 0;
+      opacity: 0;
+      transition: .5s;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, .5)
+    }
+    .rating label:hover:after{
+      opacity: 1;
+    }
+    .rating label:hover:after,
+    .rating label:hover ~ label:after,
+    .rating input:checked ~ label:after{
+      opacity: 1;
+    }
+  </style>
 </head>
 
 <body class="">
@@ -232,7 +282,8 @@
     <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{asset('assets/backend/demo/demo.js ') }}"></script>
     <script src="{{asset('assets/backend/ckeditor/ckeditor.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>    <script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>    
+    <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       demo.initDashboardPageCharts();

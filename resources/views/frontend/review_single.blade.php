@@ -58,7 +58,8 @@
 													<tr>
 														<td style="width: 20%;">Rating Buku</td>
 														<td style="width: 5%;">: </td>
-													<td><ul class="prize__box">
+													<td>
+														<ul class="prize__box">
 														<ul class="rating d-flex">
 															@php
 																$star = $review->buku->rating;
@@ -71,7 +72,8 @@
 																<li><i class="fa fa-star"></i></li>
 															@endfor
 														</ul>
-													</ul></td>
+													</ul>
+												</td>
 													</tr>
 													<tr>
 														<td style="width: 20%;">Nama Penulis</td>
@@ -96,6 +98,22 @@
 												</table>
 											</div>
 										</div>
+										<h4 class="mt-3">Rating Pengulas : 
+										<ul class="prize__box">
+											<ul class="rating d-flex">
+												@php
+													$star = $review->rating;
+													$star_off = 5 - $star;
+												@endphp
+												@for ($s = 0; $s < $star; $s++)
+													<li class="on"><i class="fa fa-star"></i></li>
+												@endfor
+												@for ($i = 0; $i < $star_off; $i++)
+													<li><i class="fa fa-star"></i></li>
+												@endfor
+											</ul>
+										</ul></h4>
+										<hr>
 										<p>{!! $review->isi !!}</p>
 										@if ($review->quotes)
 										<blockquote>{{ $review->quotes }}</blockquote>

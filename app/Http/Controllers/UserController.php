@@ -57,7 +57,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        $user->attachRole('member');
+        $user->attachRole($request->role);
 
         return redirect()->route('user.index');
     }
@@ -104,6 +104,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::FindOrFail($id);
+        $user->delete();
+        $user->detachRole($user->id);
+        return redirect()->route('user.index');
     }
 }

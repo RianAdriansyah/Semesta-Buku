@@ -30,6 +30,14 @@
                                 <input type="file" class="form-control" name="cover">            
                             </div>
                         </div>
+                        <div class="form-group col-lg-6 rating mt-5">
+                          <p style="transform: translate(-50%, -50%) rotateY(180deg);">Rating : {{ $review->rating }}</p>
+                            <input type="radio" name="rating" id="star1" value="5"><label for="star1"></label>
+                            <input type="radio" name="rating" id="star2" value="4"><label for="star2"></label>
+                            <input type="radio" name="rating" id="star3" value="3"><label for="star3"></label>
+                            <input type="radio" name="rating" id="star4" value="2"><label for="star4"></label>
+                            <input type="radio" name="rating" id="star5" value="1"><label for="star5"></label>
+                          </div>
                         <div class="form-group">
                           <label for="">Tag</label>
                           @php $tag = \App\Tag::all(); @endphp

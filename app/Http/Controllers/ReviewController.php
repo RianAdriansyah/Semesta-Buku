@@ -57,6 +57,7 @@ class ReviewController extends Controller
         }
         $review->isi = $request->isi;
         $review->quotes = $request->quotes;
+        $review->rating = $request->rating;
         $review->slug = str_slug($request->judul);
         $review->save();
         $review->tag()->attach($request->tag);
@@ -130,6 +131,7 @@ class ReviewController extends Controller
         }
         $review->isi = $request->isi;
         $review->quotes = $request->quotes;
+        $review->rating = $request->rating;
         $review->slug = str_slug($request->judul);
         $review->save();
         $review->tag()->sync($request->tag);

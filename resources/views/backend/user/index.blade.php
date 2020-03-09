@@ -76,6 +76,17 @@
             <input type="text" class="form-control" name="name" required>
           </div>
           <div class="form-group">
+            <label for="">Role</label>
+            <select name="role" class="form-control">
+              @php
+                  $role = \App\Role::all();
+              @endphp
+              @foreach ($role as $item)
+              <option value="{{ $item->id }}">{{ $item->name }}</option>
+              @endforeach
+            </select>
+          </div>
+          <div class="form-group">
             <label for="">Email</label>
             <input type="email" class="form-control" name="email" required>
             @error('email')

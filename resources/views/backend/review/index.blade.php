@@ -23,6 +23,7 @@
                       <th scope="col">No</th>
                       <th scope="col">Judul Review</th>
                       <th scope="col">Judul Buku</th>
+                      <th scope="col">Rating</th>
                       <th scope="col">Penulis</th>
                       <th scope="col" class="text-center">Aksi</th>
                     </tr>
@@ -39,6 +40,7 @@
                       <th scope="row">{{ $no++ }}</th>
                       <td>{{ $list->judul }}</td>
                       <td>{{ $list->buku->judul }}</td>
+                      <td><i class="fas fa-star" style="color:orange;"></i>{{ $list->rating }}</td>
                       <td>{{ $list->user->name }}</td>
                       <td class="text-center"><a href="{{ route('review.edit', $list->id) }}" class="btn btn-sm btn-success rounded">
                           <i class="fas fa-fw fa-edit"></i></a> <br>
@@ -66,6 +68,7 @@
                         <th scope="row">{{ $no++ }}</th>
                         <td>{{ $list->judul }}</td>
                         <td>{{ $list->buku->judul }}</td>
+                        <td>{{ $list->rating }}</td>
                         <td>{{ $list->user->name }}</td>
                         @if ($list->user->name == "Admin")
                         <td><a href="{{ route('review.show', $list->id) }}" class="btn btn-sm btn-info rounded">
@@ -113,24 +116,36 @@
       <div class="modal-body">
       <form action="{{ route('review.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-            <div class="form-group">
-                <label for="">Judul Review</label>
-                <input type="text" class="form-control" required name="judul">
+        <div class="form-row">
+          <div class="form-group col-lg-6">
+              <label for="">Judul Review</label>
+              <input type="text" class="form-control" required name="judul">
+          </div>
+          <div class="form-group col-lg-6">
+              <label for="">Cover</label>
+              <input type="file" class="form-control" required name="cover">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-lg-6">
+              <label for="">Judul Buku</label>
+              @php $buku = \App\Buku::all(); @endphp
+              <select name="buku_id" class="form-control" required>
+                <option value="">-- Pilih Buku --</option>
+                @foreach ($buku as $data)
+              <option value="{{ $data->id }}">{{ $data->judul }}</option>
+                @endforeach
+              </select>
             </div>
-            <div class="form-group">
-                <label for="">Cover</label>
-                <input type="file" class="form-control" required name="cover">
+            <div class="form-group col-lg-6 rating mt-5">
+              <p style="transform: translate(-50%, -50%) rotateY(180deg);">Rating</p>
+              <input type="radio" name="rating" id="star1" value="5"><label for="star1"></label>
+              <input type="radio" name="rating" id="star2" value="4"><label for="star2"></label>
+              <input type="radio" name="rating" id="star3" value="3"><label for="star3"></label>
+              <input type="radio" name="rating" id="star4" value="2"><label for="star4"></label>
+              <input type="radio" name="rating" id="star5" value="1"><label for="star5"></label>
             </div>
-            <div class="form-group">
-                <label for="">Judul Buku</label>
-                @php $buku = \App\Buku::all(); @endphp
-                <select name="buku_id" class="form-control" required>
-                  <option value="">-- Pilih Buku --</option>
-                  @foreach ($buku as $data)
-                <option value="{{ $data->id }}">{{ $data->judul }}</option>
-                  @endforeach
-                </select>
-              </div>
+        </div>
               <div class="form-group">
                 <label for="">Quotes</label>
                 <input type="text" class="form-control" name="quotes">
@@ -149,7 +164,6 @@
                 <label for="">Isi</label>
                 <textarea name="isi" cols="30" rows="10" class="form-control" required id="editor1"></textarea>
             </div>
-          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
             <button type="submit" class="btn btn-primary">Simpan</button>
