@@ -36,6 +36,7 @@ Route::resource('/', 'FrontendController');
 Route::get('/buku', 'FrontendController@buku')->name('buku');
 Route::get('/blog', 'FrontendController@blog')->name('blog');
 Route::get('/review', 'FrontendController@review')->name('review');
+Route::get('/reviewsaya', 'FrontendController@reviewsaya')->name('reviewsaya');
 Route::get('/about', 'FrontendController@about')->name('about');
 Route::get('/buku/{buku}', 'FrontendController@buku_single')->name('buku_single');
 Route::get('/blog/{artikel}', 'FrontendController@blog_single')->name('blog_single');

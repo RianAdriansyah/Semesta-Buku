@@ -189,7 +189,7 @@
 									<div class="content-inner">
 										<div class="switcher-currency">
 											<strong class="label switcher-label">
-											<a href="/backend/review/"><span>Review Saya</span></a>
+											<a href="{{ route('reviewsaya') }}"><span>Review Saya</span></a>
 												
 											</strong>
 										</div>
@@ -320,8 +320,11 @@
 	<script src="{{asset('assets/frontend/js/vendor/modernizr-3.5.0.min.js') }}"></script>
 	<script src="{{asset('assets/backend/ckeditor/ckeditor.js') }}"></script>
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+    <script src="{{asset('assets/backend/dataTables/datatables.min.js') }}"></script>
+
 	  <script>
       $(document).ready(function() {
+		$('#table_id').DataTable();
         $('#select2').select2();
       });
     </script>

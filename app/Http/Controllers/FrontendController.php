@@ -192,6 +192,12 @@ class FrontendController extends Controller
         return view('frontend.tagblog', compact('artikel', 'tag'));
     }
 
+    public function reviewsaya(Request $request)
+    {
+        $reviews = Review::with('user', 'buku')->get();
+        return view('frontend.profile', compact('reviews'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
