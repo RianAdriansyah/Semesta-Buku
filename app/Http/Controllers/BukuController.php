@@ -21,7 +21,7 @@ class BukuController extends Controller
      */
     public function index()
     {
-        $buku = Buku::with('kategori')->get();
+        $buku = Buku::with('kategori')->latest()->get();
 
         return view('backend.buku.index', compact('buku'));
     }

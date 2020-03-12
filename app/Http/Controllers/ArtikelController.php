@@ -20,7 +20,7 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        $artikel = Artikel::all();
+        $artikel = Artikel::latest()->get();
 
         return view('backend.artikel.index', compact('artikel'));
     }

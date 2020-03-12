@@ -15,7 +15,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tag = Tag::all();
+        $tag = Tag::latest()->get();
 
         return view('backend.tag.index', compact('tag'));
     }

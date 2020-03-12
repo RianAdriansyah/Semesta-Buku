@@ -21,7 +21,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $review = Review::with('buku')->get();
+        $review = Review::with('buku')->latest()->get();
         return view('backend.review.index', compact('review'));
     }
 

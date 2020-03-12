@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $user = User::with('role')->get();
+        $user = User::with('role')->latest()->get();
         return view('backend.user.index', compact('user'));
     }
 

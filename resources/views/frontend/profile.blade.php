@@ -29,6 +29,8 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="wishlist-content">
+                        {{-- <p>{{ $reviews->user()->getRoles[0] }}</p> --}}
+                            @role('admin'||'member')
                             <form action="#">
                                 <div class="wishlist-table wnro__table table-responsive">
                                     <table id="table_id">
@@ -60,6 +62,15 @@
                                     </table>
                                 </div>  
                             </form>
+                            @endrole
+                            @guest
+                            <p>Anda harus login terlebih dahulu!</p>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a class="shopbtn" href="{{ route('login') }}">Login</a>
+                                </div>
+                            </div>
+                            @endguest
                         </div>
                     </div>
                 </div>

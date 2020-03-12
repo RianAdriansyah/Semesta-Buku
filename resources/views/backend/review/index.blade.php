@@ -68,24 +68,24 @@
                         <th scope="row">{{ $no++ }}</th>
                         <td>{{ $list->judul }}</td>
                         <td>{{ $list->buku->judul }}</td>
-                        <td>{{ $list->rating }}</td>
+                        <td><i class="fas fa-star" style="color:orange;"></i>{{ $list->rating }}</td>
                         <td>{{ $list->user->name }}</td>
-                        @if ($list->user->name == "Admin")
-                        <td><a href="{{ route('review.show', $list->id) }}" class="btn btn-sm btn-info rounded">
-                            <i class="fas fa-fw fa-info-circle"></i></a></td>
+                        @if ($list->user->name ==  Auth::user()->name)
+                          <td class="text-center"><a href="{{ route('review.edit', $list->id) }}" class="btn btn-sm btn-success rounded">
+                            <i class="fas fa-fw fa-edit"></i></a> <br>
+                            <a href="{{ route('review.show', $list->id) }}" class="btn btn-sm btn-info rounded">
+                              <i class="fas fa-fw fa-info-circle"></i></a>
+                              <form action="{{ route('review.destroy',$list->id) }}" method="post">
+                                {{csrf_field()}}
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button class="btn btn-sm btn-danger" type="submit">
+                                  <i class="fas fa-fw fa-trash-alt"></i>
+                                </button>
+                              </form>
+                          </td>
                         @else
-                        <td class="text-center"><a href="{{ route('review.edit', $list->id) }}" class="btn btn-sm btn-success rounded">
-                          <i class="fas fa-fw fa-edit"></i></a> <br>
-                          <a href="{{ route('review.show', $list->id) }}" class="btn btn-sm btn-info rounded">
-                            <i class="fas fa-fw fa-info-circle"></i></a>
-                            <form action="{{ route('review.destroy',$list->id) }}" method="post">
-                              {{csrf_field()}}
-                              <input type="hidden" name="_method" value="DELETE">
-                              <button class="btn btn-sm btn-danger" type="submit">
-                                <i class="fas fa-fw fa-trash-alt"></i>
-                              </button>
-                            </form>
-                        </td>
+                          <td><a href="{{ route('review.show', $list->id) }}" class="btn btn-sm btn-info rounded">
+                            <i class="fas fa-fw fa-info-circle"></i></a></td>
                       </tr>   
                                 @endif
                               </td>

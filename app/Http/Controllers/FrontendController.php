@@ -7,6 +7,8 @@ use App\Buku;
 use App\Tag;
 use App\Review;
 use App\Kategori;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -192,9 +194,10 @@ class FrontendController extends Controller
         return view('frontend.tagblog', compact('artikel', 'tag'));
     }
 
-    public function reviewsaya(Request $request)
+    public function reviewsaya()
     {
-        $reviews = Review::with('user', 'buku')->get();
+        // $reviews = Auth::user()->review()->get();
+        $reviews = Review::with('buku', 'user')->get();
         return view('frontend.profile', compact('reviews'));
     }
 

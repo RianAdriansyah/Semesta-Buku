@@ -43,8 +43,12 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Role', 'role_id');
     }
-    // public function review()
-    // {
-    //     return $this->hasOne('App\Review');
-    // }
+    public function review()
+    {
+        return $this->hasMany('App\Review', 'review_id', 'user_id');
+    }
+    public function buku()
+    {
+        return $this->belongsTo('App\Buku', 'buku_id');
+    }
 }
