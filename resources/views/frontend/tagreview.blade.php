@@ -131,7 +131,7 @@ Tag Ulasan {{ $tag->nama_tag }}
 							@if ($tag->review->count() > 0)
 								
 								<!-- Start Single Product -->
-								@foreach ($tag->review as $item)
+								@foreach ($review as $item)
 								
 								<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 									<div class="product__thumb">
@@ -142,7 +142,21 @@ Tag Ulasan {{ $tag->nama_tag }}
 								</div>
 								<div class="product__content content--center">
 									<h4><a href="{{ route('review_single', $item->slug) }}">{{ $item->judul }}</a></h4>
-									
+									<ul class="prize d-flex">
+										<ul class="rating d-flex">
+											@php
+												$star = $item->rating;
+												$star_off = 5 - $star;
+											@endphp
+											@for ($s = 0; $s < $star; $s++)
+												<li class="on"><i class="fa fa-star"></i></li>
+											@endfor
+											@for ($i = 0; $i < $star_off; $i++)
+												<li><i class="fa fa-star"></i></li>
+											@endfor
+										</ul>
+									</ul>
+								<small>Dibuat oleh : {{ $item->user[0]->name }}</small>
 								</div>
 							</div>
 							@endforeach
@@ -172,23 +186,31 @@ Tag Ulasan {{ $tag->nama_tag }}
 								</div>
 								<div class="content">
 								<h3><a href="{{ route('review_single', $item->slug) }}">{{ $item->judul }}</a></h3>
-								<h6>{{ $item->buku->judul }}</h6>
-									<ul class="prize__box">
-										<ul class="rating d-flex">
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li><i class="fa fa-star-o"></i></li>
-										</ul>
+								<ul class="prize__box">
+									<ul class="rating d-flex">
+										@php
+											$star = $item->rating;
+											$star_off = 5 - $star;
+										@endphp
+										@for ($s = 0; $s < $star; $s++)
+											<li class="on"><i class="fa fa-star"></i></li>
+										@endfor
+										@for ($i = 0; $i < $star_off; $i++)
+											<li><i class="fa fa-star"></i></li>
+										@endfor
 									</ul>
+								</ul>
+								<h6>Judul Buku : {{ $item->buku->judul }}</h6>
 									<p>{!! str_limit( $item->isi, $limit = 300, $end = '...') !!}</p>
+								<small>Dibuat oleh : {{ $item->user[0]->name }}</small>
+
 									<ul class="cart__action d-flex">
 										<li class="cart"><a href="{{ route('buku_single', $item->slug) }}">Lihat Selengkapnya</a></li>
 									</ul>
 								</div>
 							</div>
 							@endforeach
+
 
 							@else
 							<p>Tidak ada buku</p>

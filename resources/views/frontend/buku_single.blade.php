@@ -5,6 +5,8 @@
 @endsection
 
 @section('isi')
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 	
         <!-- Start Bradcaump area -->
         <div class="ht__bradcaump__area bg-image--4">
@@ -96,22 +98,25 @@
 														<div class="price-box">
 															<ul class="prize d-flex">
 																<ul class="rating d-flex">
-																	@php
+																	{{-- @php
 																		$star = $buku->rating;
 																		$star_off = 5 - $star;
 
-																			// $rate = implode($buku->review[0]->rating);
+
+
+																			// $in = \App\Buku::with('review')->get();
+																			$rate = $buku->review[0]->rating;
 																			
 																			// //COUNTING
-																			// $ave = array_sum($rate)/$buku->review->count();
+																			$ave = array_sum($rate)/$buku->review->count();
 																		
 																	@endphp
-																	@for ($s = 0; $s < $star; $s++)
+																	@for ($s = 0; $s < $rate; $s++)
 																		<li class="on"><i class="fa fa-star"></i></li>
 																	@endfor
-																	@for ($i = 0; $i < $star_off; $i++)
+																	@for ($i = 0; $i < $rate; $i++)
 																		<li><i class="fa fa-star"></i></li>
-																	@endfor
+																	@endfor --}}
 																</ul>
 															</ul>
 														</div>
@@ -143,7 +148,14 @@
 										<?php $count = 0; ?>
 											@foreach ($buku->review as $item)
 												<?php if ($count == 5) break; ?>
+												@if ($item->user[0]->name  == Auth::user()->name)
+												<h4 class="mt-3">Ulasan Saya : <td class="text-center"><a href="#">
+													<small><i class="fas fa-pencil-alt"></i></small></a>
+													
+												@else
+													
 												<h4 class="mt-3">Rating Pengulas : 
+													@endif
 													@if ($item->rating == 0)
 														Tidak ada rating
 													@else	
@@ -163,7 +175,7 @@
 													</ul></h4>
 													@endif
 													<p>{!! $item->isi !!}</p>
-													<small>Dibuat oleh : {{ $item->user->name }}</small>
+													<small>Dibuat oleh : {{ $item->user[0]->name }}</small>
 													<hr>
 												<?php $count++; ?>
 												@endforeach

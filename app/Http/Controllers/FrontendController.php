@@ -197,7 +197,9 @@ class FrontendController extends Controller
     public function reviewsaya()
     {
         // $reviews = Auth::user()->review()->get();
-        $reviews = Review::with('buku', 'user')->get();
+        // $reviews = Review::with('buku', 'user')->get();
+        $reviews = Auth::user()->review()->get();
+        // $jml = count($user['review']);
         return view('frontend.profile', compact('reviews'));
     }
 

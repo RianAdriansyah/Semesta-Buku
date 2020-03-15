@@ -27,18 +27,18 @@ class LoginController extends Controller
      * @var string
      */
 
-    // protected function authenticated($user)
-    // {
-    //     if (auth()->user()->hasRole('admin')) {
-    //         return redirect('/backend/review');
-    //     } else {
-    //         return redirect()->route('reviewsaya');
-    //     }
+    protected function authenticated($user)
+    {
+        if (auth()->user()->hasRole('admin')) {
+            return redirect('/backend/review');
+        } else {
+            return redirect()->route('reviewsaya');
+        }
 
-    //     // return redirect('/home');
-    // }
+        // return redirect('/home');
+    }
 
-    protected $redirectTo = '/backend/review';
+    // protected $redirectTo = '/backend/review';
 
     /**
      * Create a new controller instance.

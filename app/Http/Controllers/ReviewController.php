@@ -21,7 +21,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $review = Review::with('buku')->latest()->get();
+        $review = Review::with('buku', 'user')->latest()->get();
         return view('backend.review.index', compact('review'));
     }
 
@@ -45,7 +45,6 @@ class ReviewController extends Controller
     {
         $review = new Review;
         $review->judul = $request->judul;
-        $review->user_id = Auth::user()->id;
         $review->buku_id = $request->buku_id;
         # Cover
         if ($request->hasFile('cover')) {
@@ -61,6 +60,7 @@ class ReviewController extends Controller
         $review->slug = str_slug($request->judul);
         $review->save();
         $review->tag()->attach($request->tag);
+        $review->user()->attach(Auth::user()->id);
 
         Session::flash("flash_notification", [
             "level" => "success",
@@ -109,7 +109,6 @@ class ReviewController extends Controller
     {
         $review = Review::findOrFail($id);
         $review->judul = $request->judul;
-        $review->user_id = Auth::user()->id;
         $review->buku_id = $request->buku_id;
         # Cover
         if ($request->hasFile('cover')) {
@@ -135,6 +134,7 @@ class ReviewController extends Controller
         $review->slug = str_slug($request->judul);
         $review->save();
         $review->tag()->sync($request->tag);
+        $review->user()->sync(Auth::user()->id);
 
         Session::flash("flash_notification", [
             "level" => "success",
@@ -168,6 +168,7 @@ class ReviewController extends Controller
         ]);
         $review->delete();
         $review->tag()->detach($review->id);
+        $review->user()->detach($review->user->id);
 
         return redirect()->route('review.index');
     }

@@ -39,7 +39,7 @@
 										<div class="blog-date-categori">
 											<ul>
 											<li>{{ $review->created_at->diffForHumans() }}</li>
-											<li><p title="Posts by boighor">oleh : {{ $review->user->name }}</p></li><br>
+											<li><p title="Posts by boighor">oleh : {{ $review->user[0]->name }}</p></li><br>
 											</ul>
 										</div>
 									</div>

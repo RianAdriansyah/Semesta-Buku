@@ -157,7 +157,7 @@
   </div>
 </div>
 
-<!-- Modal Remove-->
+{{-- <!-- Modal Remove-->
 <div class="modal fade" id="hapusModal-{{ $list->id }}" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="hapusModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -187,6 +187,6 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 @endsection

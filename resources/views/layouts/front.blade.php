@@ -110,7 +110,7 @@
 												
 											@foreach ($review as $item)
 											
-										<li><a href="{{ route('review_single', $item->slug) }}"><strong>{{ $item->buku->judul }}</strong>  oleh : {{ $item->user->name }}</a></li>
+										<li><a href="{{ route('review_single', $item->slug) }}"><strong>{{ $item->buku->judul }}</strong>  oleh : {{ $item->user[0]->name }}</a></li>
 											@endforeach
 											@else
 											<li>Tidak ada ulasan</li>
@@ -197,8 +197,20 @@
 											<div class="switcher-options">
 												<div class="switcher-currency-trigger">
 													<div class="setting__menu">
+														@guest
+															
 														<span><a href="{{ route('login') }}" target="_blank">Masuk</a></span>
+														@if (Route::has('register'))
 														<span><a href="{{ route('register') }}" target="_blank">Buat Akun</a></span>
+														@endif
+														@else
+														<span><a href="{{ route('logout') }}" onclick="event.preventDefault();
+															document.getElementById('logout-form').submit();">Logout 
+															<form id="logout-form" action="{{ route('logout') }}"
+															method="POST" style="display: none;">
+															@csrf
+														</form></a></span>
+														@endguest
 													</div>
 												</div>
 											</div>
@@ -218,7 +230,7 @@
 							<li><a href="{{ route('review') }}">Review</a></li>
 							<li><a href="{{ route('buku') }}">Buku</a></li>
 							<li><a href="{{ route('blog') }}">Blog</a></li>
-							<li><a href="#">Tentang Kami</a></li>
+							<li><a href="{{ route('about') }}">Tentang</a></li>
 							</ul>
 						</nav>
 					</div>

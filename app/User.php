@@ -45,7 +45,7 @@ class User extends Authenticatable
     }
     public function review()
     {
-        return $this->hasMany('App\Review', 'review_id', 'user_id');
+        return $this->belongsToMany('App\Review', 'review_users', 'user_id', 'review_id');
     }
     public function buku()
     {

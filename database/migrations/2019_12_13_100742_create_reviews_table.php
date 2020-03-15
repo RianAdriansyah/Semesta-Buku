@@ -19,8 +19,6 @@ class CreateReviewsTable extends Migration
             $table->string('cover');
             $table->integer('rating')->nullable();
             $table->string('quotes')->nullable();
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('buku_id')->unsigned();
             $table->foreign('buku_id')->references('id')->on('bukus');
             $table->text('isi');

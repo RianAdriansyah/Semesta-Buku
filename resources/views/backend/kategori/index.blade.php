@@ -83,7 +83,7 @@
   </div>
 </div>
 
-
+{{-- 
 <!-- Modal Remove-->
 <div class="modal fade" id="hapusModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="hapusModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -114,5 +114,5 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 @endsection

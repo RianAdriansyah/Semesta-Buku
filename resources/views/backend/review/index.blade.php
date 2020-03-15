@@ -41,7 +41,7 @@
                       <td>{{ $list->judul }}</td>
                       <td>{{ $list->buku->judul }}</td>
                       <td><i class="fas fa-star" style="color:orange;"></i>{{ $list->rating }}</td>
-                      <td>{{ $list->user->name }}</td>
+                      <td>{{ $list->user[0]->name }}</td>
                       <td class="text-center"><a href="{{ route('review.edit', $list->id) }}" class="btn btn-sm btn-success rounded">
                           <i class="fas fa-fw fa-edit"></i></a> <br>
                       <a href="{{ route('review.show', $list->id) }}" class="btn btn-sm btn-info rounded">
@@ -59,18 +59,18 @@
                       @endrole
                       @role('member')
 
-                      {{-- @php
-                          $review = \App\Review::with('user')->get();
-                      @endphp --}}
+                      @php
+                          $reviews = Auth::user()->review()->get();
+                      @endphp
                       
-                      @foreach ($review as $list)
+                      @foreach ($reviews as $list)
                       <tr>
                         <th scope="row">{{ $no++ }}</th>
                         <td>{{ $list->judul }}</td>
                         <td>{{ $list->buku->judul }}</td>
                         <td><i class="fas fa-star" style="color:orange;"></i>{{ $list->rating }}</td>
-                        <td>{{ $list->user->name }}</td>
-                        @if ($list->user->name ==  Auth::user()->name)
+                        <td>{{ $list->user[0]->name }}</td>
+                        {{-- @if ($list->user[0]->name ==  Auth::user()->name) --}}
                           <td class="text-center"><a href="{{ route('review.edit', $list->id) }}" class="btn btn-sm btn-success rounded">
                             <i class="fas fa-fw fa-edit"></i></a> <br>
                             <a href="{{ route('review.show', $list->id) }}" class="btn btn-sm btn-info rounded">
@@ -83,11 +83,11 @@
                                 </button>
                               </form>
                           </td>
-                        @else
+                        {{-- @else
                           <td><a href="{{ route('review.show', $list->id) }}" class="btn btn-sm btn-info rounded">
                             <i class="fas fa-fw fa-info-circle"></i></a></td>
                       </tr>   
-                                @endif
+                                @endif --}}
                               </td>
                             </tr>
                             @endforeach

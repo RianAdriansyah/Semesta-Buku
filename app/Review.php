@@ -12,11 +12,11 @@ class Review extends Model
     {
         return $this->belongsToMany('App\Tag', 'review_tags', 'review_id', 'tag_id');
     }
-
     public function user()
     {
-        return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsToMany('App\User', 'review_users', 'review_id', 'user_id');
     }
+
     public function buku()
     {
         return $this->belongsTo('App\Buku', 'buku_id');

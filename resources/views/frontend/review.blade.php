@@ -157,7 +157,7 @@ Ulasan Buku
 											@endfor
 										</ul>
 									</ul>
-								<small>Dibuat oleh : {{ $item->user->name }}</small>
+								<small>Dibuat oleh : {{ $item->user[0]->name }}</small>
 								</div>
 							</div>
 							@endforeach
@@ -204,7 +204,7 @@ Ulasan Buku
 								</ul>
 								<h6>Judul Buku : {{ $item->buku->judul }}</h6>
 									<p>{!! str_limit( $item->isi, $limit = 300, $end = '...') !!}</p>
-								<small>Dibuat oleh : {{ $item->user->name }}</small>
+								<small>Dibuat oleh : {{ $item->user[0]->name }}</small>
 
 									<ul class="cart__action d-flex">
 										<li class="cart"><a href="{{ route('buku_single', $item->slug) }}">Lihat Selengkapnya</a></li>
