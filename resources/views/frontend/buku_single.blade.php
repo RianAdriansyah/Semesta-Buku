@@ -144,20 +144,23 @@
 								</div>
 								<div class="pro__tab_label tab-pane fade" id="nav-review" role="tabpanel">
 									<div class="description__attribute">
+									{{-- UNTUK PENGGUNA YANG SUDAH LOGIN --}}
+										@role('admin'||'member')
 										@if (isset($buku->review[0]))
 										<?php $count = 0; ?>
-											@foreach ($buku->review as $item)
-												<?php if ($count == 5) break; ?>
-												@if ($item->user[0]->name  == Auth::user()->name)
-												<h4 class="mt-3">Ulasan Saya : <td class="text-center"><a href="#">
-													<small><i class="fas fa-pencil-alt"></i></small></a>
-													
-												@else
-													
-												<h4 class="mt-3">Rating Pengulas : 
+										@foreach ($buku->review as $item)
+										<?php if ($count == 5) break; ?>
+										@if ($item->user[0]->name  == Auth::user()->name)
+										<h4 class="mt-3">Ulasan Saya : <td class="text-center">
+											@role('member')
+											<a href="#">
+											<small><i class="fas fa-pencil-alt"></i></small></a>
+											@endrole
+											@else
+											<h4 class="mt-3">Rating Pengulas : 
 													@endif
 													@if ($item->rating == 0)
-														Tidak ada rating
+													Tidak ada rating
 													@else	
 													<ul class="prize__box">
 														<ul class="rating d-flex">
@@ -174,20 +177,65 @@
 														</ul>
 													</ul></h4>
 													@endif
+													
 													<p>{!! $item->isi !!}</p>
 													<small>Dibuat oleh : {{ $item->user[0]->name }}</small>
 													<hr>
-												<?php $count++; ?>
-												@endforeach
-												<div class="row">
-													<div class="col-lg-6 mx-auto pt-4">
-														<a class="shopbtn" href="{{ route('review') }}" target="_blank">Lebih Banyak Ulasan</a>
+													<?php $count++; ?>
+													@endforeach
+													<div class="row">
+														<div class="col-lg-6 mx-auto pt-4">
+															<a class="shopbtn" href="{{ route('review') }}" target="_blank">Lebih Banyak Ulasan</a>
+														</div>
 													</div>
-												</div>
-										@else
-										<p>Tidak ada ulasan</p>
-										<a class="shopbtn" href="/backend/review/" target="_blank">Tambah Ulasan</a>
-										@endif
+													@else
+													<p>Tidak ada ulasan</p>
+													<a class="shopbtn" href="/backend/review/" target="_blank">Tambah Ulasan</a>
+													@endif
+													@endrole
+										{{-- UNTUK GUEST --}}
+													@guest
+										@if (isset($buku->review[0]))
+										<?php $count = 0; ?>
+										@foreach ($buku->review as $item)
+										<?php if ($count == 5) break; ?>
+										
+											<h4 class="mt-3">Rating Pengulas : 
+													
+													@if ($item->rating == 0)
+													Tidak ada rating
+													@else	
+													<ul class="prize__box">
+														<ul class="rating d-flex">
+															@php
+																$star = $item->rating;
+																$star_off = 5 - $star;
+																@endphp
+															@for ($s = 0; $s < $star; $s++)
+															<li class="on"><i class="fa fa-star"></i></li>
+															@endfor
+															@for ($i = 0; $i < $star_off; $i++)
+															<li><i class="fa fa-star"></i></li>
+															@endfor
+														</ul>
+													</ul></h4>
+													@endif
+													
+													<p>{!! $item->isi !!}</p>
+													<small>Dibuat oleh : {{ $item->user[0]->name }}</small>
+													<hr>
+													<?php $count++; ?>
+													@endforeach
+													<div class="row">
+														<div class="col-lg-6 mx-auto pt-4">
+															<a class="shopbtn" href="{{ route('review') }}" target="_blank">Lebih Banyak Ulasan</a>
+														</div>
+													</div>
+													@else
+													<p>Tidak ada ulasan</p>
+													<a class="shopbtn" href="/backend/review/" target="_blank">Tambah Ulasan</a>
+													@endif
+													@endguest
 									</div>
 								</div>
 								<div class="pro__tab_label tab-pane fade" id="nav-add" role="tabpanel">
@@ -304,24 +352,27 @@
         						<h3 class="wedget__title">Kategori Buku</h3>
         						<ul>
 									@php
-									$kategori = \App\Kategori::orderBy('nama_kategori', 'asc')->paginate(50);
+									$kategori = \App\Kategori::orderBy('nama_kategori', 'asc')->paginate(10);
 									@endphp
-									@foreach ($kategori as $item)
-										@if ($item->buku->count() > 0)
-											<li><a href="{{ route('kategoribuku', $item->slug) }}">{{ $item->nama_kategori }} <span>({{ $item->Buku->count() }})</span></a></li>
+										@if ($kategori->count() > 0)
+											@foreach ($kategori as $item)
+												<li><a href="{{ route('kategoribuku', $item->slug) }}">{{ $item->nama_kategori }} <span>({{ $item->Buku->count() }})</span></a></li>
+											@endforeach
+										@else
+										<li><p>Tidak ada kategori.</p></li>
 										@endif
-									@endforeach
         						</ul>
         					</aside>
         					<aside class="wedget__categories poroduct--tag">
         						<h3 class="wedget__title">Tag Buku</h3>
         						<ul>
-									@foreach ($tag as $item)
-										@if ($item->buku->count() > 0)
-											
+									@if ($tag->count() > 0)
+										@foreach ($tag as $item)	
 											<li><a href="{{ route('tagbuku', $item->slug) }}">{{ $item->nama_tag }}</a></li>
-										@endif
-									@endforeach
+										@endforeach
+									@else
+									<li><p>Tidak ada tag.</p></li>
+									@endif
         						</ul>
         					</aside>
         				</div>
