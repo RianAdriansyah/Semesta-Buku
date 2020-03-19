@@ -168,7 +168,7 @@ class ReviewController extends Controller
         ]);
         $review->delete();
         $review->tag()->detach($review->id);
-        $review->user()->detach($review->user->id);
+        // $review->user()->detach($review->user->id);
 
         return redirect()->route('review.index');
     }

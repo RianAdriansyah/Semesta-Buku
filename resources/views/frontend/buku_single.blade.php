@@ -98,25 +98,17 @@
 														<div class="price-box">
 															<ul class="prize d-flex">
 																<ul class="rating d-flex">
-																	{{-- @php
-																		$star = $buku->rating;
-																		$star_off = 5 - $star;
+																	@php
 
-
-
-																			// $in = \App\Buku::with('review')->get();
-																			$rate = $buku->review[0]->rating;
-																			
-																			// //COUNTING
-																			$ave = array_sum($rate)/$buku->review->count();
+																		$total = $buku->review()->sum('rating');
+																		$cnt = $buku->review->count();
+																		// //COUNTING
+																		$ave = $total / $cnt;
 																		
 																	@endphp
-																	@for ($s = 0; $s < $rate; $s++)
-																		<li class="on"><i class="fa fa-star"></i></li>
-																	@endfor
-																	@for ($i = 0; $i < $rate; $i++)
-																		<li><i class="fa fa-star"></i></li>
-																	@endfor --}}
+																	 
+																	<li class="on">{{ $ave }} <i class="fa fa-star"></i> ({{ $cnt }} Ulasan)</li>
+
 																</ul>
 															</ul>
 														</div>

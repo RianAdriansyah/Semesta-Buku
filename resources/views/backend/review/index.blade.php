@@ -60,7 +60,7 @@
                       @role('member')
 
                       @php
-                          $reviews = Auth::user()->review()->get();
+                          $reviews = Auth::user()->review()->latest()->get();
                       @endphp
                       
                       @foreach ($reviews as $list)
