@@ -123,7 +123,7 @@
 									<ul class="blog_meta">
 										<li>Tag : 
 											<span>
-											@foreach ($tag as $list)
+											@foreach ($review->tag as $list)
 											{{ $list->nama_tag }}, 
 											@endforeach
 											</span>

@@ -99,15 +99,19 @@
 															<ul class="prize d-flex">
 																<ul class="rating d-flex">
 																	@php
-
+																	if (isset($buku->review[0])) {
+																		# code...
 																		$total = $buku->review()->sum('rating');
 																		$cnt = $buku->review->count();
 																		// //COUNTING
 																		$ave = $total / $cnt;
-																		
+
 																	@endphp
 																	 
-																	<li class="on">{{ $ave }} <i class="fa fa-star"></i> ({{ $cnt }} Ulasan)</li>
+																	<li class="on">{{ round($ave, 1) }} <i class="fa fa-star"></i> ({{ $cnt }} Ulasan)</li>
+																		@php } else{ @endphp
+																			<li>Belum ada ulasan</li>
+																		@php } @endphp
 
 																</ul>
 															</ul>
@@ -181,7 +185,7 @@
 														</div>
 													</div>
 													@else
-													<p>Tidak ada ulasan</p>
+													<p>Belum ada ulasan</p>
 													<a class="shopbtn" href="/backend/review/" target="_blank">Tambah Ulasan</a>
 													@endif
 													@endrole
@@ -224,7 +228,7 @@
 														</div>
 													</div>
 													@else
-													<p>Tidak ada ulasan</p>
+													<p>Belum ada ulasan</p>
 													<a class="shopbtn" href="/backend/review/" target="_blank">Tambah Ulasan</a>
 													@endif
 													@endguest
@@ -233,7 +237,7 @@
 								<div class="pro__tab_label tab-pane fade" id="nav-add" role="tabpanel">
 									<div class="description__attribute">
 										@role('admin||member')
-										<form action="{{ route('review.store') }}" method="POST" enctype="multipart/form-data">
+										<form action="tambah" method="POST" enctype="multipart/form-data">
 											@csrf
 											<div class="form-row">
 												<div class="form-group col-lg-6">

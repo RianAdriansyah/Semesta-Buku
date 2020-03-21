@@ -42,6 +42,8 @@ Route::get('/blog', 'FrontendController@blog')->name('blog');
 Route::get('/review', 'FrontendController@review')->name('review');
 Route::get('/about', 'FrontendController@about')->name('about');
 Route::get('/buku/{buku}', 'FrontendController@buku_single')->name('buku_single');
+Route::post('/buku/{buku}', 'FrontendController@rev_store')->name('tambah');
+
 Route::get('/blog/{artikel}', 'FrontendController@blog_single')->name('blog_single');
 Route::get('/review/{review}', 'FrontendController@review_single')->name('review_single');
 Route::get('/buku/kategori/{kategori}', 'FrontendController@catbuku')->name('kategoribuku');

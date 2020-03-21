@@ -51,7 +51,7 @@
 											
 										<li>Tag : 
 											<span>
-											@foreach ($tag as $list)
+											@foreach ($artikel->tag as $list)
 											{{ $list->nama_tag }}, 
 											@endforeach
 											</span>

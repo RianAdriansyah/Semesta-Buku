@@ -223,7 +223,6 @@ class FrontendController extends Controller
     {
         $review = new Review;
         $review->judul = $request->judul;
-        $review->user_id = Auth::user()->id;
         $review->buku_id = $request->buku_id;
         # Cover
         if ($request->hasFile('cover')) {
@@ -239,13 +238,14 @@ class FrontendController extends Controller
         $review->slug = str_slug($request->judul);
         $review->save();
         $review->tag()->attach($request->tag);
+        $review->user()->attach(Auth::user()->id);
 
-        Session::flash("flash_notification", [
-            "level" => "success",
-            "message" => "Review <b>$review->judul</b> berhasil ditambahkan!"
-        ]);
+        // Session::flash("flash_notification", [
+        //     "level" => "success",
+        //     "message" => "Review <b>$review->judul</b> berhasil ditambahkan!"
+        // ]);
 
-        return redirect()->route('review.index');
+        return redirect()->route('review');
     }
 
     /**
