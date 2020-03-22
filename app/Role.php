@@ -9,6 +9,6 @@ class Role extends LaratrustRole
 {
     public function user()
     {
-        return $this->hasMany('App\User', 'user_id');
+        return $this->belongsToMany('App\User', 'role_user', 'role_id', 'user_id');
     }
 }

@@ -81,7 +81,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $role = Role::all();
+        return view('backend.user.edit', compact('user', 'role'));
     }
 
     /**
@@ -93,7 +95,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        // $user->syncRoles($request->role);
+
+        return redirect()->route('user.index');
     }
 
     /**

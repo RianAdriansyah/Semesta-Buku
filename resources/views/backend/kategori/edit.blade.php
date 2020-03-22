@@ -22,7 +22,7 @@
                         <input type="text" name="nama_kategori" id="" class="form-control" value="{{ $kategori->nama_kategori }}">
                     </div>
                         <button type="submit" class="btn btn-md btn-info">Simpan</button>
-                        <a name="" id="" class="btn btn-md btn-warning" href="{{route('kategori.index')}}" role="button">Kembali</a>
+                        <a class="btn btn-md btn-warning" href="{{route('kategori.index')}}" role="button">Kembali</a>
             </form>
             </div>
           </div>

@@ -45,8 +45,8 @@
                               {!! $artikel->konten !!}
                           </textarea>
                       </div>
+                      <a class="btn btn-md btn-warning" href="{{route('artikel.index')}}" role="button">Kembali</a>
                     </div>
-                    <a name="" id="" class="btn btn-md btn-warning" href="{{route('artikel.index')}}" role="button">Kembali</a>
             </form>
             </div>
           </div>

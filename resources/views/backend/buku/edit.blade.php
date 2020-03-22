@@ -94,9 +94,9 @@
                             {{ $buku->sinopsis }}
                         </textarea>
                       </div>
+                      <button type="submit" class="btn btn-md btn-info">Simpan</button>
+                      <a name="" id="" class="btn btn-md btn-warning" href="{{route('buku.index')}}" role="button">Kembali</a>
                     </div>
-                        <button type="submit" class="btn btn-md btn-info">Simpan</button>
-                        <a name="" id="" class="btn btn-md btn-warning" href="{{route('buku.index')}}" role="button">Kembali</a>
             </form>
             </div>
           </div>

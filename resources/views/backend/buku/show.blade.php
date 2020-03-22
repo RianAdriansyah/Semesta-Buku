@@ -87,8 +87,8 @@
 							@endforeach
 						  </select>
 					  </div>
+					  <a class="btn btn-md btn-warning" href="{{route('buku.index')}}" role="button">Kembali</a>
                     </div>
-                    <a name="" id="" class="btn btn-md btn-warning" href="{{route('buku.index')}}" role="button">Kembali</a>
                   </div>
                 </div>
               </div>

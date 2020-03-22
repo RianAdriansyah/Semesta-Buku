@@ -32,7 +32,7 @@ Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin||membe
 });
 Route::group(['prefix' => '/', 'middleware' => ['auth', 'role:admin||member']], function () {
 
-    Route::get('/reviewsaya', 'FrontendController@reviewsaya')->name('reviewsaya');
+    Route::resource('/reviewsaya', 'ReviewsayaController');
 });
 
 

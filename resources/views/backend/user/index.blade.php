@@ -97,18 +97,8 @@
           </div>
           <div class="form-group">
             <label for="">Password</label>
-            <input type="password" class="form-control" name="password" required>
+            <input type="text" class="form-control" name="password" required>
           </div>
-          <div class="form-group">
-            <label for="">Confirm Password</label>
-            <input type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-            @error('password')
-                <small class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </small>
-            @enderror
-          </div>
-
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

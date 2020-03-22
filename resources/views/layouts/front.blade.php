@@ -189,8 +189,7 @@
 									<div class="content-inner">
 										<div class="switcher-currency">
 											<strong class="label switcher-label">
-											<a href="{{ route('reviewsaya') }}"><span>Review Saya</span></a>
-												
+											<a href="{{ route('reviewsaya.index') }}"><span>Review Saya</span></a>
 											</strong>
 										</div>
 										<div class="switcher-currency">
@@ -314,13 +313,80 @@
     </div>
 </footer>
 <!-- //Footer Area -->
+
+ 
+         <!-- Modal -->
+         <div class="modal fade" id="tambahModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel">Tambah Review</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+				<form action="{{ route('reviewsaya.store') }}" method="POST" enctype="multipart/form-data">
+				  @csrf
+				  <div class="form-row">
+					<div class="form-group col-lg-6">
+						<label for="">Judul Review</label>
+						<input type="text" class="form-control" required name="judul">
+					</div>
+					<div class="form-group col-lg-6">
+						<label for="">Cover</label>
+						<input type="file" class="form-control" required name="cover">
+					</div>
+				  </div>
+				  <div class="form-row">
+					<div class="form-group col-lg-6">
+						<label for="">Judul Buku</label>
+						@php $buku = \App\Buku::all(); @endphp
+						<select name="buku_id" class="form-control" required>
+						  <option value="">-- Pilih Buku --</option>
+						  @foreach ($buku as $data)
+						<option value="{{ $data->id }}">{{ $data->judul }}</option>
+						  @endforeach
+						</select>
+					  </div>
+					  <div class="form-group col-lg-6 ratingf mt-5">
+						<p style="transform: translate(-50%, -50%) rotateY(180deg);">Rating</p>
+						<input type="radio" name="rating" id="star1" value="5"><label for="star1"></label>
+						<input type="radio" name="rating" id="star2" value="4"><label for="star2"></label>
+						<input type="radio" name="rating" id="star3" value="3"><label for="star3"></label>
+						<input type="radio" name="rating" id="star4" value="2"><label for="star4"></label>
+						<input type="radio" name="rating" id="star5" value="1"><label for="star5"></label>
+					  </div>
+				  </div>
+						<div class="form-group">
+						  <label for="">Quotes</label>
+						  <input type="text" class="form-control" name="quotes">
+						  <small class="text-danger">*Opsional</small>
+					  </div>
+					  <div class="form-group>
+						<label for="">Tag</label>
+						  @php $tag = \App\Tag::all(); @endphp
+						  <select name="tag[]" class="form-control" required id="select2" style="width:100%;" required multiple>
+							@foreach ($tag as $list)
+						  <option value="{{ $list->id }}">{{ $list->nama_tag }}</option>
+							@endforeach
+						  </select>
+					  </div>
+					  <div class="form-group">
+						  <label for="">Isi</label>
+						  <textarea name="isi" cols="30" rows="10" class="form-control" required id="editor1"></textarea>
+					  </div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+					  <button type="submit" class="btn btn-primary">Simpan</button>
+					</div>
+				  </form>
+				</div>
+			</div>
+		</div> 
+
 	</div>
 	<!-- //Main wrapper -->
-
-	
-
-   
-
 	<!-- JS Files -->
 	<script src="{{asset('assets/frontend/js/vendor/jquery-3.2.1.min.js') }}"></script>
 	<script src="{{asset('assets/frontend/js/popper.min.js') }}"></script>

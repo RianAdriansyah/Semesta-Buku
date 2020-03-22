@@ -22,7 +22,7 @@
                         <input type="text" name="nama_tag" id="" class="form-control" value="{{ $tag->nama_tag }}">
                     </div>
                         <button type="submit" class="btn btn-md btn-info">Simpan</button>
-                        <a name="" id="" class="btn btn-md btn-warning" href="{{route('tag.index')}}" role="button">Kembali</a>
+                        <a class="btn btn-md btn-warning" href="{{route('tag.index')}}" role="button">Kembali</a>
             </form>
             </div>
           </div>

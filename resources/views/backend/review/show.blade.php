@@ -51,8 +51,8 @@
                                 {{ $review->isi }}
                             </textarea>
                         </div>
+                        <a class="btn btn-md btn-warning" href="{{route('review.index')}}" role="button">Kembali</a>
                       </div>
-                        <a name="" id="" class="btn btn-md btn-warning" href="{{route('review.index')}}" role="button">Kembali</a>
             </form>
             </div>
           </div>

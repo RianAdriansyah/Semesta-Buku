@@ -9,6 +9,8 @@ use App\Review;
 use App\Kategori;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Http\Request;
 
@@ -194,15 +196,6 @@ class FrontendController extends Controller
         return view('frontend.tagblog', compact('artikel', 'tag'));
     }
 
-    public function reviewsaya()
-    {
-        // $reviews = Auth::user()->review()->get();
-        // $reviews = Review::with('buku', 'user')->get();
-        $reviews = Auth::user()->review()->get();
-        // $jml = count($user['review']);
-        return view('frontend.profile', compact('reviews'));
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -245,7 +238,7 @@ class FrontendController extends Controller
         //     "message" => "Review <b>$review->judul</b> berhasil ditambahkan!"
         // ]);
 
-        return redirect()->route('review');
+        return redirect()->back();
     }
 
     /**
@@ -288,8 +281,26 @@ class FrontendController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    // public function destroy($id)
+    // {
+    //     $review = Review::findOrFail($id);
+    //     if ($review->cover) {
+    //         $old_cover = $review->cover;
+    //         $filepath = public_path() . '/assets/img/review/cover' . $review->cover;
+    //         try {
+    //             File::delete($filepath);
+    //         } catch (FileNotFoundException $e) {
+    //             //Exception $e;
+    //         }
+    //     }
+    //     Session::flash("flash_notification", [
+    //         "level" => "danger",
+    //         "message" => "Review <b>$review->judul</b> berhasil dihapus!"
+    //     ]);
+    //     $review->delete();
+    //     $review->tag()->detach($review->id);
+    //     // $review->user()->detach($review->user->id);
+
+    //     return redirect()->back();
+    // }
 }
