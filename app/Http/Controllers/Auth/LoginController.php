@@ -32,7 +32,7 @@ class LoginController extends Controller
         if (auth()->user()->hasRole('admin')) {
             return redirect('/backend/review');
         } else {
-            return redirect()->route('reviewsaya');
+            return redirect('/reviewsaya');
         }
 
         // return redirect('/home');

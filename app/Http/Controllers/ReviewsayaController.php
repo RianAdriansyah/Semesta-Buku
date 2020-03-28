@@ -19,10 +19,29 @@ class ReviewsayaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $reviews = Auth::user()->review()->latest()->get();
-        return view('frontend.reviewsaya', compact('reviews'));
+        // if ($request->ajax()) {
+
+        //     $review = Review::all();
+        //     return Datatables::of($review)
+        //         ->addIndexColumn()
+        //         ->addColumn('action', function ($row) {
+        //             $btn = '<button type="button" id="edit-data" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalEdit" data-id="' . $row->id . '"><i class="fa fa-edit"></i></button>';
+        //             $btn = $btn . ' <button type="button" id="hapus-data" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalHapus" data-id="' . $row->id . '" data-nama="' . $row->nama . '"><i class="fa fa-trash-o"></i></button>';
+
+        //             return $btn;
+        //         })
+        //         ->rawColumns(['action'])
+        //         ->make(true);
+        // }
+
+        // return view('frontend.reviewsaya');
+
+        $review = Auth::user()->review()->orderBy('created_at', 'desc')->get();
+
+
+        return view('frontend.reviewsaya', compact('review'));
     }
 
     /**
@@ -66,6 +85,7 @@ class ReviewsayaController extends Controller
         //     "level" => "success",
         //     "message" => "Review <b>$review->judul</b> berhasil ditambahkan!"
         // ]);
+
 
         return redirect()->back();
     }
@@ -147,7 +167,7 @@ class ReviewsayaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $review = Review::findOrFail($id);
         if ($review->cover) {
@@ -165,8 +185,9 @@ class ReviewsayaController extends Controller
         // ]);
         $review->delete();
         $review->tag()->detach($review->id);
-        // $review->user()->detach($review->user->id);
 
         return redirect()->back();
+
+        // dd($request->id);
     }
 }

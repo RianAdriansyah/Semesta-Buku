@@ -25,7 +25,13 @@
 	<link rel="stylesheet" href="{{asset('assets/frontend/css/custom.css') }}">
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet"/>
 	<link rel="stylesheet" href="{{asset('assets/backend/dataTables/datatables.min.css ') }}">
+	
+	{{-- Font Awesome Backend --}}
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
    
+	{{-- iziToast --}}
+	<link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
+	
 
    <style>
     .ratingf{
@@ -320,7 +326,7 @@
 			<div class="modal-dialog modal-lg" role="document">
 			  <div class="modal-content">
 				<div class="modal-header">
-				  <h5 class="modal-title" id="exampleModalLabel">Tambah Review</h5>
+				  <h5 class="modal-title" id="exampleModalLabel">Tambah Ulasan</h5>
 				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				  </button>
@@ -385,7 +391,10 @@
 			</div>
 		</div> 
 
-	</div>
+  
+  <!-- Modal -->
+
+
 	<!-- //Main wrapper -->
 	<!-- JS Files -->
 	<script src="{{asset('assets/frontend/js/vendor/jquery-3.2.1.min.js') }}"></script>
@@ -398,7 +407,7 @@
 	<script src="{{asset('assets/frontend/js/vendor/modernizr-3.5.0.min.js') }}"></script>
 	<script src="{{asset('assets/backend/ckeditor/ckeditor.js') }}"></script>
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
-    <script src="{{asset('assets/backend/dataTables/datatables.min.js') }}"></script>
+	<script src="{{asset('assets/backend/dataTables/datatables.min.js') }}"></script>
 
 	  <script>
       $(document).ready(function() {
@@ -412,6 +421,43 @@
     // instance, using default configuration.
     CKEDITOR.replace( 'editor1' );
   </script>
+
 	@stack('script')
+
+<script>
+	// $('#hapusModal').on('show.bs.modal', function (event){
+	// 	var button = $(event.relatedTarget)
+	// 	var review_id = button.data('review')
+	// 	var modal = $(this)
+	// 	modal.find('.modal-body #review_id').val(review_id);
+	// });
+
+	 //Tampilan Modal Hapus Data
+	//  $('.button-hapus').on('click',() => { 	
+    //             })
+    //         })
+    //         $('#formHapus').on('submit', function (e) {
+    //             e.preventDefault();
+    //             var id = $('input[id="id-kategori-h"]').val();
+    //             $.ajax({
+    //                 url: '/admin/category/'+id,
+    //                 method: 'DELETE',
+    //                 success: (res) => {
+    //                     console.log(res.message);
+    //                     alert(res.message);
+    //                     location.reload();
+    //                     $('#formHapus')[0].reset();
+    //                 },
+    //                 error: (err) => {
+    //                     console.log(err);
+    //                 }
+    //             })
+    //         })
+</script> 
+
+{{-- iziToast --}}
+<script src="{{ asset('js/iziToast.js') }}"></script>
+@include('vendor.lara-izitoast.toast')
+
 </body>
 </html> 

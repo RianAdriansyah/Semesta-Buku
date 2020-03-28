@@ -1,7 +1,7 @@
 @extends('layouts.front')
 
 @section('web-title')
-Ulasan Buku
+Edit {{ $review->judul }}
 @endsection
 
 @section('isi')
@@ -12,11 +12,13 @@ Ulasan Buku
         <div class="row">
             <div class="col-lg-12">
                 <div class="bradcaump__inner text-center">
-                    <h2 class="bradcaump-title" style="color:black;">Review Saya</h2>
+                <h2 class="bradcaump-title" style="color:black;">{{ $review->judul }}</h2>
                     <nav class="bradcaump-content">
                       <a class="breadcrumb_item" href="/" style="color:black;">Beranda</a>
                       <span class="brd-separetor">/</span>
-                      <span class="breadcrumb_item active" style="color:black;">Review Saya</span>
+                    <a class="breadcrumb_item" href="/reviewsaya" style="color:black;">Ulasan</a>
+                      <span class="brd-separetor">/</span>
+                      <span class="breadcrumb_item active" style="color:black;">{{ $review->judul }}</span>
                     </nav>
                 </div>
             </div>

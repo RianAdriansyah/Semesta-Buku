@@ -15,8 +15,10 @@ Kategori {{ $kategori->nama_kategori }}
 					<h2 class="bradcaump-title" style="color:black;">Koleksi Buku</h2>
 					<nav class="bradcaump-content">
 					<a class="breadcrumb_item" href="{{ route('index') }}" style="color:black;">Beranda</a>
-						<span class="brd-separetor">/</span>
-						<span class="breadcrumb_item active" style="color:black;">Koleksi Buku</span>
+					<span class="brd-separetor">/</span>
+					<a class="breadcrumb_item" href="#" style="color:black;">Kategori Buku</a>
+					<span class="brd-separetor">/</span>
+					<span class="breadcrumb_item active" style="color:black;">{{ $kategori->nama_kategori }}</span>
 					</nav>
 				</div>
 			</div>

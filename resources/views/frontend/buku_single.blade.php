@@ -18,6 +18,8 @@
                             <nav class="bradcaump-content">
 							<a class="breadcrumb_item" href="{{ route('index') }}" style="color:black;">Beranda</a>
                               <span class="brd-separetor">/</span>
+							<a class="breadcrumb_item" href="{{ route('buku') }}" style="color:black;">Buku</a>
+                              <span class="brd-separetor">/</span>
 							<span class="breadcrumb_item active" style="color:black;">{{ $buku->judul }}</span>
                             </nav>
                         </div>
