@@ -1,7 +1,7 @@
 @extends('layouts.back')
 
 @section('web-title')
-    Daftar User
+    Daftar Pengguna
 @endsection
 
 @section('isi')
@@ -13,7 +13,7 @@
         <div class="col-lg-12">
             <div class="container-fluid">
                 <div class="card">
-                    <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a></h6>
+                    <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-lg fa-plus-square"></i></a></h6>
                     @include('layouts.flash')
                     <div class="card-body">
                 <div class="col-lg-12 table-responsive">
@@ -63,7 +63,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Pengguna</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -72,7 +72,7 @@
       <form action="{{ route('user.store') }}" method="POST">
           @csrf
           <div class="form-group">
-            <label for="">Name</label>
+            <label for="">Nama</label>
             <input type="text" class="form-control" name="name" required>
           </div>
           <div class="form-group">

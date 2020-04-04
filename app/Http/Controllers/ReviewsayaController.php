@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Auth;
 use Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ReviewsayaController extends Controller
 {
@@ -39,7 +40,6 @@ class ReviewsayaController extends Controller
         // return view('frontend.reviewsaya');
 
         $review = Auth::user()->review()->orderBy('created_at', 'desc')->get();
-
 
         return view('frontend.reviewsaya', compact('review'));
     }
@@ -81,11 +81,7 @@ class ReviewsayaController extends Controller
         $review->tag()->attach($request->tag);
         $review->user()->attach(Auth::user()->id);
 
-        // Session::flash("flash_notification", [
-        //     "level" => "success",
-        //     "message" => "Review <b>$review->judul</b> berhasil ditambahkan!"
-        // ]);
-
+        Alert::success('Berhasil', 'Data berhasil ditambahkan!');
 
         return redirect()->back();
     }
@@ -153,10 +149,7 @@ class ReviewsayaController extends Controller
         $review->tag()->sync($request->tag);
         $review->user()->sync(Auth::user()->id);
 
-        // Session::flash("flash_notification", [
-        //     "level" => "success",
-        //     "message" => "Review <b>$review->judul</b> berhasil diedit!"
-        // ]);
+        Alert::success('Berhasil', 'Data berhasil diubah!');
 
         return redirect('reviewsaya');
     }
@@ -179,10 +172,9 @@ class ReviewsayaController extends Controller
                 //Exception $e;
             }
         }
-        // Session::flash("flash_notification", [
-        //     "level" => "danger",
-        //     "message" => "Review <b>$review->judul</b> berhasil dihapus!"
-        // ]);
+
+        Alert::success('Berhasil', 'Data berhasil dihapus!');
+
         $review->delete();
         $review->tag()->detach($review->id);
 

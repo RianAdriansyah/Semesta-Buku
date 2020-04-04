@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 use Session;
 
 class ArtikelController extends Controller
@@ -58,10 +59,7 @@ class ArtikelController extends Controller
         $artikel->save();
         $artikel->tag()->attach($request->tag);
 
-        Session::flash("flash_notification", [
-            "level" => "success",
-            "message" => "Artikel <b>$artikel->judul</b> berhasil ditambahkan!"
-        ]);
+        Alert::success('Berhasil', 'Data berhasil ditambahkan!');
 
         return redirect()->route('artikel.index');
     }
@@ -131,10 +129,7 @@ class ArtikelController extends Controller
         $artikel->save();
         $artikel->tag()->sync($request->tag);
 
-        Session::flash("flash_notification", [
-            "level" => "success",
-            "message" => "Artikel <b>$artikel->judul</b> berhasil diedit!"
-        ]);
+        Alert::success('Berhasil', 'Data berhasil diubah!');
 
         return redirect()->route('artikel.index');
     }
@@ -161,10 +156,7 @@ class ArtikelController extends Controller
         $artikel->tag()->detach($artikel->id);
         $artikel->delete();
 
-        Session::flash("flash_notification", [
-            "level" => "danger",
-            "message" => "Artikel <b>$artikel->judul</b> berhasil dihapus!"
-        ]);
+        Alert::success('Berhasil', 'Data berhasil dihapus!');
 
         return redirect()->route('artikel.index');
     }

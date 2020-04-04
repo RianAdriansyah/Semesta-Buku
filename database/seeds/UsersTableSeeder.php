@@ -1,8 +1,10 @@
 <?php
 
+use App\Kategori;
 use Illuminate\Database\Seeder;
 use App\Role;
 use App\User;
+use App\Tag;
 
 class UsersTableSeeder extends Seeder
 {
@@ -36,5 +38,15 @@ class UsersTableSeeder extends Seeder
         $member->password = bcrypt('member');
         $member->save();
         $member->attachRole($memberRole);
+
+        $kategori = new Kategori();
+        $kategori->nama_kategori = "Ilmu Pengetahuan";
+        $kategori->slug = "ilmu-pengetahuan";
+        $kategori->save();
+
+        $tag = new Tag();
+        $tag->nama_tag = "Viral";
+        $tag->slug = "viral";
+        $tag->save();
     }
 }

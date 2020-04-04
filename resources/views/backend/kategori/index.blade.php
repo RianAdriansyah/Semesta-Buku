@@ -13,8 +13,7 @@
         <div class="col-lg-12">
             <div class="container-fluid">
                 <div class="card">
-                    <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tambah</a></h6>
-                    @include('layouts.flash')
+                    <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-lg fa-plus-square"></i></a></h6>
                     <div class="card-body">
                 <div class="col-lg-12 table-responsive">
                 <table class="table table-hover" id="table_id">

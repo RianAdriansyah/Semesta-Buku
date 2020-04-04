@@ -1,7 +1,7 @@
 @extends('layouts.back')
 
 @section('web-title')
-    Daftar User
+    Edit Pengguna
 @endsection
 
 @section('isi')

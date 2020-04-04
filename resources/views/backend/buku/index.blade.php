@@ -13,7 +13,7 @@
         <div class="col-lg-12">
           <div class="container-fluid">
             <div class="card">
-                <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#tambahBuku">Tambah</a></h6>
+                <h6 class="card-header text-center"><a href="" class="btn btn-primary" data-toggle="modal" data-target="#tambahBuku"><i class="fas fa-lg fa-plus-square"></i></a></h6>
                 @include('layouts.flash')
               <div class="card-body">
                 <div class="col-lg-12 table-responsive">
@@ -37,7 +37,7 @@
                       <td>{{ $list->judul }}</td>
                       <td>{{ $list->penulis }}</td>
                       <td>{{ $list->kategori->nama_kategori }}</td>
-                      <td>{{ $list->rating }}</td>
+                      <td><i class="fas fa-star" style="color:orange;"></i>{{ $list->rating }}</td>
                     <td class="text-center"><a href="{{ route('buku.edit', $list->id) }}" class="btn btn-sm btn-success rounded">
                         <i class="fas fa-fw fa-edit"></i></a><br>
                         <a href="{{ route('buku.show', $list->id) }}" class="btn btn-sm btn-info rounded">

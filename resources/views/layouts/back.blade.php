@@ -123,7 +123,7 @@
           <li>
             <a href="{{ route('user.index') }}">
               <i class="now-ui-icons users_single-02"></i>
-              <p>Daftar User</p>
+              <p>Daftar Pengguna</p>
             </a>
           </li>
           <li class="active-pro">
@@ -138,7 +138,7 @@
           <li>
             <a href="{{ route('review.index') }}">
               <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Daftar Review</p>
+              <p>Daftar Ulasan</p>
             </a>
           </li>
           <li class="active-pro">
@@ -304,6 +304,9 @@
     // instance, using default configuration.
     CKEDITOR.replace( 'editor1' );
   </script>
+
+@include('sweetalert::alert')
+
     </body>
     
 </html>

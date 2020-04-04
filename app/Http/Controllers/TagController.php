@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tag;
 use Session;
+use RealRashid\SweetAlert\Facades\Alert;
+use Auth;
 
 class TagController extends Controller
 {
@@ -43,10 +45,7 @@ class TagController extends Controller
         $tag->slug = str_slug($request->nama_tag);
         $tag->save();
 
-        Session::flash("flash_notification", [
-            "level" => "success",
-            "message" => "tag <b>$tag->nama_tag</b> berhasil ditambahkan!"
-        ]);
+        Alert::success('Berhasil', 'Data berhasil ditambahkan!');
 
         return redirect()->route('tag.index');
     }
@@ -89,10 +88,7 @@ class TagController extends Controller
         $tag->slug = str_slug($request->nama_tag);
         $tag->save();
 
-        Session::flash("flash_notification", [
-            "level" => "success",
-            "message" => "tag <b>$tag->nama_tag</b> berhasil diiedit!"
-        ]);
+        Alert::success('Berhasil', 'Data berhasil diubah!');
 
         return redirect()->route('tag.index');
     }
@@ -109,10 +105,7 @@ class TagController extends Controller
         $tag->nama_tag;
         $tag->delete();
 
-        Session::flash("flash_notification", [
-            "level" => "success",
-            "message" => "tag <b>$tag->nama_tag</b> berhasil dihapus!"
-        ]);
+        Alert::success('Berhasil', 'Data berhasil dihapus!');
 
         return redirect()->route('tag.index');
     }

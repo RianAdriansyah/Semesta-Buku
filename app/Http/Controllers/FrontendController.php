@@ -11,6 +11,7 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Facades\File;
+use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Http\Request;
 
@@ -233,10 +234,7 @@ class FrontendController extends Controller
         $review->tag()->attach($request->tag);
         $review->user()->attach(Auth::user()->id);
 
-        // Session::flash("flash_notification", [
-        //     "level" => "success",
-        //     "message" => "Review <b>$review->judul</b> berhasil ditambahkan!"
-        // ]);
+        Alert::success('Berhasil', 'Data berhasil ditambahkan!');
 
         return redirect()->back();
     }

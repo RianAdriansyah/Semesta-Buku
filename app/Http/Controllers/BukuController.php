@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Auth;
 use Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class BukuController extends Controller
@@ -66,10 +67,7 @@ class BukuController extends Controller
         $buku->save();
         $buku->tag()->attach($request->tag);
 
-        Session::flash("flash_notification", [
-            "level" => "success",
-            "message" => "Buku <b>$buku->judul</b> berhasil ditambahkan!"
-        ]);
+        Alert::success('Berhasil', 'Data berhasil ditambahkan!');
 
         return redirect()->route('buku.index');
     }
@@ -143,10 +141,7 @@ class BukuController extends Controller
         $buku->save();
         $buku->tag()->sync($request->tag);
 
-        Session::flash("flash_notification", [
-            "level" => "success",
-            "message" => "Buku <b>$buku->judul</b> berhasil diedit!"
-        ]);
+        Alert::success('Berhasil', 'Data berhasil ditambahkan!');
 
         return redirect()->route('buku.index');
     }
@@ -172,10 +167,7 @@ class BukuController extends Controller
         $buku->delete();
         $buku->tag()->detach($buku->id);
 
-        Session::flash("flash_notification", [
-            "level" => "danger",
-            "message" => "Buku <b>$buku->judul</b> berhasil dihapus!"
-        ]);
+        Alert::success('Berhasil', 'Data berhasil ditambahkan!');
 
         return redirect()->route('buku.index');
     }

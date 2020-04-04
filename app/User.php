@@ -47,8 +47,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Review', 'review_users', 'user_id', 'review_id');
     }
-    public function buku()
-    {
-        return $this->belongsTo('App\Buku', 'buku_id');
-    }
+    // public function buku()
+    // {
+    //     return $this->belongsTo('App\Buku', 'buku_id');
+    // }
 }

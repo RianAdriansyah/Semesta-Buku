@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Role;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -59,6 +60,8 @@ class UserController extends Controller
 
         $user->attachRole($request->role);
 
+        Alert::success('Berhasil', 'Pengguna berhasil ditambahkan!');
+
         return redirect()->route('user.index');
     }
 
@@ -103,6 +106,8 @@ class UserController extends Controller
 
         // $user->syncRoles($request->role);
 
+        Alert::success('Berhasil', 'Pengguna berhasil diubah!');
+
         return redirect()->route('user.index');
     }
 
@@ -117,6 +122,9 @@ class UserController extends Controller
         $user = User::FindOrFail($id);
         $user->delete();
         $user->detachRole($user->id);
+
+        Alert::success('Berhasil', 'Pengguna berhasil dihapus!');
+
         return redirect()->route('user.index');
     }
 }

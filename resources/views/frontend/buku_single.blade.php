@@ -239,6 +239,20 @@
 								<div class="pro__tab_label tab-pane fade" id="nav-add" role="tabpanel">
 									<div class="description__attribute">
 										@role('admin||member')
+										{{-- @php
+										$user = Auth::user();
+										if (isset(Auth::user()->review[0])) {
+											
+											$cek = $user->review[1]->buku->judul;
+											if ($cek == $buku->id){
+												echo 'Anda sudah review';
+											}
+											else{}
+										}
+										@endphp
+
+										{{$buku->id  }}
+										{{$cek  }} --}}
 										<form action="tambah" method="POST" enctype="multipart/form-data">
 											@csrf
 											<div class="form-row">

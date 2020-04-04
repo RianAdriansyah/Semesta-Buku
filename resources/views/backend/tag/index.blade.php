@@ -14,7 +14,7 @@
           <div class="container-fluid">
             <div class="card">
               <h6 class="card-header text-center"><a href="" class="btn btn-primary"
-                 data-toggle="modal" data-target="#tambahTag">Tambah</a></h6>
+                 data-toggle="modal" data-target="#tambahTag"><i class="fas fa-lg fa-plus-square"></i></a></h6>
                  @include('layouts.flash')
               <div class="card-body">
                 <div class="col-lg-12 table-responsive">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Role;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
 {
@@ -30,9 +31,9 @@ class LoginController extends Controller
     protected function authenticated($user)
     {
         if (auth()->user()->hasRole('admin')) {
-            return redirect('/backend/review');
+            return redirect('/backend/review')->withInfoMessage('Selamat Datang ' . auth()->user()->name);
         } else {
-            return redirect('/reviewsaya');
+            return redirect('/reviewsaya')->withInfoMessage('Selamat Datang ' . auth()->user()->name);;
         }
 
         // return redirect('/home');

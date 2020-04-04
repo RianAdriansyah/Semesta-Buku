@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kategori;
 use Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KategoriController extends Controller
 {
@@ -43,10 +44,7 @@ class KategoriController extends Controller
         $kategori->slug = str_slug($request->nama_kategori);
         $kategori->save();
 
-        Session::flash("flash_notification", [
-            "level" => "success",
-            "message" => "Kategori <b>$kategori->nama_kategori</b> berhasil ditambahkan!"
-        ]);
+        Alert::success('Berhasil', 'Data berhasil ditambahkan!');
 
         return redirect()->route('kategori.index');
     }
@@ -89,10 +87,7 @@ class KategoriController extends Controller
         $kategori->slug = str_slug($request->nama_kategori);
         $kategori->save();
 
-        Session::flash("flash_notification", [
-            "level" => "success",
-            "message" => "Kategori <b>$kategori->nama_kategori</b> berhasil diedit!"
-        ]);
+        Alert::success('Berhasil', 'Data berhasil diubah!');
 
         return redirect()->route('kategori.index');
     }
@@ -107,12 +102,13 @@ class KategoriController extends Controller
     {
         $kategori = Kategori::findOrFail($id);
         $kategori->nama_kategori;
+        if ($kategori->buku()->count() > 0) {
+            Alert::error('Gagal', 'Data gagal dihapus!');
+        } else {
+            Alert::success('Berhasil', 'Data berhasil dihapus!');
+        }
         $kategori->delete();
 
-        Session::flash("flash_notification", [
-            "level" => "danger",
-            "message" => "Kategori <b>$kategori->nama_kategori</b> berhasil dihapus!"
-        ]);
 
         return redirect()->route('kategori.index');
     }
