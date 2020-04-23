@@ -170,7 +170,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section__title text-center">
-							<h2 class="title__be--2">Blog <span class="color--theme">Ini</span></h2>
+							<h2 class="title__be--2">Artikel <span class="color--theme">Terkini</span></h2>
 							@if ($artikel->count() > 0)
 								
 							<p>Beberapa artikel yang berkaitan dengan literasi buku/novel disajikan disini</p>

@@ -88,31 +88,7 @@
             </div>
         </div>
 
-{{--             
-        <div class="modal fade" id="hapusModal" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">PERINGATAN</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Apakah anda ingin menghapus review ini ? 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <form action="{{ route('reviewsaya.destroy', 'text') }}" method="post">
-                            {{method_field('delete')}}
-                            @csrf
-                            <input type="hidden" name="review_id" id="review" value="">
-                            <button type="submit" class="btn btn-primary">Hapus</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
+
         <!-- cart-main-area end --> 
 
         @include('vendor.lara-izitoast.toast')

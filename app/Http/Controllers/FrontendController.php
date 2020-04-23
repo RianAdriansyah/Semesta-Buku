@@ -29,6 +29,10 @@ class FrontendController extends Controller
         $artikel = Artikel::with('tag')->orderBy('created_at', 'desc')->paginate(3);
         $review = Review::with('buku')->paginate(10);
         $allbuku = Buku::with('kategori')->paginate(9);
+
+        toast('Selamat Datang di Semesta Buku!', 'info');
+
+
         return view('frontend.index', compact('buku', 'review', 'artikel', 'allbuku', 'best'));
     }
 
@@ -49,6 +53,9 @@ class FrontendController extends Controller
         if ($sort == 'lama') {
             $buku = Buku::orderBy('created_at', 'asc')->paginate(6);
         }
+
+        toast('Temukan buku favoritmu disini!', 'info');
+
         return view('frontend.buku', compact('buku', 'kategori', 'tag'));
     }
     public function blog(Request $request)
@@ -61,6 +68,8 @@ class FrontendController extends Controller
         if ($cariblog) {
             $artikel = Artikel::where('judul', 'LIKE', "%$cariblog%")->paginate(5);
         }
+
+        toast('Berbagai berita dan artikel seputar buku ada disini!', 'info');
 
         return view('frontend.blog', compact('artikel', 'tag'));
     }
@@ -93,10 +102,15 @@ class FrontendController extends Controller
         // if ($carireview) {
         //     $caribuku = Buku::where('judul', 'LIKE', "%$carireview%")->paginate(5);
         // }
+
+        toast('Kamu bisa membuat ulasan buku favoritmu disini!', 'info');
+
         return view('frontend.review', compact('review', 'kategori', 'tag'));
     }
     public function about(Request $request)
     {
+        toast('Profil Pengembang Website Semesta Buku!', 'info');
+
         return view('frontend.about');
     }
     public function buku_single(Buku $buku)
@@ -105,6 +119,9 @@ class FrontendController extends Controller
         // $buuku  = Buku::with('review')->get();
         $tag = Tag::all();
         // return dd($buku); 
+
+        toast('Kamu bisa membuat ulasan buku favoritmu disini!', 'info');
+
         return view('frontend.buku_single', compact('buku', 'kategori', 'tag'));
     }
     public function blog_single(Artikel $artikel)
@@ -113,7 +130,6 @@ class FrontendController extends Controller
         $tag = Tag::all();
 
         $cariblog = $artikel->cariblog;
-
 
         if ($cariblog) {
             $artikel = Artikel::where('judul', 'LIKE', "%$cariblog%")->paginate(5);

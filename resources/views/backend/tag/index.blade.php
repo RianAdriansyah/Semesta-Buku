@@ -35,16 +35,11 @@
                     <td>{{ $list->nama_tag }}</td>
                     <td>{{ $list->slug }}</td>
                     <td class="text-center">
-                      {{-- <a href="{{ route('tag.edit', $list->id) }}" class="btn btn-sm btn-success rounded"
-                    data-toggle="modal" data-target="#edittag{{ $list->id }}">
-                        <i class="fas fa-fw fa-edit"></i></a> --}}
                         <a href="{{ route('tag.edit', $list->id) }}" class="btn btn-sm btn-success rounded"><i class="fas fa-fw fa-edit"></i></a>
-                      {{-- <a href="" class="btn btn-sm btn-info rounded">
-                        <i class="fas fa-fw fa-info-circle"></i></a> &nbsp; &nbsp; &nbsp; --}}
                         <form action="{{ route('tag.destroy',$list->id) }}" method="post">
                           {{csrf_field()}}
                               <input type="hidden" name="_method" value="DELETE">
-                              <button class="btn btn-sm btn-danger" type="submit">
+                              <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Anda yakin untuk menghapus data ini?')">
                                 <i class="fas fa-fw fa-trash-alt"></i>
                               </button>
                           </form>

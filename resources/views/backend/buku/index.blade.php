@@ -45,7 +45,7 @@
                         <form action="{{ route('buku.destroy', $list->id) }}" method="post">
                           {{csrf_field()}}
                               <input type="hidden" name="_method" value="DELETE">
-                              <button class="btn btn-danger btn-sm rounded" type="submit">
+                              <button class="btn btn-danger btn-sm rounded" type="submit" onclick="return confirm('Anda yakin untuk menghapus data ini?')">
                                 <i class="fas fa-fw fa-trash-alt"></i>
                               </button>
                           </form>

@@ -204,9 +204,9 @@
 													<div class="setting__menu">
 														@guest
 															
-														<span><a href="{{ route('login') }}" target="_blank">Masuk</a></span>
+														<span><a href="{{ route('login') }}">Masuk</a></span>
 														@if (Route::has('register'))
-														<span><a href="{{ route('register') }}" target="_blank">Buat Akun</a></span>
+														<span><a href="{{ route('register') }}">Buat Akun</a></span>
 														@endif
 														@else
 														<span><a href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -391,10 +391,6 @@
 			</div>
 		</div> 
 
-  
-  <!-- Modal -->
-
-
 	<!-- //Main wrapper -->
 	<!-- JS Files -->
 	<script src="{{asset('assets/frontend/js/vendor/jquery-3.2.1.min.js') }}"></script>
@@ -425,40 +421,10 @@
 	@stack('script')
 
 <script>
-	// $('#hapusModal').on('show.bs.modal', function (event){
-	// 	var button = $(event.relatedTarget)
-	// 	var review_id = button.data('review')
-	// 	var modal = $(this)
-	// 	modal.find('.modal-body #review_id').val(review_id);
-	// });
-
-	 //Tampilan Modal Hapus Data
-	//  $('.button-hapus').on('click',() => { 	
-    //             })
-    //         })
-    //         $('#formHapus').on('submit', function (e) {
-    //             e.preventDefault();
-    //             var id = $('input[id="id-kategori-h"]').val();
-    //             $.ajax({
-    //                 url: '/admin/category/'+id,
-    //                 method: 'DELETE',
-    //                 success: (res) => {
-    //                     console.log(res.message);
-    //                     alert(res.message);
-    //                     location.reload();
-    //                     $('#formHapus')[0].reset();
-    //                 },
-    //                 error: (err) => {
-    //                     console.log(err);
-    //                 }
-    //             })
-    //         })
+	
 </script> 
 
-{{-- iziToast --}}
-<script src="{{ asset('js/iziToast.js') }}"></script>
-@include('vendor.lara-izitoast.toast')
-
+{{-- SweetAlert --}}
 @include('sweetalert::alert')
 
 </body>

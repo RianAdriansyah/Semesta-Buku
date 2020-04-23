@@ -337,18 +337,6 @@
 											</div>
 											<div class="product__content content--center">
 											<h4><a href="{{ route('buku_single', $last->slug) }}">{{ $last->judul }}</a></h4>
-												{{-- <ul class="prize d-flex">
-													@php
-														$star = $latest->rating;
-														$star_off = 5 - $star;
-													@endphp
-													@for ($s = 0; $s < $star; $s++)
-														<li class="on"><i class="fa fa-star"></i></li>
-													@endfor
-													@for ($i = 0; $i < $star_off; $i++)
-														<li><i class="fa fa-star"></i></li>
-													@endfor
-												</ul> --}}
 											</div>
 										</div>
 									@endforeach

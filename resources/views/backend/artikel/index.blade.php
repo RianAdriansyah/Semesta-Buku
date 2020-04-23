@@ -41,7 +41,7 @@
                           <form action="{{ route('artikel.destroy',$data->id) }}" method="post">
                             {{csrf_field()}}
                                 <input type="hidden" name="_method" value="DELETE">
-                                <button class="btn btn-sm btn-danger" type="submit">
+                                <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Anda yakin untuk menghapus data ini?')">
                                   <i class="fas fa-fw fa-trash-alt"></i>
                                 </button>
                             </form>

@@ -31,9 +31,9 @@ class LoginController extends Controller
     protected function authenticated($user)
     {
         if (auth()->user()->hasRole('admin')) {
-            return redirect('/backend/review')->withInfoMessage('Selamat Datang ' . auth()->user()->name);
+            return redirect('/backend/review')->withToastInfo('Selamat Datang ' . auth()->user()->name);
         } else {
-            return redirect('/reviewsaya')->withInfoMessage('Selamat Datang ' . auth()->user()->name);;
+            return redirect('/reviewsaya')->withToastInfo('Selamat Datang ' . auth()->user()->name);;
         }
 
         // return redirect('/home');
