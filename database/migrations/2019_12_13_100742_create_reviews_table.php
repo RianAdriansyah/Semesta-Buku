@@ -16,7 +16,7 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('judul');
-            $table->string('cover');
+            $table->string('cover')->nullable();
             $table->integer('rating')->nullable();
             $table->string('quotes')->nullable();
             $table->bigInteger('buku_id')->unsigned();

@@ -103,7 +103,7 @@ class KategoriController extends Controller
         $kategori = Kategori::findOrFail($id);
         $kategori->nama_kategori;
         if ($kategori->buku()->count() > 0) {
-            Alert::error('Gagal', 'Data gagal dihapus!');
+            Alert::error('Gagal', 'Gagal menghapus data!');
         } else {
             Alert::success('Berhasil', 'Data berhasil dihapus!');
         }

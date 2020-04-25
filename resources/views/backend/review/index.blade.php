@@ -123,7 +123,7 @@
           </div>
           <div class="form-group col-lg-6">
               <label for="">Cover</label>
-              <input type="file" class="form-control" required name="cover">
+              <input type="file" class="form-control" name="cover">
           </div>
         </div>
         <div class="form-row">

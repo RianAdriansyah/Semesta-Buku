@@ -141,7 +141,7 @@ class BukuController extends Controller
         $buku->save();
         $buku->tag()->sync($request->tag);
 
-        Alert::success('Berhasil', 'Data berhasil ditambahkan!');
+        Alert::success('Berhasil', 'Data berhasil diubah!');
 
         return redirect()->route('buku.index');
     }
@@ -167,7 +167,7 @@ class BukuController extends Controller
         $buku->delete();
         $buku->tag()->detach($buku->id);
 
-        Alert::success('Berhasil', 'Data berhasil ditambahkan!');
+        Alert::success('Berhasil', 'Data berhasil dihapus!');
 
         return redirect()->route('buku.index');
     }
